@@ -1,0 +1,7 @@
+.tfc-home-hidden{
+  opacity:0;
+  filter:blur(10px);
+  pointer-events:none;
+  transition:opacity 0.2s ease,filter 0.2s ease;
+}
+

@@ -1,0 +1,416 @@
+/* ============================================
+   About Us - Responsive Styles
+   Premium, properly spaced on all devices
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  /* Reduce section padding on tablet */
+  .about-section {
+    padding: 5rem 0 !important;
+  }
+
+  /* Hero section - less padding */
+  .about-section:first-of-type {
+    padding: 6rem 0 3rem !important;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1rem !important;
+  }
+
+  .bento-card {
+    min-height: 180px !important;
+    padding: 2rem !important;
+  }
+
+  .bento-card[style*="span 2"] {
+    min-height: 240px !important;
+  }
+
+  /* Gallery Grid */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .gallery-grid > .gallery-item:nth-child(1),
+  .gallery-grid > .gallery-item:nth-child(5) {
+    grid-column: span 2 !important;
+    grid-row: span 1 !important;
+  }
+
+  .gallery-grid > .gallery-item:nth-child(3),
+  .gallery-grid > .gallery-item:nth-child(6) {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* Story section - reduce sentence spacing */
+  .story-sentence {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Story tagline strip */
+  #story [style*="marginTop"] {
+    margin-top: 2.5rem !important;
+    padding-top: 2rem !important;
+    gap: 1rem !important;
+  }
+
+  #story [style*="marginTop"] span {
+    font-size: 1rem !important;
+  }
+
+  /* Timeline - reduce spacing */
+  #timeline [style*="marginBottom"] {
+    margin-bottom: 2.5rem !important;
+  }
+
+  .timeline-item {
+    margin-bottom: 2.5rem !important;
+  }
+
+  /* Timeline heading */
+  #timeline .about-heading-lg {
+    margin-bottom: 4rem !important;
+  }
+
+  /* Impact - reduce gap */
+  #impact [style*="gridTemplateColumns"] {
+    gap: 2rem !important;
+  }
+
+  /* Philosophy - reduce statement spacing */
+  .philosophy-statement {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Philosophy label */
+  #philosophy [class*="section-label"],
+  #philosophy > div > span {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Values section */
+  .value-card {
+    min-width: 320px !important;
+    padding: 2.5rem !important;
+  }
+
+  /* Heading margins */
+  .about-heading-lg {
+    margin-bottom: 3rem !important;
+  }
+
+  /* Container padding */
+  .about-container {
+    padding: 0 1.5rem !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Drastically reduce section padding on mobile */
+  .about-section {
+    padding: 3.5rem 0 !important;
+  }
+
+  /* Hero section - compact */
+  .about-section:first-of-type {
+    padding: 5rem 0 2rem !important;
+    min-height: auto !important;
+  }
+
+  /* Hero heading */
+  .about-heading-xl {
+    font-size: clamp(2.2rem, 10vw, 3rem) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Hero subtext */
+  .about-subheading {
+    font-size: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* CTA buttons in hero */
+  .about-cta {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  /* Section labels */
+  .section-label {
+    margin-bottom: 0.75rem !important;
+    font-size: 0.75rem !important;
+  }
+
+  /* Section headings */
+  .about-heading-lg {
+    font-size: clamp(1.6rem, 6vw, 2rem) !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .about-heading-md {
+    font-size: clamp(1.1rem, 4vw, 1.35rem) !important;
+  }
+
+  /* Story section */
+  .story-sentence {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  /* Story tagline strip */
+  #story [style*="marginTop"] {
+    margin-top: 2.5rem !important;
+    padding-top: 2rem !important;
+    gap: 1rem !important;
+  }
+
+  #story [style*="marginTop"] span {
+    font-size: 1rem !important;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    flex-direction: column !important;
+    padding-left: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .timeline-item > div:first-child {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 0 !important;
+  }
+
+  .timeline-item > div:last-child {
+    display: none !important;
+  }
+
+  .timeline-item .tl-year {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .timeline-dot {
+    left: 0 !important;
+    transform: translateX(-50%) !important;
+  }
+
+  /* Timeline line handled via ref - no class needed */
+
+  /* Values section - horizontal scroll */
+  .value-card {
+    min-width: 280px !important;
+    padding: 1.75rem !important;
+    border-radius: 24px !important;
+  }
+
+  .value-card h3 {
+    font-size: 1.35rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .value-card p {
+    font-size: 0.95rem !important;
+  }
+
+  .value-card .card-icon-badge {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Impact counters */
+  .impact-counter {
+    font-size: clamp(2.2rem, 8vw, 3rem) !important;
+  }
+
+  .impact-label {
+    font-size: 0.95rem !important;
+  }
+
+  #impact [style*="gridTemplateColumns"] {
+    gap: 1.5rem !important;
+  }
+
+  /* Bento Grid */
+  .bento-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.875rem !important;
+  }
+
+  .bento-grid > .bento-card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    min-height: 160px !important;
+    padding: 1.5rem !important;
+  }
+
+  .bento-card h3 {
+    font-size: 1.1rem !important;
+  }
+
+  .bento-card p {
+    font-size: 0.85rem !important;
+  }
+
+  .bento-card .card-icon-badge {
+    width: 34px !important;
+    height: 34px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+
+  .gallery-grid > .gallery-item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    min-height: 160px !important;
+  }
+
+  .gallery-item {
+    border-radius: 12px !important;
+  }
+
+  /* Philosophy */
+  .philosophy-statement {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .philosophy-statement .philosophy-text {
+    font-size: clamp(1.8rem, 10vw, 2.5rem) !important;
+  }
+
+  .philosophy-statement .philosophy-text span {
+    font-size: clamp(0.8rem, 3vw, 1rem) !important;
+    margin-right: 0.75rem !important;
+  }
+
+  .philosophy-line {
+    margin-top: 1rem !important;
+  }
+
+  /* Leadership card */
+  .glass-card {
+    padding: 1.5rem !important;
+    border-radius: 16px !important;
+    gap: 1.5rem !important;
+  }
+
+  .glass-card blockquote p {
+    font-size: 1.1rem !important;
+  }
+
+  /* CTA section */
+  .about-cta {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+
+  #cta .about-heading-xl {
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+  }
+
+  /* Floating object - hide on mobile */
+  .floating-object {
+    display: none !important;
+  }
+
+  /* Container padding */
+  .about-container {
+    padding: 0 1.25rem !important;
+  }
+
+  /* Values section - cards wrapper padding */
+  #values [style*="padding"] {
+    padding: 0 1.25rem !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Philosophy section label */
+  #philosophy [class*="section-label"],
+  #philosophy > div > span {
+    margin-bottom: 2rem !important;
+  }
+
+  /* Impact section heading */
+  #impact .about-heading-lg {
+    margin-bottom: 3rem !important;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 2.5rem 0 !important;
+  }
+
+  .about-section:first-of-type {
+    padding: 4rem 0 1.5rem !important;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .gallery-grid > .gallery-item {
+    min-height: 200px !important;
+  }
+
+  .value-card {
+    min-width: 260px !important;
+    padding: 1.5rem !important;
+  }
+
+  .about-container {
+    padding: 0 1rem !important;
+  }
+
+  .about-heading-xl {
+    font-size: clamp(1.8rem, 9vw, 2.4rem) !important;
+  }
+
+  .about-heading-lg {
+    font-size: clamp(1.4rem, 5vw, 1.7rem) !important;
+  }
+
+  #impact [style*="gridTemplateColumns"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+
+  .bento-card {
+    min-height: 140px !important;
+    padding: 1.25rem !important;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .about-heading-xl {
+    font-size: clamp(1.8rem, 7vh, 2.5rem) !important;
+  }
+
+  .about-section:first-of-type {
+    padding: 4rem 0 1rem !important;
+    min-height: auto !important;
+  }
+}
+
+/* Large screens - keep premium spacing */
+@media (min-width: 1400px) {
+  .about-container {
+    max-width: 1320px !important;
+  }
+}
