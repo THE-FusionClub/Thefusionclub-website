@@ -235,10 +235,42 @@
   position: relative;
   width: 100%;
   max-width: 460px;
+  /* Prevent layout overflow when images have different aspect ratios */
+  max-height: 420px;
   border-radius: 28px;
   overflow: hidden;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
+
+.hero-carousel-track > img {
+  width: 50%;
+  flex: 0 0 50%;
+  height: 420px;
+  object-fit: contain;
+  background: transparent;
+}
+
+
+@media (max-width: 1024px) {
+  .hero-image-card {
+    max-height: 360px;
+  }
+
+  .hero-carousel-track > img {
+    height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-image-card {
+    max-height: 300px;
+  }
+
+  .hero-carousel-track > img {
+    height: 300px;
+  }
+}
+
 
 .hero-image {
   width: 100%;

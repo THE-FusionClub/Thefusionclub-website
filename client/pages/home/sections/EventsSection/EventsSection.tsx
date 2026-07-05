@@ -1,28 +1,29 @@
-import { Link } from "react-router-dom";
+import React from "react";
+
 import { useScrollReveal } from "@/utils/useScrollReveal";
 import "./EventsSection.css";
 
 const EVENTS = [
   {
     id: 1,
-    title: "Global Hack Week",
-    date: "April 21 - 24, 2026",
-    location: "Dbuu, Dehradun",
-    image:
-      "https://api.builder.io/api/v1/image/assets/TEMP/1739cf4059f7c27f12c6c3132079d79733bbb2e4?width=1052",
-    calendarMonth: "APR",
-    calendarDay: "21",
+    title: "FusionX",
+    date: "June 10 - 12, 2026",
+    location: "Online",
+    image: "/assets/events/fusionXposter.png",
+    calendarMonth: "JUNE",
+    calendarDay: "10",
+    registerUrl:
+      "https://docs.google.com/forms/d/1-H3nmBvKWKxST6AFST56EJXtRu5rdImaRcj0jO6wBeU/viewform?edit_requested=true",
   },
   {
     id: 2,
-    title: "WEHack 2027",
-    date: "Dates TBA",
-    location: "Dehradun & Online",
-    image:
-      "https://api.builder.io/api/v1/image/assets/TEMP/cb649395230dd3de69070bfb8bef739a85bb6cd2?width=1052",
-    calendarMonth: "TBA",
-    calendarDay: "?",
-    badge: "HYBRID",
+    title: "RibaryX 0.1",
+    date: "21 Aug",
+    location: "DBUU, Dehradun",
+    image: "/assets/events/raibaryX.png",
+    calendarMonth: "AUG",
+    calendarDay: "21",
+    badge: "DBUU, Dehradun",
   },
 ];
 
@@ -34,7 +35,7 @@ export default function EventsSection() {
     <section className="events-section">
       <div ref={headerRef as React.RefObject<HTMLDivElement>} className={`events-header reveal ${headerInView ? "is-visible" : ""}`}>
         <h2>THINGS TO LOOK OUT FOR SOON</h2>
-        <p>Don't miss out! We have exciting events and programs coming up for the community.</p>
+        <p>Don&apos;t miss out! We have exciting events and programs coming up for the community.</p>
       </div>
 
       <div ref={gridRef as React.RefObject<HTMLDivElement>} className={`events-grid reveal ${gridInView ? "is-visible" : ""}`}>
@@ -104,7 +105,14 @@ export default function EventsSection() {
                 </div>
               </div>
 
-              <Link to="/join-event" className="event-button">View Details</Link>
+              <a
+                href={event.registerUrl || "https://luma.com/ehjhtl3c"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="event-button"
+              >
+                Register Now
+              </a>
             </div>
           </div>
         ))}

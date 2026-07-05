@@ -268,13 +268,19 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             <div className="hero-carousel" aria-label="TFC Community Carousel">
               <div className="hero-carousel-track">
                 <img
-                  src="https://api.builder.io/api/v1/image/assets/TEMP/7df85d7057d17c2fc9e686861f8b704578785461?width=1184"
+                  src="/assets/events/fusionXposter.png"
                   alt="TFC Community - Slide 1"
                   className="hero-image"
                 />
                 <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
+                  src="/assets/events/raibaryX.png"
                   alt="TFC Community - Slide 2"
+                  className="hero-image hero-image--slide"
+                  loading="lazy"
+                />
+                <img
+                  src="/assets/community/idea-1.jpg"
+                  alt="TFC Community - Slide 3"
                   className="hero-image hero-image--slide"
                   loading="lazy"
                 />

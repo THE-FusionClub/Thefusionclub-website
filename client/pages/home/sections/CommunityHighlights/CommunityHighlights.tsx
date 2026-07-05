@@ -42,9 +42,9 @@ export default function CommunityHighlights() {
   const featured = useMemo<FeaturedVideo>(
     () => ({
       title: "Community in motion",
-      embedUrl: "https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1",
+      embedUrl: "https://www.instagram.com/p/DaZaLmmTIIi/?hl=en",
       thumbnail:
-        "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80",
+        "https://scontent-bom5-2.cdninstagram.com/v/t51.82787-15/735133758_18058705847581352_8572080635713536793_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MzkzNDI5MDg5NjA1MzEwOTI4MjE4MDU4NzA1ODQ0NTgxMzUy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjgxNi5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=g99YPCH13agQ7kNvwErHH28&_nc_oc=Adrtm9YdD4OwYjPziXveWnvSG29N4xzoAj61y-2DE_ExJ_H1fmlUCJ7tmmblrDMAKgZkjqG0_f7_0369zzjlJMf0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-bom5-2.cdninstagram.com&_nc_gid=97uiUmJ5f5gaaCcZnwA0Yw&_nc_ss=7a22e&oh=00_AQAWTyUi7s2aQgoPMDNskDWuBcuO9wt3w4yFImTSBtHxvg&oe=6A504ED1",
       stats: [
         { label: "Likes", value: "12.4K" },
         { label: "Views", value: "98.1K" },
