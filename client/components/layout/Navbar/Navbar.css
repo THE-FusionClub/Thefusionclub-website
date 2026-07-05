@@ -37,9 +37,17 @@
 }
 
 .navbar-logo img {
-  height: 44px;
+  height: 54px;
   width: auto;
 }
+
+@media (max-width: 1024px) {
+  .navbar-logo img {
+    height: 44px;
+  }
+}
+
+
 
 .navbar-links {
   display: flex;

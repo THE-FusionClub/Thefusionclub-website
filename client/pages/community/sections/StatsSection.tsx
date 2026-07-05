@@ -42,8 +42,8 @@ function StatsCard({ title, value, suffix }: { title: string; value: number; suf
 
 export default function StatsSection() {
   const stats = useMemo(() => [
-    { title: "Community Members", value: 8000, suffix: "+" },
-    { title: "Events", value: 25, suffix: "+" },
+    { title: "Community Members", value: 15, suffix: "+" },
+    { title: "Events", value: 2, suffix: "+" },
     { title: "Workshops", value: 150, suffix: "+" },
     { title: "Partners", value: 50, suffix: "+" },
     { title: "Social Reach", value: 100, suffix: "K+" },

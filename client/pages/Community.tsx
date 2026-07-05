@@ -1,4 +1,4 @@
-import React, { Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/layout/Footer/Footer";
 import Navbar from "@/components/layout/Navbar/Navbar";
@@ -796,55 +796,53 @@ export default function Community() {
           <AnimatedSectionTitle text="Featured Stories" />
 
           <div className="c-featuredGrid">
-            {/* Main Video */}
-            <div className="c-featuredMain reveal">
-              <div className="c-featuredVideo">
-                <iframe
-                  key={featuredStories[featuredIdx].id}
-                  title={featuredStories[featuredIdx].title}
-                  src={featuredStories[featuredIdx].embedUrl}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-              <div className="c-featuredBody">
-                <div className="c-featuredKicker">{featuredStories[featuredIdx].eventName}</div>
-                <div className="c-featuredHeadline">{featuredStories[featuredIdx].title}</div>
-                <div className="c-featuredDesc">{featuredStories[featuredIdx].description}</div>
-                <div className="c-featuredActions">
-                  <button
-                    type="button"
-                    className={`c-featuredLike ${likedStories.has(featuredStories[featuredIdx].id) ? "is-liked" : ""}`}
-                    onClick={() => toggleLike(featuredStories[featuredIdx].id)}
-                    aria-label="Like this story"
-                  >
-                    <span aria-hidden="true" className="c-likeIcon">
-                      {likedStories.has(featuredStories[featuredIdx].id) ? (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z"
-                            fill="currentColor"
-                          />
-                        </svg>
-                      ) : (
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      )}
-                    </span>
-
-                    <span>Like</span>
-                  </button>
-                  <a href={featuredStories[featuredIdx].embedUrl} target="_blank" rel="noreferrer" className="c-featuredOpen">
-                    <span>Open Original Post</span>
-                    <span>↗</span>
-                  </a>
+            {/* Featured Story Card */}
+            <div className="c-featuredAnim">
+              <div className="c-featuredAnimCard">
+                <div className="c-featuredAnimThumb">
+                  <img
+                    src={featuredStories[featuredIdx].thumbnail}
+                    alt={featuredStories[featuredIdx].title}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="c-featuredAnimBody">
+                  <div className="c-featuredKicker">{featuredStories[featuredIdx].eventName}</div>
+                  <div className="c-featuredHeadline">{featuredStories[featuredIdx].title}</div>
+                  <div className="c-featuredDesc">{featuredStories[featuredIdx].description}</div>
+                  <div className="c-featuredActions">
+                    <button
+                      type="button"
+                      className={`c-featuredLike ${likedStories.has(featuredStories[featuredIdx].id) ? "is-liked" : ""}`}
+                      onClick={() => toggleLike(featuredStories[featuredIdx].id)}
+                      aria-label="Like this story"
+                    >
+                      <span aria-hidden="true" className="c-likeIcon">
+                        {likedStories.has(featuredStories[featuredIdx].id) ? (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        ) : (
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                        )}
+                      </span>
+                      <span>Like</span>
+                    </button>
+                    <a href={featuredStories[featuredIdx].embedUrl} target="_blank" rel="noreferrer" className="c-featuredOpen">
+                      <span>Open Original Post</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

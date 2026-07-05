@@ -1,5 +1,7 @@
+import React from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useScrollReveal } from "@/utils/useScrollReveal";
+
 import "./NewsletterSection.css";
 
 type Slide = {
@@ -72,32 +74,11 @@ export default function NewsletterSection() {
       <div className={`newsletter-card reveal ${isInView ? "is-visible" : ""}`}>
         <div className="newsletter-card-content">
           <div className="newsletter-icon-circle">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <path
-                d="M28 8L17.6 15.6C16.7744 16.1336 15.7744 16.1336 14.9488 15.6L4 8"
-                stroke="url(#mail-grad)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <rect
-                x="4"
-                y="6"
-                width="24"
-                height="20"
-                rx="3"
-                stroke="url(#mail-grad)"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <defs>
-                <linearGradient id="mail-grad" x1="4" y1="6" x2="32" y2="26" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="#C084FC" />
-                  <stop offset="100%" stopColor="#A855F7" />
-                </linearGradient>
-              </defs>
-            </svg>
+            <img
+              src="/assets/events/fusionX.png"
+              alt="FusionX"
+              className="newsletter-icon-image"
+            />
           </div>
 
           <div className="newsletter-text">
@@ -106,13 +87,14 @@ export default function NewsletterSection() {
             </h3>
             <p className="newsletter-description">
               Find out about our upcoming programs, offers, and more by
-              subscribing to WLH's monthly hacker newsletter.
+              Join to TFC monthly newsletter.
             </p>
           </div>
         </div>
 
-        <form className="newsletter-form">
+        <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
           <div className="newsletter-input-wrapper">
+
             <svg
               width="18"
               height="18"
@@ -141,11 +123,17 @@ export default function NewsletterSection() {
             </svg>
             <input
               type="email"
-              placeholder="Enter your email address"
+              placeholder="FusionX Online Hackathon"
               className="newsletter-input"
             />
-            <button type="submit" className="newsletter-submit">
-              Subscribe
+            
+            <a
+              href="https://docs.google.com/forms/d/1-H3nmBvKWKxST6AFST56EJXtRu5rdImaRcj0jO6wBeU/viewform?edit_requested=true"
+              target="_blank"
+              rel="noreferrer"
+              className="newsletter-submit"
+            >
+              Register Now
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                 <path
                   d="M3.75 9H14.25M9 3.75L14.25 9L9 14.25"
@@ -155,7 +143,7 @@ export default function NewsletterSection() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </form>
       </div>

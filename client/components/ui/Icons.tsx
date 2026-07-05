@@ -67,7 +67,7 @@ function LordIcon({ src, size = 20, loop = false, hover = true, className }: { s
       onMouseLeave={hover ? onLeave : undefined}
     >
       {animationData ? (
-        <LordiconPlayer ref={playerRef} icon={animationData as never} size={size} loop={loop} />
+          <LordiconPlayer ref={playerRef as unknown as never} icon={animationData as never} size={size} />
       ) : (
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
           <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />

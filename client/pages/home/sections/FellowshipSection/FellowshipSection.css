@@ -88,6 +88,39 @@
   color: #8e51ff;
 }
 
+/* 4 Lottie animations inside the JOIN OUR heading */
+.fellowship-heading-icon {
+  display: inline-flex;
+  vertical-align: middle;
+  margin-left: 14px;
+}
+
+.fellowship-heading-lottie-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 22px);
+  grid-template-rows: repeat(2, 22px);
+  gap: 6px;
+}
+
+.fellowship-heading-lottie {
+  width: 22px;
+  height: 22px;
+  display: flex;
+}
+
+.fellowship-lottie {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.fellowship-lottie svg {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+
 .fellowship-tagline {
   padding-bottom: 8px;
   border-bottom: 1px solid #314158;

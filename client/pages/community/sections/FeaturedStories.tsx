@@ -1,12 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-
-import { useScrollReveal } from "@/utils/useScrollReveal";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
-// Correct path: asset lives in `client/assets/team.lottie`
-const teamLottie = new URL("../../../assets/team.lottie", import.meta.url).href;
+import lottie, { type AnimationItem } from "lottie-web";
+
+
 
 const featuredStories = [
   { 
@@ -51,27 +49,47 @@ const featuredStories = [
   },
 ];
 
-function AnimatedSectionTitle({ text }: { text: string }) {
-  const { ref, isInView } = useScrollReveal({ threshold: 0.3, triggerOnce: true });
-  const prefersReduced = usePrefersReducedMotion();
+function FeaturedTeamLottie({ reducedMotion }: { reducedMotion: boolean }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const animRef = useRef<AnimationItem | null>(null);
 
-  return (
-    <h2 ref={ref as any} className="c-sectionTitle">
-      {prefersReduced ? (
-        text
-      ) : (
-        text.split("").map((char, i) => (
-          <span
-            key={i}
-            className={`c-letter ${isInView ? "is-visible" : ""}`}
-            style={{ transitionDelay: `${i * 30}ms` }}
-          >
-            {char === " " ? "\u00A0" : char}
-          </span>
-        ))
-      )}
-    </h2>
-  );
+  useEffect(() => {
+    if (!containerRef.current) return;
+    if (reducedMotion) return;
+
+    try {
+      // Clear previous animation if any
+      if (animRef.current) {
+        animRef.current.destroy();
+        animRef.current = null;
+      }
+
+      animRef.current = lottie.loadAnimation({
+        container: containerRef.current,
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        // Use the imported URL directly; lottie-web expects a JSON path/URL
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice",
+        },
+      });
+    } catch (e) {
+      console.warn("Lottie failed to load:", e);
+    }
+
+    return () => {
+      try {
+
+        animRef.current?.destroy();
+      } catch {
+        // ignore
+      }
+      animRef.current = null;
+    };
+  }, [reducedMotion]);
+
+  return <div className="c-featuredAnimLottie" ref={containerRef} aria-hidden="true" />;
 }
 
 export default function FeaturedStories() {
@@ -97,57 +115,45 @@ export default function FeaturedStories() {
   return (
     <section className="c-section">
       <div className="c-sectionInner">
-        <AnimatedSectionTitle text="Featured Stories" />
+        <h2 className="c-sectionTitle">Featured Stories</h2>
 
         <div className="c-featuredGrid">
-          {/* Animation (left on desktop) */}
+          {/* Featured Story Card */}
           <div className="c-featuredAnim">
-            <div className="c-featuredAnimInner">
-              {/* Lottie animation */}
-              <DotLottieReact src={teamLottie} autoplay loop className="c-featuredAnimFallback" />
-            </div>
-          </div>
+            <div className="c-featuredAnimCard">
+              <div className="c-featuredAnimThumb">
+                <FeaturedTeamLottie reducedMotion={reducedMotion} />
+              </div>
 
-          {/* Main Video + content (right on desktop) */}
-          <div className="c-featuredMain reveal">
-            <div className="c-featuredVideo">
-              <iframe
-                key={featuredStories[featuredIdx].id}
-                title={featuredStories[featuredIdx].title}
-                src={featuredStories[featuredIdx].embedUrl}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
-              />
-            </div>
-            <div className="c-featuredBody">
-              <div className="c-featuredKicker">{featuredStories[featuredIdx].eventName}</div>
-              <div className="c-featuredHeadline">{featuredStories[featuredIdx].title}</div>
-              <div className="c-featuredDesc">{featuredStories[featuredIdx].description}</div>
-              <div className="c-featuredActions">
-                <button
-                  type="button"
-                  className={`c-featuredLike ${likedStories.has(featuredStories[featuredIdx].id) ? "is-liked" : ""}`}
-                  onClick={() => toggleLike(featuredStories[featuredIdx].id)}
-                  aria-label="Like this story"
-                >
-                  <span aria-hidden="true" className="c-likeIcon">
-                    {likedStories.has(featuredStories[featuredIdx].id) ? (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z" fill="currentColor" />
-                      </svg>
-                    ) : (
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
-                      </svg>
-                    )}
-                  </span>
-                  <span>Like</span>
-                </button>
-                <a href={featuredStories[featuredIdx].embedUrl} target="_blank" rel="noreferrer" className="c-featuredOpen">
-                  <span>Open Original Post</span>
-                  <span>↗</span>
-                </a>
+              <div className="c-featuredAnimBody">
+                <div className="c-featuredKicker">{featuredStories[featuredIdx].eventName}</div>
+                <div className="c-featuredHeadline">{featuredStories[featuredIdx].title}</div>
+                <div className="c-featuredDesc">{featuredStories[featuredIdx].description}</div>
+                <div className="c-featuredActions">
+                  <button
+                    type="button"
+                    className={`c-featuredLike ${likedStories.has(featuredStories[featuredIdx].id) ? "is-liked" : ""}`}
+                    onClick={() => toggleLike(featuredStories[featuredIdx].id)}
+                    aria-label="Like this story"
+                  >
+                    <span aria-hidden="true" className="c-likeIcon">
+                      {likedStories.has(featuredStories[featuredIdx].id) ? (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z" fill="currentColor" />
+                        </svg>
+                      ) : (
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 21s-7-4.7-9.3-8.5C.4 9.1 2 6 5.3 6c1.9 0 3.1 1 3.7 2 0 0 1.2-2 4-2 3.3 0 4.9 3.1 2.6 6.5C19 16.3 12 21 12 21Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </span>
+                    <span>Like</span>
+                  </button>
+                  <a href={featuredStories[featuredIdx].embedUrl} target="_blank" rel="noreferrer" className="c-featuredOpen">
+                    <span>Open Original Post</span>
+                    <span>↗</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

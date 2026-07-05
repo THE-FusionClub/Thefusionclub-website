@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import "./HeroSection.css";
 import logo from "@/assets/logo.png";
 
+
+
 const TITLE = "Tech - Innovate Culture.";
 
 type HeroSectionProps = {
@@ -239,7 +241,10 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             },
           }}
         >
+          {/* Lordicon solid accent */}
+          
           {/* Hero image card */}
+
           <motion.div
             className="hero-image-card"
             initial={false}
@@ -305,21 +310,22 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
           >
             <div className="hero-badge-avatars">
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/48518356429c9ae9629ba598b9e59a00d0b23ce1?width=80"
+                src="/assets/team-mates/suraj.png"
                 alt="Member"
                 className="hero-avatar"
               />
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/4e5ad62c5b3e6df486c376b646f424c5c68193d8?width=80"
+                src="/assets/team-mates/prakash.jpeg"
                 alt="Member"
                 className="hero-avatar"
               />
               <img
-                src="https://api.builder.io/api/v1/image/assets/TEMP/65f53971a5ab2c126cfd180dc98a7ffb6147637f?width=80"
+                src="/assets/team-mates/parul.png"
                 alt="Member"
                 className="hero-avatar"
               />
-              <div className="hero-avatar-count">+100</div>
+
+              <div className="hero-avatar-count">+10</div>
             </div>
             <div className="hero-badge-text">
               <span className="hero-badge-label">Active Members</span>
@@ -352,7 +358,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">10+</div>
+            <div className="hero-stat-number">3</div>
             <div className="hero-stat-label">Developers</div>
             <div className="hero-stat-desc">Passionate developers building the future.</div>
           </div>
@@ -385,7 +391,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">10+</div>
+            <div className="hero-stat-number">2</div>
             <div className="hero-stat-label">Annual Events</div>
             <div className="hero-stat-desc">Action-packed events every year.</div>
           </div>
@@ -418,7 +424,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">20+</div>
+            <div className="hero-stat-number">2</div>
             <div className="hero-stat-label">Partners</div>
             <div className="hero-stat-desc">Trusted by amazing partners.</div>
           </div>

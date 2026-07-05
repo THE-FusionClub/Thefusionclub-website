@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+
 
 
 const NAV_LINKS = [
@@ -21,7 +23,7 @@ export default function Navbar({ introDone = false }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const mobileFirstLinkRef = useRef<HTMLAnchorElement | null>(null);
-  const mobileLastLinkRef = useRef<HTMLAnchorElement | null>(null);
+
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   const closeMobile = useCallback(() => {
@@ -94,12 +96,13 @@ export default function Navbar({ introDone = false }: NavbarProps) {
       <div className="navbar-inner">
         <Link to="/" className="navbar-logo">
           <img
-            src="https://api.builder.io/api/v1/image/assets/TEMP/049757a7e4b5311babfc58cdead5e3eb72c64662?width=209"
+            src="/assets/logo.png"
             alt="TFC Logo"
             width={104}
             height={44}
           />
         </Link>
+
 
         <div className="navbar-links">
           {NAV_LINKS.map((link) => (

@@ -453,116 +453,63 @@
 .c-featuredGrid {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
-  gap: 20px;
+  gap: 24px;
   align-items: start;
 }
-/* Ensure the left animation column fills the available height and centers the animation */
+/* Featured story card (replaces c-featuredMain) */
 .c-featuredAnim {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: stretch;
 }
-.c-featuredAnimInner {
+.c-featuredAnimCard {
   width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.c-featuredAnimFallback {
-  width: 100%;
-  height: 100%;
-  min-height: 240px;
-}
-.c-featuredMain {
   border-radius: 24px;
   overflow: hidden;
   border: 1px solid rgba(127,34,254,0.1);
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(8px);
   box-shadow: 0 20px 60px rgba(124,58,237,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms ease, box-shadow 300ms ease;
 }
-.c-featuredVideo {
+.c-featuredAnimCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 30px 80px rgba(124,58,237,0.1);
+}
+.c-featuredAnimThumb {
   width: 100%;
   aspect-ratio: 16/9;
+  overflow: hidden;
   background: #f1f5f9;
-}
-.c-featuredVideo iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.c-featuredBody {
-  padding: 24px;
-}
-.c-featuredKicker {
-  font-size: 12px;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  font-weight: 1000;
-  color: #7F22FE;
-  margin-bottom: 8px;
-}
-.c-featuredHeadline {
-  font-size: 22px;
-  font-weight: 1000;
-  color: #0f172b;
-  line-height: 1.2;
-  margin-bottom: 10px;
-}
-.c-featuredDesc {
-  color: #475569;
-  line-height: 1.6;
-  font-size: 15px;
-  margin-bottom: 16px;
-}
-.c-featuredActions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  justify-content: center;
 }
-.c-featuredLike {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  border: 1px solid rgba(127,34,254,0.12);
-  background: rgba(255,255,255,0.8);
-  cursor: pointer;
-  font-weight: 900;
-  font-size: 13px;
-  color: #475569;
-  transition: all 200ms ease;
+
+.c-featuredAnimLottie {
+  width: 100%;
+  height: 100%;
 }
-.c-featuredLike:hover {
-  border-color: rgba(237,106,255,0.3);
-  background: rgba(237,106,255,0.05);
-  color: #7F22FE;
+
+.c-featuredAnimThumb img { 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms ease;
 }
-.c-featuredLike.is-liked {
-  border-color: rgba(237,106,255,0.3);
-  background: rgba(237,106,255,0.08);
-  color: #ED6AFF;
+.c-featuredAnimCard:hover .c-featuredAnimThumb img {
+  transform: scale(1.05);
 }
-.c-featuredOpen {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  border-radius: 9999px;
-  border: 1px solid rgba(127,34,254,0.12);
-  background: rgba(255,255,255,0.8);
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 13px;
-  color: #475569;
-  transition: all 200ms ease;
+.c-featuredAnimBody {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
-.c-featuredOpen:hover {
-  border-color: rgba(127,34,254,0.3);
-  color: #7F22FE;
+.c-featuredAnimBody .c-featuredActions {
+  margin-top: auto;
 }
 
 /* Featured Sidebar */

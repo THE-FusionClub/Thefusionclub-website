@@ -2,7 +2,7 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import HeroSection from "./sections/HeroSection";
 import ManifestoSection from "./sections/ManifestoSection";
-import StatsSection from "./sections/StatsSection";
+// import StatsSection from "./sections/StatsSection";
 import FeaturedStories from "./sections/FeaturedStories";
 import GallerySection from "./sections/GallerySection";
 import TimelineSection from "./sections/TimelineSection";
@@ -21,7 +21,7 @@ export default function CommunityPage() {
 
       <HeroSection />
       <ManifestoSection />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <FeaturedStories />
       <GallerySection />
       <TimelineSection />
