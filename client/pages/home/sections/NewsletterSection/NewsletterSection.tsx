@@ -17,26 +17,22 @@ export default function NewsletterSection() {
     () => [
       {
         id: "ns1",
-        image:
-          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1800&q=80",
+        image: "/assets/community/L-1.png",
         label: "Community stories",
       },
       {
         id: "ns2",
-        image:
-          "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=80",
+        image: "/assets/community/L-2.png",
         label: "Workshops in motion",
       },
       {
         id: "ns3",
-        image:
-          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1800&q=80",
+        image: "/assets/community/idea-1.jpg",
         label: "Builders at play",
       },
       {
         id: "ns4",
-        image:
-          "https://images.unsplash.com/photo-1522071820081-82c8b0c1b6cf?auto=format&fit=crop&w=1800&q=80",
+        image: "/assets/events/fusionXposter.png",
         label: "Collaboration moments",
       },
     ],

@@ -2,19 +2,29 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./CommunityHighlights.css";
 
+type Platform = "Instagram" | "LinkedIn" | "YouTube";
+
 type SecondaryCard = {
   id: string;
-  category: "Instagram" | "YouTube" | "LinkedIn";
+  platform: Platform;
   title: string;
   description: string;
   image: string;
+  url: string;
 };
 
-type FeaturedVideo = {
+type FeaturedCard = {
+  id: string;
+  platform: Platform;
   title: string;
+  // External link that should open on click
+  url: string;
+  // iframe src (only used when embeddable is true)
   embedUrl: string;
+  // Some platforms (e.g. LinkedIn) block iframe embedding via
+  // X-Frame-Options, so we fall back to poster image + click-through.
+  embeddable: boolean;
   thumbnail: string;
-  stats: Array<{ label: string; value: string }>;
 };
 
 function usePrefersReducedMotion() {
@@ -35,65 +45,130 @@ function clamp(n: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n));
 }
 
+// BUG FIX: Instagram permalinks don't embed as-is — they need an
+// explicit /embed path, and any query string must be stripped first.
+function toInstagramEmbedUrl(permalink: string) {
+  const clean = permalink.split("?")[0].replace(/\/$/, "");
+  return `${clean}/embed`;
+}
+
+// BUG FIX: YouTube "watch?v=" links don't work inside an iframe —
+// they need the dedicated /embed/VIDEO_ID form.
+function toYouTubeEmbedUrl(watchUrl: string) {
+  try {
+    const u = new URL(watchUrl);
+    const id = u.searchParams.get("v");
+    return id ? `https://www.youtube.com/embed/${id}` : watchUrl;
+  } catch {
+    return watchUrl;
+  }
+}
+
+const IG_PERMALINK = "https://www.instagram.com/p/DaZaLmmTIIi/?hl=en";
+const LINKEDIN_URL =
+  "https://www.linkedin.com/company/the-fusion-club-page/posts/?feedView=all";
+const YT_WATCH_URL = "https://www.youtube.com/watch?v=qC77KnfRzd4&list=LL&index=1";
+
 export default function CommunityHighlights() {
   const reducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  const featured = useMemo<FeaturedVideo>(
-    () => ({
-      title: "Community in motion",
-      embedUrl: "https://www.instagram.com/p/DaZaLmmTIIi/?hl=en",
-      thumbnail:
-        "https://scontent-bom5-2.cdninstagram.com/v/t51.82787-15/735133758_18058705847581352_8572080635713536793_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=MzkzNDI5MDg5NjA1MzEwOTI4MjE4MDU4NzA1ODQ0NTgxMzUy.3-ccb7-5&ccb=7-5&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6IkNMSVBTLnhwaWRzLjgxNi5zZHIudmlkZW9fZGVmYXVsdF9jb3Zlcl9mcmFtZS5DMyJ9&_nc_ohc=g99YPCH13agQ7kNvwErHH28&_nc_oc=Adrtm9YdD4OwYjPziXveWnvSG29N4xzoAj61y-2DE_ExJ_H1fmlUCJ7tmmblrDMAKgZkjqG0_f7_0369zzjlJMf0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-bom5-2.cdninstagram.com&_nc_gid=97uiUmJ5f5gaaCcZnwA0Yw&_nc_ss=7a22e&oh=00_AQAWTyUi7s2aQgoPMDNskDWuBcuO9wt3w4yFImTSBtHxvg&oe=6A504ED1",
-      stats: [
-        { label: "Likes", value: "12.4K" },
-        { label: "Views", value: "98.1K" },
-      ],
-    }),
+  const [activeFilter, setActiveFilter] = useState<"All" | Platform>("All");
+
+  const featuredCards = useMemo<FeaturedCard[]>(
+    () => [
+      {
+        id: "f-ig",
+        platform: "Instagram",
+        title: "Community in motion",
+        url: IG_PERMALINK,
+        embedUrl: toInstagramEmbedUrl(IG_PERMALINK),
+        embeddable: true,
+        thumbnail: "/assets/community/L-1.png",
+      },
+      {
+        id: "f-ln",
+        platform: "LinkedIn",
+        title: "Community in motion",
+        url: LINKEDIN_URL,
+        // LinkedIn blocks iframe embedding (X-Frame-Options), so we
+        // never try to render it in an iframe — poster + click-through only.
+        embedUrl: LINKEDIN_URL,
+        embeddable: false,
+        thumbnail: "/assets/community/L-2.png",
+      },
+      {
+        id: "f-yt",
+        platform: "YouTube",
+        title: "Community in motion",
+        url: YT_WATCH_URL,
+        embedUrl: toYouTubeEmbedUrl(YT_WATCH_URL),
+        embeddable: true,
+        // BUG FIX: this used to reuse the Instagram thumbnail (L-1.png).
+        // Point this at a real, distinct YouTube thumbnail asset.
+        thumbnail: "/assets/community/L-3.png",
+      },
+    ],
     []
   );
+
+  const [featuredIdx, setFeaturedIdx] = useState(0);
+  const [isFeaturedHovering, setIsFeaturedHovering] = useState(false);
+
+  // Auto-rotate. Restarts its 5.2s countdown whenever featuredIdx changes
+  // (including manual dot clicks) and pauses while hovered or when the
+  // user prefers reduced motion.
+  useEffect(() => {
+    if (reducedMotion || isFeaturedHovering) return;
+
+    const t = window.setInterval(() => {
+      setFeaturedIdx((i) => (i + 1) % featuredCards.length);
+    }, 5200);
+
+    return () => window.clearInterval(t);
+  }, [featuredCards.length, reducedMotion, featuredIdx, isFeaturedHovering]);
+
+  const featured = featuredCards[featuredIdx];
 
   const secondary = useMemo<SecondaryCard[]>(
     () => [
       {
-        id: "c1",
-        category: "Instagram",
-        title: "Behind the scenes",
-        description:
-          "Builders, mentors, and the tiny details that make the magic work.",
-        image:
-          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
+        id: "s-instagram",
+        platform: "Instagram",
+        title: "Instagram Highlight",
+        description: "Behind-the-scenes community moments.",
+        image: "/assets/logo.png",
+        url: IG_PERMALINK,
       },
       {
-        id: "c2",
-        category: "YouTube",
-        title: "Workshops that ship",
-        description: "Fast iteration cycles—designed for momentum, not meetings.",
-        image:
-          "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+        id: "s-linkedin",
+        platform: "LinkedIn",
+        title: "LinkedIn Highlight",
+        description: "Company updates & community-first posts.",
+        image: "/assets/logo.png",
+        url: LINKEDIN_URL,
       },
       {
-        id: "c3",
-        category: "LinkedIn",
-        title: "Culture, engineered",
-        description:
-          "A premium community built around clarity, growth, and craft.",
-        image:
-          "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
-      },
-      {
-        id: "c4",
-        category: "YouTube",
-        title: "Cohorts in cinematic motion",
-        description: "Reels, recaps, and stories—made to feel alive.",
-        image:
-          "https://images.unsplash.com/photo-1522071820081-82c8b0c1b6cf?auto=format&fit=crop&w=1200&q=80",
+        id: "s-youtube",
+        platform: "YouTube",
+        title: "YouTube Highlight",
+        description: "Recaps & stories from the TFC community.",
+        image: "/assets/logo.png",
+        url: YT_WATCH_URL,
       },
     ],
     []
   );
 
   const [glowVisible, setGlowVisible] = useState(false);
+
+  const handleFeaturedOpen = () => {
+    window.open(featured.url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleFeaturedPlay = () => {
+    handleFeaturedOpen();
+  };
 
   const rafRef = useRef<number | null>(null);
   const target = useRef({ x: 0, y: 0 });
@@ -181,9 +256,15 @@ export default function CommunityHighlights() {
             </p>
           </div>
 
-          {/* Right: Featured video */}
+          {/* Right: Featured carousel */}
           <div className="ch-rightFeatured" aria-label="Featured video">
-            <div className="ch-featuredCard" role="group" aria-label="Featured video card">
+            <div
+              className="ch-featuredCard"
+              role="group"
+              aria-label="Featured video card"
+              onMouseEnter={() => setIsFeaturedHovering(true)}
+              onMouseLeave={() => setIsFeaturedHovering(false)}
+            >
               <div className="ch-featuredMedia">
                 <img
                   className="ch-featuredPoster"
@@ -192,19 +273,25 @@ export default function CommunityHighlights() {
                   loading="lazy"
                 />
 
-                <div className="ch-featuredViewport" aria-hidden="true">
-                  <iframe
-                    title={featured.title}
-                    src={featured.embedUrl}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
+                {/* BUG FIX: only render the iframe for platforms that
+                    actually allow embedding (Instagram/YouTube). LinkedIn
+                    blocks this, so it just shows the poster image. */}
+                {featured.embeddable && (
+                  <div className="ch-featuredViewport" aria-hidden="true">
+                    <iframe
+                      title={featured.title}
+                      src={featured.embedUrl}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                )}
 
                 <button
                   type="button"
                   className="ch-play"
-                  aria-label="Play featured video"
+                  aria-label="Open featured post"
+                  onClick={handleFeaturedPlay}
                 >
                   <span className="ch-playInner" aria-hidden="true">
                     <svg
@@ -218,28 +305,63 @@ export default function CommunityHighlights() {
                     </svg>
                   </span>
                 </button>
-
-                <div className="ch-statsChips" aria-hidden="true">
-                  {featured.stats.map((s) => (
-                    <div key={s.label} className="ch-chip">
-                      <span className="ch-chipValue">{s.value}</span>
-                      <span className="ch-chipLabel">{s.label}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               <div className="ch-featuredFooter">
                 <div className="ch-featuredTitle">{featured.title}</div>
               </div>
+
+              {/* Carousel dots — click to jump to a slide, also resets
+                  the auto-rotate timer so it doesn't immediately flip again */}
+              <div
+                className="ch-featuredDots"
+                role="tablist"
+                aria-label="Featured carousel navigation"
+              >
+                {featuredCards.map((card, idx) => (
+                  <button
+                    key={card.id}
+                    type="button"
+                    className={`ch-featuredDot ${idx === featuredIdx ? "is-active" : ""}`}
+                    aria-label={`Show ${card.platform} featured post`}
+                    aria-selected={idx === featuredIdx}
+                    role="tab"
+                    onClick={() => setFeaturedIdx(idx)}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Secondary */}
+        {/* Filter Tabs + Secondary */}
+        <div className="ch-filterRow" role="tablist" aria-label="Community highlights filter">
+          {(["All", "Instagram", "LinkedIn", "YouTube"] as const).map((tab) => (
+            <button
+              key={tab}
+              type="button"
+              className={`ch-filterTab ${tab === activeFilter ? "is-active" : ""}`}
+              onClick={() => setActiveFilter(tab)}
+              role="tab"
+              aria-selected={tab === activeFilter}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
         <div className="ch-grid" aria-label="More community highlights">
-          {secondary.map((item) => (
-            <article key={item.id} className="ch-card" aria-label={item.title}>
+          {(activeFilter === "All"
+            ? secondary
+            : secondary.filter((c) => c.platform === activeFilter)
+          ).map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className="ch-card"
+              aria-label={item.title}
+              onClick={() => window.open(item.url, "_blank", "noopener,noreferrer")}
+            >
               <div className="ch-cardMedia">
                 <img
                   className="ch-cardImg"
@@ -251,20 +373,16 @@ export default function CommunityHighlights() {
               </div>
 
               <div className="ch-cardBody">
-                <div className="ch-categoryPill">{item.category}</div>
+                <div className="ch-categoryPill">{item.platform}</div>
                 <div className="ch-cardTitle">{item.title}</div>
                 <div className="ch-cardDesc">{item.description}</div>
               </div>
-            </article>
+            </button>
           ))}
         </div>
 
         <div className="ch-footerCta">
-          <Link
-            to="/community"
-            className="ch-ctaBtn"
-            aria-label="See all community"
-          >
+          <Link to="/community" className="ch-ctaBtn" aria-label="See all community">
             <span>See all community</span>
             <span className="ch-ctaArrow" aria-hidden="true">
               →
@@ -272,7 +390,6 @@ export default function CommunityHighlights() {
           </Link>
         </div>
       </div>
-
 
       <style>
         {`
@@ -284,4 +401,3 @@ export default function CommunityHighlights() {
     </section>
   );
 }
-
