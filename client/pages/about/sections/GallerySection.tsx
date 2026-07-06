@@ -5,12 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const images = [
-  { src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80&auto=format&fit=crop', alt: 'Event gathering', size: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80&auto=format&fit=crop', alt: 'Team collaboration', size: 'wide' },
-  { src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&auto=format&fit=crop', alt: 'Tech workshop', size: 'square' },
-  { src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80&auto=format&fit=crop', alt: 'Networking event', size: 'tall' },
-  { src: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80&auto=format&fit=crop', alt: 'Hackathon', size: 'wide' },
-  { src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=80&auto=format&fit=crop', alt: 'Community meetup', size: 'square' },
+  { src: '/assets/community/trip-1.jpeg', alt: 'Event gathering', size: 'tall' },
+  { src: '/assets/community/idea-1.jpg', alt: 'Team collaboration', size: 'wide' },
+  { src: '/assets/colored-logo.png', alt: 'Tech workshop', size: 'square' },
+  { src: '/assets/community/L-1.png', alt: 'Networking event', size: 'tall' },
+  { src: '/assets/events/raibaryX.png', alt: 'Hackathon', size: 'wide' },
+  { src: '/assets/community/L-2.png', alt: 'Community meetup', size: 'square' },
 ];
 
 export default function GallerySection() {

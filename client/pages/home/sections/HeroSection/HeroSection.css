@@ -391,8 +391,8 @@
 .hero-floating-logo {
   position: absolute;
 
-  bottom: -120px;   /* same vibe, slightly adjusted */
-  left: -190px;     /* slightly more spread for bigger logo */
+  bottom: -140px;   /* same vibe, slightly adjusted */
+  left: -240px;     /* slightly more spread for bigger logo */
 
   width: clamp(180px, 20vw, 300px); /*  MAIN CHANGE (bigger size) */
 

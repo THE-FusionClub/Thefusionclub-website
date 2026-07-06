@@ -25,10 +25,10 @@ export default function FeaturedEvent() {
               <div className="flex flex-col justify-center">
                 <motion.div variants={fadeUpVariants} className="space-y-6">
                   <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" /> Inter School · All Schools
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500" /> Inter National · All Schools
                   </div>
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-                    DevFest<span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">(RaibarX)</span>
+                    DevFest<span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">(RaibaryX)</span>
                   </h3>
                   <div className="flex items-center gap-3 text-gray-500">
                     <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -38,7 +38,7 @@ export default function FeaturedEvent() {
                   </div>
                   <p className="text-gray-600 leading-relaxed text-base md:text-lg">The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity that brings together the brightest young minds.</p>
                   <div className="flex flex-wrap gap-3 pt-2">
-                    <Link to="/join-event" className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:shadow-xl hover:bg-blue-700 transition-all duration-300">
+                    <Link to="https://luma.com/ehjhtl3c" className="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-200 hover:shadow-xl hover:bg-blue-700 transition-all duration-300">
                       Register Now
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </Link>
@@ -48,7 +48,7 @@ export default function FeaturedEvent() {
               </div>
               <motion.div variants={scaleInVariants} className="relative">
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                  <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80" alt="DevFest Event" className="w-full h-full object-cover" loading="lazy" />
+                  <img src="/assets/events/raibaryX.png" alt="DevFest Event" className="w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 <motion.div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-gray-100" animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>

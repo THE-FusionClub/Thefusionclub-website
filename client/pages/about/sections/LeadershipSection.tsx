@@ -128,7 +128,7 @@ export default function LeadershipSection() {
               aria-label="Leadership avatar"
             >
               <img
-                src="/client/assets/logo.png"
+                src="/assets/colored-logo.png"
                 alt="TFC"
                 width={56}
                 height={56}

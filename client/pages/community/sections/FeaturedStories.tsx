@@ -1,9 +1,6 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-
-import lottie, { type AnimationItem } from "lottie-web";
-
 
 
 const featuredStories = [
@@ -15,7 +12,7 @@ const featuredStories = [
     date: "2026-04-18",
     embedUrl: "https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1",
     platform: "YouTube",
-    thumbnail: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+    thumbnail: "/assets/community/trip-1.jpeg",
   },
   {
     id: "fs2",
@@ -25,7 +22,7 @@ const featuredStories = [
     date: "2026-02-07",
     embedUrl: "https://www.youtube.com/embed/jfKfPfyJRdk?rel=0&modestbranding=1",
     platform: "YouTube",
-    thumbnail: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80",
+    thumbnail: "/assets/community/idea-1.jpg",
   },
   {
     id: "fs3",
@@ -35,7 +32,7 @@ const featuredStories = [
     date: "2025-11-21",
     embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0&modestbranding=1",
     platform: "YouTube",
-    thumbnail: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80",
+    thumbnail: "/assets/events/fusionX.png",
   },
   {
     id: "fs4",
@@ -45,52 +42,9 @@ const featuredStories = [
     date: "2026-01-15",
     embedUrl: "https://www.youtube.com/embed/ysz5S6PUM-U?rel=0&modestbranding=1",
     platform: "YouTube",
-    thumbnail: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80",
+    thumbnail: "/assets/events/raibaryX.png",
   },
 ];
-
-function FeaturedTeamLottie({ reducedMotion }: { reducedMotion: boolean }) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const animRef = useRef<AnimationItem | null>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    if (reducedMotion) return;
-
-    try {
-      // Clear previous animation if any
-      if (animRef.current) {
-        animRef.current.destroy();
-        animRef.current = null;
-      }
-
-      animRef.current = lottie.loadAnimation({
-        container: containerRef.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        // Use the imported URL directly; lottie-web expects a JSON path/URL
-        rendererSettings: {
-          preserveAspectRatio: "xMidYMid slice",
-        },
-      });
-    } catch (e) {
-      console.warn("Lottie failed to load:", e);
-    }
-
-    return () => {
-      try {
-
-        animRef.current?.destroy();
-      } catch {
-        // ignore
-      }
-      animRef.current = null;
-    };
-  }, [reducedMotion]);
-
-  return <div className="c-featuredAnimLottie" ref={containerRef} aria-hidden="true" />;
-}
 
 export default function FeaturedStories() {
   const [featuredIdx, setFeaturedIdx] = useState(0);
@@ -122,7 +76,16 @@ export default function FeaturedStories() {
           <div className="c-featuredAnim">
             <div className="c-featuredAnimCard">
               <div className="c-featuredAnimThumb">
-                <FeaturedTeamLottie reducedMotion={reducedMotion} />
+                <img
+                  src={featuredStories[featuredIdx].thumbnail}
+                  alt={featuredStories[featuredIdx].title}
+                  loading="lazy"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
               </div>
 
               <div className="c-featuredAnimBody">

@@ -3,9 +3,9 @@ export type EventType =
   | "Festival"
   | "Hackathon"
   | "Industrial Visit"
-  | "Inter School"
-  | "Intra School"
-  | "Inter University";
+  | "Inter National"
+  | "Inter National"
+  | "Inter Nationalrsity";
 
 export interface EventData {
   id: string;
@@ -23,10 +23,10 @@ export interface EventData {
 export const allEvents: EventData[] = [
   {
     id: "devfest",
-    name: "DevFest (RaibarX)",
+    name: "DevFest (RaibaryX)",
     description: "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
     date: "21 August",
-    type: "Inter School",
+    type: "Inter National",
     school: "All",
     icon: "target",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
@@ -37,7 +37,7 @@ export const allEvents: EventData[] = [
     name: "Cyber Security Workshop",
     description: "Hands-on workshop covering ethical hacking, network security, and cyber threat intelligence. Learn from industry experts.",
     month: "September (Week 1)",
-    type: "Inter School",
+    type: "Inter National",
     icon: "lock",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
     category: "Workshop",
@@ -47,7 +47,7 @@ export const allEvents: EventData[] = [
     name: "IoT Workshop",
     description: "Build and program IoT devices with sensors and microcontrollers. Explore the world of connected devices.",
     month: "September (Week 1)",
-    type: "Inter School",
+    type: "Inter National",
     icon: "satellite",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     category: "Workshop",
@@ -57,7 +57,7 @@ export const allEvents: EventData[] = [
     name: "Nav-Sangam",
     description: "An inter-university cultural and technical confluence bringing together students from diverse backgrounds for collaboration and competition.",
     month: "September",
-    type: "Inter University",
+    type: "Inter Nationalrsity",
     icon: "wave",
     image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80",
     category: "Festival",
@@ -67,7 +67,7 @@ export const allEvents: EventData[] = [
     name: "Industrial Visit",
     description: "Visit leading tech companies and manufacturing units to gain real-world industry exposure and understand operational workflows.",
     month: "After Mid Semester Exams",
-    type: "Inter School",
+    type: "Inter National",
     icon: "factory",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     category: "Industrial Visit",
@@ -78,7 +78,7 @@ export const allEvents: EventData[] = [
     description: "A school-level festival showcasing IoT innovations, projects, and competitions exclusively for SoEC students.",
     month: "February",
     school: "SoEC",
-    type: "Intra School",
+    type: "Inter National",
     icon: "robot",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
     category: "Festival",
@@ -89,7 +89,7 @@ export const allEvents: EventData[] = [
     description: "An exclusive industrial visit for SoEC students to explore cutting-edge technologies and industry practices.",
     month: "After Mid Semester Exams",
     school: "SoEC",
-    type: "Intra School",
+    type: "Inter National",
     icon: "construction",
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
     category: "Industrial Visit",
@@ -110,13 +110,13 @@ export const filterOptions = [
   "Festival",
   "Hackathon",
   "Industrial Visit",
-  "Inter School",
-  "Intra School",
-  "Inter University",
+  "Inter National",
+  "Inter National",
+  "Inter Nationalrsity",
 ] as const;
 
 export const timelineData = [
-  { month: "August", events: ["DevFest (RaibarX)"] },
+  { month: "August", events: ["DevFest (RaibaryX)"] },
   { month: "September", events: ["Cyber Security Workshop", "IoT Workshop", "Nav-Sangam"] },
   { month: "After Mid Sem", events: ["Industrial Visit"] },
   { month: "February", events: ["IoT Festival"] },
@@ -125,7 +125,7 @@ export const timelineData = [
 
 export const galleryImages = [
   { id: "g1", src: "/assets/events/fusionX.png", title: "FusionX Event" },
-  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibarX Festival" },
+  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibaryX Festival" },
   { id: "g3", src: "/assets/events/fusionXposter.png", title: "FusionX Poster" },
   { id: "g4", src: "/assets/community/L-1.png", title: "Community L-1" },
   { id: "g5", src: "/assets/community/L-2.png", title: "Community L-2" },

@@ -164,13 +164,14 @@ export default function FellowshipSection() {
               className={`fellowship-track ${isInView ? "is-visible" : ""}`}
               style={{ transitionDelay: isInView ? `${0.3 + idx * 0.12}s` : "0s" }}
             >
-              <div className="fellowship-track-icon">
+            {/* as i remove the transparent card where the icons is above it in future needed use that */}
+              {/* <div className="fellowship-track-icon"> */}
                 <LottieIcon
                   src={track.lottie.src}
                   label={track.lottie.label}
                   isPlaying={isInView}
                 />
-              </div>
+              {/* </div> */}
               <div className="fellowship-track-content">
                 <h4>{track.title}</h4>
                 <p>{track.description}</p>

@@ -24,9 +24,9 @@ type EventType =
   | "Festival"
   | "Hackathon"
   | "Industrial Visit"
-  | "Inter School"
-  | "Intra School"
-  | "Inter University";
+  | "Inter National"
+  | "Intra National"
+  | "Inter Nationalrsity";
 
 interface EventData {
   id: string;
@@ -105,11 +105,11 @@ function EventIcon({ icon, size = 24 }: { icon: string; size?: number }) {
 const allEvents: EventData[] = [
   {
     id: "devfest",
-    name: "DevFest (RaibarX)",
+    name: "DevFest (RaibaryX)",
     description:
       "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
     date: "21 August",
-    type: "Inter School",
+    type: "Inter National",
     school: "All",
     icon: "target",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
@@ -121,7 +121,7 @@ const allEvents: EventData[] = [
     description:
       "Hands-on workshop covering ethical hacking, network security, and cyber threat intelligence. Learn from industry experts.",
     month: "September (Week 1)",
-    type: "Inter School",
+    type: "Inter National",
     icon: "lock",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
     category: "Workshop",
@@ -132,7 +132,7 @@ const allEvents: EventData[] = [
     description:
       "Build and program IoT devices with sensors and microcontrollers. Explore the world of connected devices.",
     month: "September (Week 1)",
-    type: "Inter School",
+    type: "Inter National",
     icon: "satellite",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
     category: "Workshop",
@@ -143,7 +143,7 @@ const allEvents: EventData[] = [
     description:
       "An inter-university cultural and technical confluence bringing together students from diverse backgrounds for collaboration and competition.",
     month: "September",
-    type: "Inter University",
+    type: "Inter Nationalrsity",
     icon: "wave",
     image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80",
     category: "Festival",
@@ -154,7 +154,7 @@ const allEvents: EventData[] = [
     description:
       "Visit leading tech companies and manufacturing units to gain real-world industry exposure and understand operational workflows.",
     month: "After Mid Semester Exams",
-    type: "Inter School",
+    type: "Inter National",
     icon: "factory",
     image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
     category: "Industrial Visit",
@@ -166,7 +166,7 @@ const allEvents: EventData[] = [
       "A school-level festival showcasing IoT innovations, projects, and competitions exclusively for SoEC students.",
     month: "February",
     school: "SoEC",
-    type: "Intra School",
+    type: "Inter National",
     icon: "robot",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
     category: "Festival",
@@ -178,7 +178,7 @@ const allEvents: EventData[] = [
       "An exclusive industrial visit for SoEC students to explore cutting-edge technologies and industry practices.",
     month: "After Mid Semester Exams",
     school: "SoEC",
-    type: "Intra School",
+    type: "Inter National",
     icon: "construction",
     image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
     category: "Industrial Visit",
@@ -221,14 +221,14 @@ const filterOptions = [
   "Festival",
   "Hackathon",
   "Industrial Visit",
-  "Inter School",
-  "Intra School",
-  "Inter University",
+  "Inter National",
+  "Intra National",
+  "Inter National",
 ] as const;
 
 /* ── Timeline Data ── */
 const timelineData = [
-  { month: "August", events: ["DevFest (RaibarX)"] },
+  { month: "August", events: ["DevFest (RaibaryX)"] },
   { month: "September", events: ["Cyber Security Workshop", "IoT Workshop", "Nav-Sangam"] },
   { month: "After Mid Sem", events: ["Industrial Visit"] },
   { month: "February", events: ["IoT Festival"] },
@@ -439,13 +439,13 @@ function FeaturedEvent() {
                 <motion.div variants={fadeUpVariants} className="space-y-6">
                   <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                    Inter School · All Schools
+                    Inter National · All Schools
                   </div>
 
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
                     DevFest
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                      (RaibarX)
+                      (RaibaryX)
                     </span>
                   </h3>
 

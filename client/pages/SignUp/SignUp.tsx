@@ -242,7 +242,7 @@ export default function SignUp() {
                 rel="noreferrer"
                 className="cta-button"
               >
-                <span className="cta-text">Create Account</span>
+                <span className="cta-text">Register Now</span>
                 <div className="cta-laser" />
               </a>
             </div>

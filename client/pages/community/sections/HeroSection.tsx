@@ -29,28 +29,28 @@ export default function HeroSection() {
           <div className="c-heroCollage">
             <div className="c-heroCollageImg">
               <img
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+                src="/assets/community/trip-1.jpeg"
                 alt="Community event"
                 loading="lazy"
               />
             </div>
             <div className="c-heroCollageImg">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-82c8b0c1b6cf?auto=format&fit=crop&w=800&q=80"
+                src="/assets/community/idea-1.jpg"
                 alt="Team collaboration"
                 loading="lazy"
               />
             </div>
             <div className="c-heroCollageImg">
               <img
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                src="/assets/colored-logo.png"
                 alt="Workshop"
                 loading="lazy"
               />
             </div>
             <div className="c-heroCollageImg">
               <img
-                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80"
+                src="/assets/community/L-1.png"
                 alt="Networking"
                 loading="lazy"
               />

@@ -43,7 +43,7 @@ export default function AboutPage() {
       <ValuesSection />
 
       {/* Section 4: Timeline */}
-      <TimelineSection />
+      {/* <TimelineSection /> */}
 
       {/* Section 5: Philosophy - Dark */}
       <PhilosophySection />
@@ -52,7 +52,7 @@ export default function AboutPage() {
       <BentoSection />
 
       {/* Section 7: Impact Counters */}
-      <ImpactSection />
+      {/* <ImpactSection /> */}
 
       {/* Section 8: Leadership Message */}
       <LeadershipSection />
