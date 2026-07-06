@@ -42,7 +42,7 @@ export default function FeaturedEvent() {
                       Register Now
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                     </Link>
-                    <Link to="#events" className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:border-blue-200 hover:text-blue-600 transition-all duration-300">Learn More</Link>
+                    <Link to="#events" className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:border-blue-200 hover:text-blue-600 transition-all duration-300">Coming Soon</Link>
                   </div>
                 </motion.div>
               </div>

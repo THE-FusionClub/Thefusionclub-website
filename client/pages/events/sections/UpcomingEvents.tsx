@@ -32,7 +32,7 @@ export default function UpcomingEvents() {
               <div className="mt-2"><span className="inline-block rounded-full bg-blue-50 px-2.5 py-0.5 text-xs font-medium text-blue-700">{event.type}</span></div>
               <p className="mt-3 text-sm text-gray-500 line-clamp-2 leading-relaxed">{event.description}</p>
               <div className="mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>Learn More</span>
+                <span>Coming Soon</span>
                 <motion.svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></motion.svg>
               </div>
             </motion.div>

@@ -478,7 +478,7 @@ function FeaturedEvent() {
                       to="#events"
                       className="inline-flex items-center gap-2 rounded-xl border-2 border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:border-blue-200 hover:text-blue-600 transition-all duration-300"
                     >
-                      Learn More
+                      Coming Soon
                     </Link>
                   </div>
                 </motion.div>
@@ -576,7 +576,7 @@ function UpcomingEvents() {
               </p>
 
               <div className="mt-4 flex items-center gap-1 text-sm font-medium text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span>Learn More</span>
+                <span>Coming Soon</span>
                 <motion.svg
                   className="w-4 h-4"
                   fill="none"
@@ -805,7 +805,7 @@ function EventGrid() {
                     to="/join-event"
                     className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-2.5 text-sm font-semibold text-white shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
                   >
-                    Learn More
+                    Coming Soon
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
