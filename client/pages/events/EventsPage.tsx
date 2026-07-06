@@ -22,7 +22,7 @@ export default function EventsPage() {
         <EventTimeline />
         <EventGrid />
         <Gallery />
-        <Statistics />
+        {/* <Statistics /> */}
         <FAQ />
         <CTA />
       </main>
