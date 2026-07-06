@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import "./HeroSection.css";
 import logo from "@/assets/logo.png";
@@ -16,29 +16,6 @@ type HeroSectionProps = {
 export default function HeroSection({ introDone = false }: HeroSectionProps) {
   const reducedMotion = useReducedMotion();
   const words = useMemo(() => TITLE.split(" "), []);
-  const [parallax, setParallax] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    if (reducedMotion) return;
-    if (!introDone) return;
-
-    const onMove = (e: MouseEvent) => {
-      const cx = window.innerWidth / 2;
-      const cy = window.innerHeight / 2;
-      const dxRaw = (e.clientX - cx) / cx;
-      const dyRaw = (e.clientY - cy) / cy;
-
-      // Clamp to keep transforms stable (prevents card from drifting/cutting)
-      const clamp = (v: number, min: number, max: number) => Math.min(max, Math.max(min, v));
-      const dx = clamp(dxRaw, -0.5, 0.5);
-      const dy = clamp(dyRaw, -0.5, 0.5);
-
-      setParallax({ x: dx, y: dy });
-    };
-
-    window.addEventListener("mousemove", onMove, { passive: true });
-    return () => window.removeEventListener("mousemove", onMove);
-  }, [introDone, reducedMotion]);
 
   const ready = introDone;
 
@@ -253,10 +230,8 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
                 ? { opacity: 1, y: 0, scale: 1 }
                 : {
                     opacity: 1,
-                    y: parallax.y * 4,
+                    y: 0,
                     scale: 1,
-                    rotateZ: parallax.x * 2,
-                    x: parallax.x * 6,
                   }
             }
             transition={{

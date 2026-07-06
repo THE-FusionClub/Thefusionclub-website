@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 /* Subtle background decoration */
@@ -39,12 +40,12 @@
   display: flex;
   align-items: center;
   gap: 48px;
-  max-width: auto;
-  margin: 0 8px 0 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
   position: relative;
   padding-top: 2px;
   z-index: 1;
- 
 }
 
 /* ── Left Content ── */
@@ -336,11 +337,16 @@
 
   z-index: 10; /* 👈 important so it sits above next section */
   border: 1px solid rgba(255, 255, 255, 0.8);
+
+  /* Prevent text overflow on small screens */
+  max-width: calc(100% - 24px);
+  white-space: nowrap;
 }
 
 .hero-badge-avatars {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .hero-avatar {
@@ -369,6 +375,7 @@
   font-size: 12px;
   font-weight: 700;
   margin-left: -12px;
+  flex-shrink: 0;
 }
 
 .hero-badge-label {
@@ -376,6 +383,8 @@
   font-size: 14px;
   font-weight: 600;
   line-height: 17.5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Floating Logo ── */
@@ -590,6 +599,16 @@
     max-width: 90%;
   }
 
+  .hero-badge {
+    bottom: 18px;
+    gap: 10px;
+    padding: 7px 14px;
+  }
+
+  .hero-badge-label {
+    font-size: 13px;
+  }
+
   .hero-stats {
     margin-top: 48px;
     gap: 16px;
@@ -615,17 +634,17 @@
 /* Mobile */
 @media (max-width: 640px) {
   .hero-section {
-    padding: 16px 16px 50px;
+    padding: 12px 12px 50px;
     min-height: auto;
   }
 
   .hero-container {
-    gap: 24px;
-    padding-top: 16px;
+    gap: 20px;
+    padding: 12px 0 0;
   }
 
   .hero-content {
-    gap: 14px;
+    gap: 12px;
   }
 
   .hero-title {
@@ -644,7 +663,7 @@
   }
 
   .hero-actions {
-    gap: 14px;
+    gap: 12px;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
@@ -669,19 +688,32 @@
   }
 
   .hero-image-card {
-    max-width: 100%;
+    max-width: 80%;
     border-radius: 16px;
+    max-height: 260px;
   }
 
+  .hero-carousel-track > img {
+    height: 260px;
+  }
+
+  /* Badge: position it below the image card instead of overlapping */
   .hero-badge {
-    padding: 6px 12px;
-    bottom: 12px;
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    top: auto;
+    margin: -10px auto 0;
+    transform: none;
+    padding: 6px 14px;
     gap: 8px;
+    max-width: fit-content;
   }
 
   .hero-avatar, .hero-avatar-count {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
   }
 
   .hero-avatar {
@@ -734,7 +766,7 @@
   }
 
   .hero-floating-logo {
-    width: 72px;
+    width: 60px;
     bottom: 0;
     left: 4%;
   }
@@ -745,7 +777,39 @@
   }
 }
 
-/* Small mobile */
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .hero-image-card {
+    max-width: 85%;
+  }
+
+  .hero-badge {
+    padding: 5px 12px;
+    gap: 6px;
+    margin-top: -8px;
+  }
+
+  .hero-avatar, .hero-avatar-count {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-avatar {
+    margin-left: -8px;
+  }
+
+  .hero-avatar-count {
+    margin-left: -8px;
+    font-size: 10px;
+  }
+
+  .hero-badge-label {
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+/* Extra small mobile */
 @media (max-width: 380px) {
   .hero-section {
     padding: 12px 12px 40px;
@@ -757,6 +821,35 @@
 
   .hero-description {
     font-size: 14px;
+  }
+
+  .hero-image-card {
+    max-width: 90%;
+  }
+
+  .hero-badge {
+    padding: 4px 10px;
+    gap: 4px;
+    margin-top: -6px;
+  }
+
+  .hero-avatar, .hero-avatar-count {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-avatar {
+    margin-left: -6px;
+  }
+
+  .hero-avatar-count {
+    margin-left: -6px;
+    font-size: 9px;
+  }
+
+  .hero-badge-label {
+    font-size: 10px;
+    line-height: 12px;
   }
 
   .hero-stat-card {
