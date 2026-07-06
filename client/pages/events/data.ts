@@ -124,13 +124,13 @@ export const timelineData = [
 ];
 
 export const galleryImages = [
-  { id: "g1", src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80", title: "Event Kickoff" },
-  { id: "g2", src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=400&q=80", title: "Workshop Moments" },
-  { id: "g3", src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", title: "Team Collaboration" },
-  { id: "g4", src: "https://images.unsplash.com/photo-1522071820081-82c8b0c1b6cf?auto=format&fit=crop&w=400&q=80", title: "Networking Night" },
-  { id: "g5", src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80", title: "Hackathon" },
-  { id: "g6", src: "https://images.unsplash.com/photo-1559223607-a43c990c692c?auto=format&fit=crop&w=400&q=80", title: "Design Review" },
-  { id: "g7", src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80", title: "Keynote Session" },
-  { id: "g8", src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80", title: "Group Photo" },
-  { id: "g9", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80", title: "Mentorship" },
+  { id: "g1", src: "/assets/events/fusionX.png", title: "FusionX Event" },
+  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibarX Festival" },
+  { id: "g3", src: "/assets/events/fusionXposter.png", title: "FusionX Poster" },
+  { id: "g4", src: "/assets/community/L-1.png", title: "Community L-1" },
+  { id: "g5", src: "/assets/community/L-2.png", title: "Community L-2" },
+  { id: "g6", src: "/assets/community/idea-1.jpg", title: "Ideathone Event" },
+  { id: "g7", src: "/assets/team-mates/parul.png", title: "Team Parul" },
+  { id: "g8", src: "/assets/team-mates/suraj.png", title: "Team Suraj" },
+  { id: "g9", src: "/assets/events/fusionX.png", title: "FusionX Highlight" },
 ];

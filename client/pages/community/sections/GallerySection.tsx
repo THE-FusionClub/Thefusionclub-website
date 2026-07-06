@@ -3,16 +3,16 @@ import { useScrollReveal } from "@/utils/useScrollReveal";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 const galleryImages = [
-  { id: "g1", src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80", title: "Event Kickoff", size: "tall" },
-  { id: "g2", src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80", title: "Workshop Moments", size: "small" },
-  { id: "g3", src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80", title: "Team Collaboration", size: "medium" },
-  { id: "g4", src: "https://images.unsplash.com/photo-1522071820081-82c8b0c1b6cf?auto=format&fit=crop&w=600&q=80", title: "Networking Night", size: "small" },
-  { id: "g5", src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=800&q=80", title: "Community Celebration", size: "tall" },
-  { id: "g6", src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80", title: "Hackathon", size: "small" },
-  { id: "g7", src: "https://images.unsplash.com/photo-1559223607-a43c990c692c?auto=format&fit=crop&w=800&q=80", title: "Design Review", size: "medium" },
-  { id: "g8", src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80", title: "Keynote Session", size: "small" },
-  { id: "g9", src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80", title: "Mentorship", size: "medium" },
-  { id: "g10", src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80", title: "Group Photo", size: "tall" },
+  { id: "g1", src: "/assets/events/fusionX.png", title: "FusionX Event", size: "tall" },
+  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibarX Festival", size: "small" },
+  { id: "g3", src: "/assets/events/fusionXposter.png", title: "FusionX Poster", size: "medium" },
+  { id: "g4", src: "/assets/community/L-1.png", title: "Community L-1", size: "small" },
+  { id: "g5", src: "/assets/community/L-2.png", title: "Community L-2", size: "tall" },
+  { id: "g6", src: "/assets/community/idea-1.jpg", title: "Ideathon Event", size: "small" },
+  { id: "g7", src: "/assets/team-mates/parul.png", title: "Team Parul", size: "medium" },
+  { id: "g8", src: "/assets/team-mates/suraj.png", title: "Team Suraj", size: "small" },
+  { id: "g9", src: "/assets/team-mates/prakash.jpeg", title: "Team Prakash", size: "medium" },
+  { id: "g10", src: "/assets/events/raibaryX.png", title: "RaibarX Recap", size: "tall" },
 ];
 
 function AnimatedSectionTitle({ text }: { text: string }) {
