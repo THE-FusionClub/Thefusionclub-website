@@ -248,7 +248,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
                   className="hero-image"
                 />
                 <img
-                  src="/assets/events/raibaryX.png"
+                  src="/assets/events/RaibarX.png"
                   alt="TFC Community - Slide 2"
                   className="hero-image hero-image--slide"
                   loading="lazy"
@@ -291,7 +291,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
           >
             <div className="hero-badge-avatars">
               <img
-                src="/assets/team-mates/suraj.png"
+                src="/assets/team-mates/suraj.jpeg"
                 alt="Member"
                 className="hero-avatar"
               />

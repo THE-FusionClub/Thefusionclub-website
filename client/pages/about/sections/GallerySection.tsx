@@ -9,7 +9,7 @@ const images = [
   { src: '/assets/community/idea-1.jpg', alt: 'Team collaboration', size: 'wide' },
   { src: '/assets/colored-logo.png', alt: 'Tech workshop', size: 'square' },
   { src: '/assets/community/L-1.png', alt: 'Networking event', size: 'tall' },
-  { src: '/assets/events/raibaryX.png', alt: 'Hackathon', size: 'wide' },
+  { src: '/assets/events/RaibarX.png', alt: 'Hackathon', size: 'wide' },
   { src: '/assets/community/L-2.png', alt: 'Community meetup', size: 'square' },
 ];
 

@@ -28,7 +28,7 @@ export default function FeaturedEvent() {
                     <span className="w-1.5 h-1.5 rounded-full bg-blue-500" /> Inter National · All Schools
                   </div>
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
-                    DevFest<span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">(RaibaryX)</span>
+                    DevFest<span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">(RaibarX)</span>
                   </h3>
                   <div className="flex items-center gap-3 text-gray-500">
                     <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
@@ -48,7 +48,7 @@ export default function FeaturedEvent() {
               </div>
               <motion.div variants={scaleInVariants} className="relative">
                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden aspect-[4/3] shadow-lg">
-                  <img src="/assets/events/raibaryX.png" alt="DevFest Event" className="w-full h-full object-cover" loading="lazy" />
+                  <img src="/assets/events/RaibarX.png" alt="DevFest Event" className="w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                 </div>
                 <motion.div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-gray-100" animate={{ y: [0, -6, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>

@@ -23,7 +23,7 @@ export interface EventData {
 export const allEvents: EventData[] = [
   {
     id: "devfest",
-    name: "DevFest (RaibaryX)",
+    name: "DevFest (RaibarX)",
     description: "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
     date: "21 August",
     type: "Inter National",
@@ -116,7 +116,7 @@ export const filterOptions = [
 ] as const;
 
 export const timelineData = [
-  { month: "August", events: ["DevFest (RaibaryX)"] },
+  { month: "August", events: ["DevFest (RaibarX)"] },
   { month: "September", events: ["Cyber Security Workshop", "IoT Workshop", "Nav-Sangam"] },
   { month: "After Mid Sem", events: ["Industrial Visit"] },
   { month: "February", events: ["IoT Festival"] },
@@ -125,12 +125,12 @@ export const timelineData = [
 
 export const galleryImages = [
   { id: "g1", src: "/assets/events/fusionX.png", title: "FusionX Event" },
-  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibaryX Festival" },
+  { id: "g2", src: "/assets/events/RaibarX.png", title: "RaibarX Festival" },
   { id: "g3", src: "/assets/events/fusionXposter.png", title: "FusionX Poster" },
   { id: "g4", src: "/assets/community/L-1.png", title: "Community L-1" },
   { id: "g5", src: "/assets/community/L-2.png", title: "Community L-2" },
   { id: "g6", src: "/assets/community/idea-1.jpg", title: "Ideathone Event" },
   { id: "g7", src: "/assets/team-mates/parul.png", title: "Team Parul" },
-  { id: "g8", src: "/assets/team-mates/suraj.png", title: "Team Suraj" },
+  { id: "g8", src: "/assets/team-mates/suraj.jpeg", title: "Team Suraj" },
   { id: "g9", src: "/assets/events/fusionX.png", title: "FusionX Highlight" },
 ];

@@ -4,15 +4,15 @@ import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 const galleryImages = [
   { id: "g1", src: "/assets/events/fusionX.png", title: "FusionX Event", size: "tall" },
-  { id: "g2", src: "/assets/events/raibaryX.png", title: "RaibaryX Festival", size: "small" },
+  { id: "g2", src: "/assets/events/RaibarX.png", title: "RaibarX Festival", size: "small" },
   { id: "g3", src: "/assets/events/fusionXposter.png", title: "FusionX Poster", size: "medium" },
   { id: "g4", src: "/assets/community/L-1.png", title: "Community L-1", size: "small" },
   { id: "g5", src: "/assets/community/L-2.png", title: "Community L-2", size: "tall" },
   { id: "g6", src: "/assets/community/idea-1.jpg", title: "Ideathon Event", size: "small" },
   { id: "g7", src: "/assets/team-mates/parul.png", title: "Team Parul", size: "medium" },
-  { id: "g8", src: "/assets/team-mates/suraj.png", title: "Team Suraj", size: "small" },
+  { id: "g8", src: "/assets/team-mates/suraj.jpeg", title: "Team Suraj", size: "small" },
   { id: "g9", src: "/assets/team-mates/prakash.jpeg", title: "Team Prakash", size: "medium" },
-  { id: "g10", src: "/assets/events/raibaryX.png", title: "RaibaryX Recap", size: "tall" },
+  { id: "g10", src: "/assets/events/RaibarX.png", title: "RaibarX Recap", size: "tall" },
 ];
 
 function AnimatedSectionTitle({ text }: { text: string }) {

@@ -1,4 +1,17 @@
-const partners = ["DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians"];
+import React from "react";
+
+const partners = [
+  { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },
+  { name: "DBUU", logo: "/assets/partners-logo/dbuu.png" },
+  { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },
+  { name: "DBUU", logo: "/assets/partners-logo/dbuu.png" },
+  { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },
+  { name: "DBUU", logo: "/assets/partners-logo/dbuu.png" },
+  { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },
+  { name: "DBUU", logo: "/assets/partners-logo/dbuu.png" },
+  { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },
+  { name: "DBUU", logo: "/assets/partners-logo/dbuu.png" },
+];
 
 export default function PartnersSection() {
   return (
@@ -6,8 +19,16 @@ export default function PartnersSection() {
       <div className="c-sectionInner">
         <div className="c-partners" aria-label="Partner logos">
           <div className="c-partnersTrack">
-            {[...partners, ...partners].map((name, i) => (
-              <div key={`${name}-${i}`} className="c-partnerLogo">{name}</div>
+            {[...partners, ...partners].map((partner, i) => (
+              <div key={`${partner.name}-${i}`} className="c-partnerLogo">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="c-partnerLogoImg"
+                  loading="lazy"
+                />
+                <span className="c-partnerLogoName">{partner.name}</span>
+              </div>
             ))}
           </div>
         </div>

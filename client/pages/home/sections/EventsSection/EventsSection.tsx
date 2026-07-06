@@ -17,10 +17,10 @@ const EVENTS = [
   },
   {
     id: 2,
-    title: "RaibaryX 0.1",
+    title: "RaibarX 1.0",
     date: "21 Aug",
     location: "DBUU, Dehradun",
-    image: "/assets/events/raibaryX.png",
+    image: "/assets/events/RaibarX.png",
     calendarMonth: "AUG",
     calendarDay: "21",
     badge: "DBUU, Dehradun",

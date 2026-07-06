@@ -35,7 +35,7 @@ export default function LeadershipSection() {
 
           <div className="c-leaderCard">
             <div className="c-leaderVisual">
-              <img src="/assets/team-mates/suraj.png" alt="CTO" loading="lazy" />
+              <img src="/assets/team-mates/suraj.jpeg" alt="CTO" loading="lazy" />
               <div className="c-leaderVisualOverlay" />
             </div>
             <div className="c-leaderInfo">

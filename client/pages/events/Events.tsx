@@ -105,7 +105,7 @@ function EventIcon({ icon, size = 24 }: { icon: string; size?: number }) {
 const allEvents: EventData[] = [
   {
     id: "devfest",
-    name: "DevFest (RaibaryX)",
+    name: "DevFest (RaibarX)",
     description:
       "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
     date: "21 August",
@@ -228,7 +228,7 @@ const filterOptions = [
 
 /* ── Timeline Data ── */
 const timelineData = [
-  { month: "August", events: ["DevFest (RaibaryX)"] },
+  { month: "August", events: ["DevFest (RaibarX)"] },
   { month: "September", events: ["Cyber Security Workshop", "IoT Workshop", "Nav-Sangam"] },
   { month: "After Mid Sem", events: ["Industrial Visit"] },
   { month: "February", events: ["IoT Festival"] },
@@ -445,7 +445,7 @@ function FeaturedEvent() {
                   <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
                     DevFest
                     <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                      (RaibaryX)
+                      (RaibarX)
                     </span>
                   </h3>
 
