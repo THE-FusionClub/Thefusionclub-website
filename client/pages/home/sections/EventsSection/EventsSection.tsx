@@ -17,7 +17,7 @@ const EVENTS = [
   },
   {
     id: 2,
-    title: "RibaryX 0.1",
+    title: "RaibaryX 0.1",
     date: "21 Aug",
     location: "DBUU, Dehradun",
     image: "/assets/events/raibaryX.png",

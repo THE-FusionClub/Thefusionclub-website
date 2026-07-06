@@ -14,3 +14,7 @@ While the starter comes with a express server, only create endpoint when strictl
 - **Backend**: Express server integrated with Vite dev server
 - **Testing**: Vitest
 - **UI**: Radix UI + TailwindCSS 3 + Lucide React icons
+
+Attributing Lordicon
+To use animated icons for free in personal or commercial projects.
+<a href="https://lordicon.com/">Animated icons by Lordicon.com</a>

@@ -113,7 +113,7 @@ export default function FellowshipSection() {
           >
             <div className="fellowship-feature">
               <LottieIcon
-                src="/assets/lottie-icons/developer.json"
+                src="/assets/lottie-icons/globe.json"
                 label="Developer"
                 isPlaying={isInView}
                 size={24}
@@ -139,7 +139,7 @@ export default function FellowshipSection() {
 
             <div className="fellowship-feature">
               <LottieIcon
-                src="/assets/lottie-icons/announcement.json"
+                src="/assets/lottie-icons/collab.json"
                 label="Announcement"
                 isPlaying={isInView}
                 size={24}
