@@ -108,8 +108,8 @@ const allEvents: EventData[] = [
     name: "DevFest (RaibarX)",
     description:
       "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
-    date: "22 August",
-    type: "Inter School",
+    date: "21 August",
+    type: "Inter National",
     school: "All",
     icon: "target",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
@@ -453,7 +453,7 @@ function FeaturedEvent() {
                     <svg className="w-5 h-5 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span className="font-medium">22 August</span>
+                    <span className="font-medium">21 August</span>
                     <span className="text-gray-300">|</span>
                     <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700">Festival</span>
                   </div>
@@ -1157,7 +1157,7 @@ function CTA() {
             to="/contact"
             className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300"
           >
-            Contact Us
+            Join TFC
           </Link>
         </motion.div>
       </motion.div>

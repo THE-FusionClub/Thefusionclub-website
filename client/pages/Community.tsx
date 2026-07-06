@@ -1161,7 +1161,7 @@ export default function Community() {
               <span className="c-btnArrow">→</span>
             </Link>
             <Link to="/events#contact" className="c-secondaryBtn">
-              <span>Contact Us</span>
+              <span>Explore Event</span>
               <span className="c-btnArrow">→</span>
             </Link>
           </div>

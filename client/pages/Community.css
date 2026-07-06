@@ -242,7 +242,7 @@
   border: 1px solid rgba(127, 34, 254, 0.12);
 }
 .c-heroTitle {
-  font-size: clamp(40px, 5vw, 72px);
+  font-size: clamp(36px, 5vw, 72px);
   font-weight: 950;
   line-height: 1.05;
   color: #0f172b;
@@ -1250,14 +1250,101 @@
 }
 
 @media (max-width: 768px) {
+  .c-section {
+    padding: 60px 16px;
+  }
+
+  .c-hero {
+    padding: 100px 16px 40px;
+    min-height: auto;
+  }
+  .c-heroDesc {
+    font-size: 16px;
+  }
+  .c-heroTitle {
+    font-size: clamp(30px, 7vw, 40px);
+  }
+  .c-heroRight {
+    height: 300px;
+  }
+
   .c-statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .c-statsCard {
+    padding: 20px 14px;
+  }
+
   .c-galleryGrid { columns: 2; }
-  .c-bentoGrid { grid-template-columns: 1fr; }
-  .c-bentoItem.full, .c-bentoItem.wide, .c-bentoItem.big { grid-column: span 1; grid-row: span 1; }
+  .c-bentoGrid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .c-bentoItem {
+    padding: 20px;
+    min-height: 140px;
+  }
+  .c-bentoItem.full, .c-bentoItem.wide, .c-bentoItem.big {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .c-bentoItem.tall { grid-row: span 1; }
+
   .c-socialGrid { grid-template-columns: 1fr; }
-  .c-testCard { min-width: 320px; }
-  .c-heroRight { height: 300px; }
+  .c-testCard { min-width: 300px; }
   .c-leaderInfo { padding: 24px 20px; }
+  .c-leaderQuote { font-size: 15px; }
+  .c-leaderName { font-size: clamp(22px, 5vw, 28px); }
+  .c-leaderVisual { min-height: 220px; }
+
+  .c-sectionTitle {
+    font-size: clamp(24px, 5vw, 32px);
+    margin-bottom: 24px;
+  }
+
+  .c-ctaSection {
+    padding: 80px 16px;
+  }
+  .c-ctaTitle {
+    font-size: clamp(28px, 7vw, 42px);
+  }
+  .c-ctaDesc {
+    font-size: 16px;
+  }
+
+  .c-manifesto {
+    padding: 28px 16px;
+  }
+  .c-manifestoItem {
+    padding: 10px 16px;
+  }
+
+  .c-featuredAnimBody {
+    padding: 18px;
+  }
+
+  .c-socialCard {
+    padding: 16px;
+  }
+
+  .c-galleryModal {
+    padding: 12px;
+  }
+  .c-galleryModalInfo {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .c-primaryBtn,
+  .c-secondaryBtn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .c-heroActions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 
   /* Timeline: single column on mobile */
   .c-timelineLine { left: 20px; }
@@ -1265,14 +1352,221 @@
   .c-timelineItem.left .c-timelineDot,
   .c-timelineItem.right .c-timelineDot { left: 12px; right: auto; }
   .c-timelineCard { max-width: 100%; }
+  .c-timelineTitle { font-size: 16px; }
+  .c-timelineCard { padding: 18px; }
 }
 
 @media (max-width: 480px) {
+  .c-section {
+    padding: 48px 14px;
+  }
+
+  .c-hero {
+    padding: 90px 14px 32px;
+  }
+  .c-heroTitle {
+    font-size: clamp(26px, 8vw, 30px);
+  }
+  .c-heroDesc {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .c-heroRight {
+    height: 250px;
+  }
+
   .c-galleryGrid { columns: 1; }
-  .c-statsGrid { grid-template-columns: 1fr; }
-  .c-heroRight { height: 250px; }
-  .c-testCard { min-width: 78vw; padding: 22px; }
+  .c-statsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .c-statsCard {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+  .c-statsValue {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+  .c-statsTitle {
+    font-size: 14px;
+  }
+
+  .c-testCard {
+    min-width: 82vw;
+    padding: 22px;
+  }
+  .c-testQuote {
+    font-size: 15px;
+  }
+
   .c-manifestoItem { flex: 1; min-width: 120px; }
+  .c-manifestoText {
+    font-size: 12px;
+  }
+  .c-manifesto {
+    padding: 24px 14px;
+  }
+
+  .c-ctaSection {
+    padding: 60px 14px;
+  }
+  .c-ctaTitle {
+    font-size: clamp(24px, 8vw, 32px);
+  }
+  .c-ctaKicker {
+    font-size: 11px;
+  }
+
+  .c-bentoGrid {
+    gap: 12px;
+  }
+  .c-bentoItem {
+    padding: 16px;
+    min-height: 120px;
+    border-radius: 18px;
+  }
+  .c-bentoTitle {
+    font-size: 14px;
+  }
+  .c-bentoDesc {
+    font-size: 12px;
+  }
+
+  .c-featuredAnimBody {
+    padding: 14px;
+  }
+  .c-featuredSideCard {
+    padding: 10px;
+    gap: 10px;
+  }
+  .c-featuredSideThumb {
+    width: 64px;
+    height: 48px;
+  }
+
+  .c-partners {
+    padding: 24px 0;
+  }
+  .c-partnerLogo {
+    font-size: 18px;
+    height: 48px;
+  }
+  .c-partnersTrack {
+    gap: 40px;
+  }
+
+  .c-leaderInfo {
+    padding: 20px 16px;
+  }
+  .c-leaderQuote {
+    font-size: 14px;
+    padding-left: 14px;
+    margin-bottom: 14px;
+  }
+  .c-leaderVisual {
+    min-height: 200px;
+  }
+  .c-leaderName {
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
+  .c-galleryGrid {
+    gap: 0;
+    column-gap: 10px;
+  }
+  .c-galleryItem {
+    margin-bottom: 10px;
+    border-radius: 14px;
+  }
+
+  .c-stats {
+    padding: 48px 14px;
+  }
+
+  .c-featuredGrid {
+    gap: 16px;
+  }
+
+  .c-socialTabs {
+    gap: 6px;
+  }
+  .c-socialTab {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .c-section {
+    padding: 40px 12px;
+  }
+  .c-hero {
+    padding: 80px 12px 28px;
+  }
+  .c-heroTitle {
+    font-size: 24px;
+  }
+  .c-heroRight {
+    height: 200px;
+  }
+  .c-heroActions {
+    gap: 10px;
+  }
+  .c-primaryBtn,
+  .c-secondaryBtn {
+    padding: 12px 20px;
+    font-size: 13px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .c-testCard {
+    min-width: 85vw;
+    padding: 18px;
+  }
+
+  .c-manifestoItem {
+    min-width: 100%;
+    justify-content: center;
+  }
+
+  .c-leaderVisual {
+    min-height: 180px;
+  }
+
+  .c-ctaSection {
+    padding: 48px 12px;
+  }
+  .c-ctaActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .c-ctaActions .c-primaryBtn,
+  .c-ctaActions .c-secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .c-bentoGrid {
+    gap: 10px;
+  }
+  .c-bentoItem {
+    padding: 14px;
+    min-height: 100px;
+  }
+
+  .c-galleryGrid {
+    column-gap: 8px;
+  }
+  .c-galleryItem {
+    margin-bottom: 8px;
+    border-radius: 12px;
+  }
+
+  .c-sectionTitle {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
 }
 
 /* ── Reduced Motion ── */
@@ -1305,5 +1599,3 @@
 
   .c-sectionTitle .c-letter { opacity: 1; transform: none; transition: none; }
 }
-
-

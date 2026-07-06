@@ -25,7 +25,7 @@ export const allEvents: EventData[] = [
     id: "devfest",
     name: "DevFest (RaibarX)",
     description: "The flagship inter-school tech festival featuring coding competitions, workshops, and innovation showcases. A celebration of technology and creativity.",
-    date: "22 August",
+    date: "21 August",
     type: "Inter School",
     school: "All",
     icon: "target",

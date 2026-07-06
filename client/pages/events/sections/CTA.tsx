@@ -23,11 +23,11 @@ export default function CTA() {
           Be part of something extraordinary. Register for upcoming events, connect with fellow innovators, and take your skills to the next level.
         </p>
         <motion.div initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.3 }} className="mt-10 flex flex-wrap justify-center gap-4">
-          <Link to="/join-event" className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-semibold text-blue-700 shadow-xl hover:shadow-2xl hover:bg-blue-50 transition-all duration-300">
+          <Link to="/signup" className="inline-flex items-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-semibold text-blue-700 shadow-xl hover:shadow-2xl hover:bg-blue-50 transition-all duration-300">
             Register Now
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
-          <Link to="/contact" className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300">Contact Us</Link>
+          <Link to="/join-event" className="inline-flex items-center gap-2 rounded-xl border-2 border-white/30 px-8 py-4 text-sm font-semibold text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300">Join TFC</Link>
         </motion.div>
       </motion.div>
     </section>

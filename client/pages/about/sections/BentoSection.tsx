@@ -41,7 +41,7 @@ const cards = [
   },
   { 
     title: 'Culture', 
-    desc: 'Creative fests, arts, and cultural celebrations.', 
+    desc: 'Hands-on workshops, tech talks, and innovation showcases.', 
     size: 'medium', 
     color: '#FFFFFF', 
     icon: (

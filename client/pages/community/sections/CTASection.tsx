@@ -31,8 +31,8 @@ export default function CTASection() {
             <span>Join Now</span>
             <span className="c-btnArrow">→</span>
           </Link>
-          <Link to="/events#contact" className="c-secondaryBtn">
-            <span>Contact Us</span>
+          <Link to="/signup" className="c-secondaryBtn">
+            <span>Register Now</span>
             <span className="c-btnArrow">→</span>
           </Link>
         </div>
