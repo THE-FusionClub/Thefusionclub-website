@@ -26,7 +26,7 @@ export default function CommunityPage() {
       <GallerySection />
       <TimelineSection />
       <LeadershipSection />
-      <SocialWall />
+      {/* <SocialWall /> */}
       <Testimonials />
       <BentoSection />
       <PartnersSection />

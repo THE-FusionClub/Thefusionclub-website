@@ -1,4 +1,4 @@
-const partners = ["Google", "Microsoft", "AWS", "Figma", "Notion", "Vercel", "GitHub", "Linear", "Supabase", "Railway"];
+const partners = ["DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians", "DBUU", "kailshians"];
 
 export default function PartnersSection() {
   return (

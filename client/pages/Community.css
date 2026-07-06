@@ -802,13 +802,18 @@
 .c-leaderCardAlt > * { direction: ltr; }
 .c-leaderVisual {
   position: relative;
-  min-height: 350px;
+  min-height: 250px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
 }
 .c-leaderVisual img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 280px;
+  object-fit: contain;
   transition: transform 500ms ease;
   display: block;
 }
