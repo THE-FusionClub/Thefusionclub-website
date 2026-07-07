@@ -39,7 +39,7 @@ export default function LeadershipSection() {
               <div className="c-leaderVisualOverlay" />
             </div>
             <div className="c-leaderInfo">
-              <div className="c-leaderRole">CTO</div>
+              <div className="c-leaderRole">CO-Founder</div>
               <div className="c-leaderName">Suraj</div>
               <div className="c-leaderQuote">
                 "Technology is the enabler, but community is the catalyst. We're building the infrastructure for the next generation of builders."

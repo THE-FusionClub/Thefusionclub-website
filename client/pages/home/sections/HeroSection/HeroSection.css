@@ -1,4 +1,5 @@
 /* ── Hero Section Base ── */
+
 .hero-section {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eef2ff 100%);
   padding: 10px 32px 100px;
@@ -244,12 +245,15 @@
 }
 
 .hero-carousel-track > img {
-  width: 50%;
-  flex: 0 0 50%;
+  width: 100%;
+  flex: 0 0 auto;
   height: 420px;
   object-fit: contain;
   background: transparent;
 }
+
+
+
 
 
 @media (max-width: 1024px) {
@@ -286,25 +290,43 @@
 
 .hero-carousel-track {
   display: flex;
-  width: 200%;
-  animation: heroCarousel 10s ease-in-out infinite;
+  /* 4 images (3 + clone of slide 1) => each slide is 1/4 of the track */
+  width: 400%;
+  animation: heroCarousel 12s ease-in-out infinite;
+  will-change: transform;
 }
 
 .hero-carousel-track > img {
-  width: 50%;
-  flex: 0 0 50%;
+  width: 25%;
+  flex: 0 0 25%;
 }
 
+
 @keyframes heroCarousel {
-  0%,
-  45% {
+  /* slide1 */
+  0%, 25% {
     transform: translateX(0%);
   }
-  55%,
-  100% {
+
+  /* slide2 */
+  35%, 50% {
+    transform: translateX(-25%);
+  }
+
+  /* slide3 */
+  60%, 75% {
     transform: translateX(-50%);
   }
+
+  /* clone slide1 */
+  85%, 100% {
+    transform: translateX(-75%);
+  }
 }
+
+
+
+
 
 @media (prefers-reduced-motion: reduce) {
   .hero-carousel-track {

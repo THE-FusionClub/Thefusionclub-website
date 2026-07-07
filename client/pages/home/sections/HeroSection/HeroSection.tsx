@@ -124,7 +124,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             }}
           >
             <motion.a
-              href="https://docs.google.com/forms/d/1-H3nmBvKWKxST6AFST56EJXtRu5rdImaRcj0jO6wBeU/viewform?edit_requested=true"
+              href="/events"
               className="hero-btn-primary"
               initial={false}
               animate={
@@ -241,7 +241,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             }}
           >
             <div className="hero-carousel" aria-label="TFC Community Carousel">
-              <div className="hero-carousel-track">
+              <div className="hero-carousel-track" aria-hidden="false">
                 <img
                   src="/assets/events/fusionXposter.png"
                   alt="TFC Community - Slide 1"
@@ -259,7 +259,15 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
                   className="hero-image hero-image--slide"
                   loading="lazy"
                 />
+                {/* Seamless-loop clone (slide 1 again) */}
+                <img
+                  src="/assets/events/fusionXposter.png"
+                  alt="TFC Community - Slide 1 (duplicate)"
+                  className="hero-image hero-image--slide"
+                  loading="lazy"
+                />
               </div>
+
             </div>
           </motion.div>
 
