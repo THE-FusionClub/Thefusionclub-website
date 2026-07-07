@@ -68,8 +68,8 @@ After the server starts, open the local URL shown in your terminal (typically `h
 [host at netlify with domain .xyz](https://thefusionclub.xyz/)
 
 ![Home Page](public/assets/preview/h-1.png)
-![Event hero section](public/assets/preview/e-1.png)
 ![Community Page](public/assets/preview/c-1.png)
+<!-- ![Event hero section](public/assets/preview/e-1.png) -->
 
 
 ## Project Structure
