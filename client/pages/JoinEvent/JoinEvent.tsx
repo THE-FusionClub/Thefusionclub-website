@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import "./JoinEvent.css";
 
 import Navbar from "@/components/layout/Navbar/Navbar";
@@ -224,7 +224,7 @@ export default function JoinEvent() {
         <PetalAnimation />
 
         {/* Hero content */}
-        <div className="hero-content">
+        <div className="join-event-hero-content">
           <div className="hero-inner">
             <RadarBadge />
 

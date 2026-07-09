@@ -4,7 +4,8 @@
 
 /* --- Page Container --- */
 .join-event-page {
-
+  box-sizing: border-box; /* FIX: prevents padding-top from adding to min-height,
+                              which was pushing content off-center */
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -16,8 +17,14 @@
 
   padding-top: 76px;
 
-
   font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+/* Make sure children with box model sizing behave consistently too */
+.join-event-page *,
+.join-event-page *::before,
+.join-event-page *::after {
+  box-sizing: border-box;
 }
 
 /* --- Background Layers --- */
@@ -78,42 +85,32 @@
 }
 
 /* --- Hero Content --- */
-.hero-content {
+.join-event-hero-content {
   position: relative;
   z-index: 2;
-
   flex: 1;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   min-height: calc(100vh - 76px);
-
   padding: 2rem;
 }
+
+/* --- Footer (consolidated: removed duplicate .bg-layer / .footer blocks) --- */
 .footer {
   position: relative;
   z-index: 2;
 
-  background: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(14px);
-}
-.bg-layer {
-  position: fixed;
-  inset: 0;
-}
-.footer {
   background: linear-gradient(
-      to top,
-      rgba(7,10,18,.92),
-      rgba(7,10,18,.72)
+    to top,
+    rgba(7, 10, 18, 0.92),
+    rgba(7, 10, 18, 0.72)
   );
 
   backdrop-filter: blur(20px);
 
-  border-top: 1px solid rgba(139,92,246,.18);
+  border-top: 1px solid rgba(139, 92, 246, 0.18);
 }
 
 .hero-inner {

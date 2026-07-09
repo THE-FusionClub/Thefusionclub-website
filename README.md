@@ -69,8 +69,6 @@ After the server starts, open the local URL shown in your terminal (typically `h
 
 ![Home Page](public/assets/preview/h-1.png)
 ![Community Page](public/assets/preview/c-1.png)
-<!-- ![Event hero section](public/assets/preview/e-1.png) -->
-
 
 ## Project Structure
 
@@ -177,4 +175,4 @@ If you have any questions regarding the original project setup, feel free to con
 
 ## resolved bug
 
-![Notion](https://app.notion.com/p/resolved-bug-39664c3a4f818066b4a0f6da28ddf8b4?source=copy_link)
+**Notion**: (https://app.notion.com/p/resolved-bug-39664c3a4f818066b4a0f6da28ddf8b4?source=copy_link)

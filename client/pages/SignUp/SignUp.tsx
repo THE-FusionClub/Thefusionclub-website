@@ -224,7 +224,7 @@ export default function SignUp() {
         <PetalAnimation />
 
         {/* Hero content */}
-        <div className="hero-content">
+        <div className="join-event-hero-content">
           <div className="hero-inner">
             <RadarBadge />
 
