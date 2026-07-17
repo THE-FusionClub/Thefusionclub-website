@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
-import './about.css';
-import './responsive.css';
-import './about-patch.css';
-import FloatingObject from './components/FloatingObject';
+import React, { useEffect } from "react";
+import "./about.css";
+import "./responsive.css";
+import "./about-patch.module.css";
+
+import FloatingObject from "./components/FloatingObject";
 import useSmoothScroll from './hooks/useSmoothScroll';
 
 import HeroSection from './sections/HeroSection';
 import StorySection from './sections/StorySection';
 import ValuesSection from './sections/ValuesSection';
-import TimelineSection from './sections/TimelineSection';
+// import TimelineSection from './sections/TimelineSection';
 import PhilosophySection from './sections/PhilosophySection';
 import BentoSection from './sections/BentoSection';
-import ImpactSection from './sections/ImpactSection';
+// import ImpactSection from './sections/ImpactSection';
 import LeadershipSection from './sections/LeadershipSection';
 import GallerySection from './sections/GallerySection';
 import CTASection from './sections/CTASection';

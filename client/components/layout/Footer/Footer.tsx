@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import styles from "./Footer.module.css";
+
 
 
 const FOOTER_LINKS = {
@@ -50,9 +51,10 @@ const SOCIAL_ICONS = [
 
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-inner">
-        <div className="footer-brand">
+    <footer className={styles.footer}>
+      <div className={styles.footerInner}>
+        <div className={styles.footerBrand}>
+
           <img
             src="/assets/logo.png"
             alt="TFC"
@@ -60,16 +62,19 @@ export default function Footer() {
             height={30}
           />
 
-          <p className="footer-tagline">
+          <p className={styles.footerTagline}>
             Empowering the next generation of software creators through
             hackathons, fellowships, and community.
           </p>
-          <div className="footer-socials">
+
+          <div className={styles.footerSocials}>
             {SOCIAL_ICONS.map((icon) => (
+
               <a
                 key={icon.name}
                 href={icon.href}
-                className="footer-social-link"
+                className={styles.footerSocialLink}
+
                 aria-label={icon.name}
               >
                 {icon.svg}
@@ -79,13 +84,15 @@ export default function Footer() {
         </div>
 
         {Object.entries(FOOTER_LINKS).map(([category, links]) => (
-          <div key={category} className="footer-column">
-            <h4 className="footer-column-title">{category}</h4>
-            <ul className="footer-column-links">
+          <div key={category} className={styles.footerColumn}>
+            <h4 className={styles.footerColumnTitle}>{category}</h4>
+            <ul className={styles.footerColumnLinks}>
+
               {links.map((link) => (
                 <li key={link}>
                   <Link
                     to={
+
                       link === "Home"
                         ? "/"
                         : link === "About"
@@ -100,8 +107,9 @@ export default function Footer() {
                         ? "/signup"
                         : "/"
                     }
-                    className="footer-link"
+                    className={styles.footerLink}
                   >
+
                     {link}
                   </Link>
                 </li>
@@ -111,9 +119,10 @@ export default function Footer() {
         ))}
       </div>
 
-      <div className="footer-bottom">
+      <div className={styles.footerBottom}>
         <p>© {new Date().getFullYear()} The Fusion Club (TFC). All rights reserved.</p>
       </div>
+
     </footer>
   );
 }

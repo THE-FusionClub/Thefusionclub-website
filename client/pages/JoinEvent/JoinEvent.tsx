@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./JoinEvent.css";
+import styles from "./JoinEvent.module.css";
 
 import Navbar from "@/components/layout/Navbar/Navbar";
 import Footer from "@/components/layout/Footer/Footer";
@@ -178,30 +178,30 @@ function PetalAnimation() {
   }, []);
 
   return (
-    <canvas ref={canvasRef} className="petal-canvas" aria-hidden="true" />
+    <canvas ref={canvasRef} className={styles.petalCanvas} aria-hidden="true" />
   );
 }
 
 function RadarBadge() {
   return (
-    <div className="radar-badge">
+    <div className={styles.radarBadge}>
       {/* Outer rings */}
-      <div className="radar-ring ring-1" />
-      <div className="radar-ring ring-2" />
-      <div className="radar-ring ring-3" />
+      <div className={`${styles.radarRing} ${styles.ring1}`} />
+      <div className={`${styles.radarRing} ${styles.ring2}`} />
+      <div className={`${styles.radarRing} ${styles.ring3}`} />
 
       {/* Pulse dots on rings */}
-      <div className="pulse-dot dot-1" />
-      <div className="pulse-dot dot-2" />
-      <div className="pulse-dot dot-3" />
+      <div className={`${styles.pulseDot} ${styles.dot1}`} />
+      <div className={`${styles.pulseDot} ${styles.dot2}`} />
+      <div className={`${styles.pulseDot} ${styles.dot3}`} />
 
       {/* Radar sweep */}
-      <div className="radar-sweep" />
+      <div className={styles.radarSweep} />
 
       {/* Center content */}
-      <div className="badge-inner">
-        <span className="badge-label">TFC</span>
-        <span className="badge-sub">Join</span>
+      <div className={styles.badgeInner}>
+        <span className={styles.badgeLabel}>TFC</span>
+        <span className={styles.badgeSub}>Join</span>
       </div>
     </div>
   );
@@ -212,44 +212,44 @@ export default function JoinEvent() {
     <>
       <DragonCursor />
       <Navbar />
-      <main className="join-event-page">
+      <main className={styles.joinEventPage}>
         {/* Background layers */}
-        <div className="bg-layer">
-          <div className="bg-dragon" />
-          <div className="bg-overlay" />
-          <div className="bg-glow" />
+        <div className={styles.bgLayer}>
+          <div className={styles.bgDragon} />
+          <div className={styles.bgOverlay} />
+          <div className={styles.bgGlow} />
         </div>
 
         {/* Petal animation */}
         <PetalAnimation />
 
         {/* Hero content */}
-        <div className="join-event-hero-content">
-          <div className="hero-inner">
+        <div className={styles.joinEventHeroContent}>
+          <div className={styles.heroInner}>
             <RadarBadge />
 
-            <h1 className="hero-heading">
-              <span className="heading-line">Join the</span>
-              <span className="heading-line gradient">Elite Circle</span>
+            <h1 className={styles.heroHeading}>
+              <span className={styles.headingLine}>Join the</span>
+              <span className={`${styles.headingLine} gradient`}>Elite Circle</span>
             </h1>
 
-            <p className="hero-subtitle">Click below for Join Our Team</p>
+            <p className={styles.heroSubtitle}>Click below for Join Our Team</p>
 
-            <div className="cta-wrapper">
+            <div className={styles.ctaWrapper}>
               <a
                 href="https://forms.gle/vH1EbxTqQwVyr2fK8"
                 target="_blank"
                 rel="noreferrer"
-                className="cta-button"
+                className={styles.ctaButton}
               >
-                <span className="cta-text">Join Now</span>
-                <div className="cta-laser" />
+                <span className={styles.ctaText}>Join Now</span>
+                <div className={styles.ctaLaser} />
               </a>
             </div>
 
-            <p className="secure-text">
+            <p className={styles.secureText}>
               <svg
-                className="lock-icon"
+                className={styles.lockIcon}
                 width="12"
                 height="12"
                 viewBox="0 0 24 24"

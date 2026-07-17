@@ -2,10 +2,8 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { useMemo } from "react";
 
-import "./HeroSection.css";
+import styles from "./HeroSection.module.css";
 import logo from "@/assets/logo.png";
-
-
 
 const TITLE = "Tech - Innovate Culture.";
 
@@ -19,24 +17,23 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
 
   const ready = introDone;
 
-  // 80–120ms word-by-word vibe
   const wordDelayBase = 0.08;
   const wordDelayStep = 0.10;
 
   return (
     <section
-      className={`hero-section tfc-hero ${ready ? "tfc-hero-ready" : ""}`}
+      className={`${styles.heroSection} tfc-hero ${ready ? "tfc-hero-ready" : ""}`}
       aria-label="TFC Hero"
     >
       <motion.div
-        className="hero-container"
+        className={styles.heroContainer}
         initial={false}
         animate={{ opacity: ready ? 1 : 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         {/* Left content */}
         <motion.div
-          className="hero-content"
+          className={styles.heroContent}
           initial={false}
           animate={ready ? "visible" : "hidden"}
           variants={{
@@ -50,13 +47,13 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
           }}
         >
           {/* Word-by-word heading */}
-          <h1 className="hero-title">
+          <h1 className={styles.heroTitle}>
             {words.map((w, i) => {
               const isCulture = w.includes("Culture");
               return (
                 <motion.span
                   key={`${w}-${i}`}
-                  className={isCulture ? "hero-title-purple" : "hero-title-dark"}
+                  className={isCulture ? styles.heroTitlePurple : styles.heroTitleDark}
                   initial={false}
                   animate={ready ? "visible" : "hidden"}
                   variants={{
@@ -81,9 +78,8 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             })}
           </h1>
 
-          {/* Subtitle */}
           <motion.p
-            className="hero-description"
+            className={styles.heroDescription}
             initial={false}
             animate={ready ? "visible" : "hidden"}
             variants={{
@@ -107,7 +103,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
 
           {/* CTAs */}
           <motion.div
-            className="hero-actions"
+            className={styles.heroActions}
             initial={false}
             animate={ready ? "visible" : "hidden"}
             variants={{
@@ -125,7 +121,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
           >
             <motion.a
               href="/events"
-              className="hero-btn-primary"
+              className={styles.heroBtnPrimary}
               initial={false}
               animate={
                 ready
@@ -147,7 +143,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
               }}
             >
               <span>Join The Event</span>
-              <div className="hero-btn-icon">
+              <div className={styles.heroBtnIcon}>
                 <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                   <path
                     d="M0 4.66667H9.33333M4.66667 0L9.33333 4.66667L4.66667 9.33333"
@@ -162,7 +158,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
 
             <motion.a
               href="https://docs.google.com/forms/d/e/1FAIpQLScue8y1m6gGbX7umHmnVWXMdaS0EzQFCTngC6HG95nsY5bZbw/viewform"
-              className="hero-btn-secondary"
+              className={styles.heroBtnSecondary}
               initial={false}
               animate={
                 ready
@@ -183,7 +179,7 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <div className="hero-btn-circle">
+              <div className={styles.heroBtnCircle}>
                 <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
                   <path
                     d="M3.125 7.5H11.875M7.5 11.875L11.875 7.5L7.5 3.125"
@@ -194,14 +190,14 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
                   />
                 </svg>
               </div>
-              <span className="hero-btn-text">Join TFC</span>
+              <span className={styles.heroBtnText}>Join TFC</span>
             </motion.a>
           </motion.div>
         </motion.div>
 
         {/* Right visual */}
         <motion.div
-          className="hero-visual hero-visual--community"
+          className={`${styles.heroVisual} ${styles.heroVisualCommunity}`}
           initial={false}
           animate={ready ? "visible" : "hidden"}
           variants={{
@@ -218,12 +214,8 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             },
           }}
         >
-          {/* Lordicon solid accent */}
-          
-          {/* Hero image card */}
-
           <motion.div
-            className="hero-image-card"
+            className={styles.heroImageCard}
             initial={false}
             animate={
               reducedMotion
@@ -240,42 +232,39 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
               ease: [0.16, 1, 0.3, 1],
             }}
           >
-            <div className="hero-carousel" aria-label="TFC Community Carousel">
-              <div className="hero-carousel-track" aria-hidden="false">
+            <div className={styles.heroCarousel} aria-label="TFC Community Carousel">
+              <div className={styles.heroCarouselTrack} aria-hidden="false">
                 <img
                   src="/assets/events/fusionXposter.png"
                   alt="TFC Community - Slide 1"
-                  className="hero-image"
+                  className={styles.heroImage}
                 />
                 <img
                   src="/assets/events/RaibarX.png"
                   alt="TFC Community - Slide 2"
-                  className="hero-image hero-image--slide"
+                  className={`${styles.heroImage} ${styles.heroImageSlide}`}
                   loading="lazy"
                 />
                 <img
                   src="/assets/community/idea-1.jpg"
                   alt="TFC Community - Slide 3"
-                  className="hero-image hero-image--slide"
+                  className={`${styles.heroImage} ${styles.heroImageSlide}`}
                   loading="lazy"
                 />
-                {/* Seamless-loop clone (slide 1 again) */}
                 <img
                   src="/assets/events/fusionXposter.png"
                   alt="TFC Community - Slide 1 (duplicate)"
-                  className="hero-image hero-image--slide"
+                  className={`${styles.heroImage} ${styles.heroImageSlide}`}
                   loading="lazy"
                 />
               </div>
-
             </div>
           </motion.div>
 
-          {/* Floating TFC logo */}
           <motion.img
             src={logo}
             alt="TFC Logo"
-            className="hero-floating-logo"
+            className={styles.heroFloatingLogo}
             initial={false}
             animate={ready ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{
@@ -285,9 +274,8 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             }}
           />
 
-          {/* Active Members Badge */}
           <motion.div
-            className="hero-badge"
+            className={styles.heroBadge}
             initial={false}
             animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
             transition={{
@@ -297,35 +285,21 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
             }}
             aria-label="Active Members"
           >
-            <div className="hero-badge-avatars">
-              <img
-                src="/assets/team-mates/suraj.jpeg"
-                alt="Member"
-                className="hero-avatar"
-              />
-              <img
-                src="/assets/team-mates/prakash.jpeg"
-                alt="Member"
-                className="hero-avatar"
-              />
-              <img
-                src="/assets/team-mates/parul.png"
-                alt="Member"
-                className="hero-avatar"
-              />
-
-              <div className="hero-avatar-count">+10</div>
+            <div className={styles.heroBadgeAvatars}>
+              <img src="/assets/team-mates/suraj.jpeg" alt="Member" className={styles.heroAvatar} />
+              <img src="/assets/team-mates/prakash.jpeg" alt="Member" className={styles.heroAvatar} />
+              <img src="/assets/team-mates/parul.png" alt="Member" className={styles.heroAvatar} />
+              <div className={styles.heroAvatarCount}>+10</div>
             </div>
-            <div className="hero-badge-text">
-              <span className="hero-badge-label">Active Members</span>
+            <div className={styles.heroBadgeText}>
+              <span className={styles.heroBadgeLabel}>Active Members</span>
             </div>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Stats Section */}
       <motion.div
-        className="hero-stats"
+        className={styles.heroStats}
         initial={false}
         animate={ready ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
         transition={{
@@ -334,88 +308,46 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
           ease: [0.16, 1, 0.3, 1],
         }}
       >
-        <div className="hero-stat-card">
-          <div className="hero-stat-icon">
+        <div className={styles.heroStatCard}>
+          <div className={styles.heroStatIcon}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M18 16L22 12L18 8M6 8L2 12L6 16M14.5 4L9.5 20"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M18 16L22 12L18 8M6 8L2 12L6 16M14.5 4L9.5 20" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">3</div>
-            <div className="hero-stat-label">Developers</div>
-            <div className="hero-stat-desc">Passionate developers building the future.</div>
+            <div className={styles.heroStatNumber}>3</div>
+            <div className={styles.heroStatLabel}>Developers</div>
+            <div className={styles.heroStatDesc}>Passionate developers building the future.</div>
           </div>
         </div>
 
-        <div className="hero-stat-card">
-          <div className="hero-stat-icon">
+        <div className={styles.heroStatCard}>
+          <div className={styles.heroStatIcon}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M8 2V6M16 2V6"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M5 4H19C20.1038 4 21 4.89617 21 6V20C21 21.1038 20.1038 22 19 22H5C3.89617 22 3 21.1038 3 20V6C3 4.89617 3.89617 4 5 4V4"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M3 10H21"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M8 2V6M16 2V6" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M5 4H19C20.1038 4 21 4.89617 21 6V20C21 21.1038 20.1038 22 19 22H5C3.89617 22 3 21.1038 3 20V6C3 4.89617 3.89617 4 5 4V4" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 10H21" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">2</div>
-            <div className="hero-stat-label">Annual Events</div>
-            <div className="hero-stat-desc">Action-packed events every year.</div>
+            <div className={styles.heroStatNumber}>2</div>
+            <div className={styles.heroStatLabel}>Annual Events</div>
+            <div className={styles.heroStatDesc}>Action-packed events every year.</div>
           </div>
         </div>
 
-        <div className="hero-stat-card">
-          <div className="hero-stat-icon">
+        <div className={styles.heroStatCard}>
+          <div className={styles.heroStatIcon}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M11 17L13 19C13.8279 19.8279 15.1721 19.8279 16 19C16.8279 18.1721 16.8279 16.8279 16 16"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M14 14L16.5 16.5C17.3279 17.3279 18.6721 17.3279 19.5 16.5C20.3279 15.6721 20.3279 14.3279 19.5 13.5L15.62 9.62C14.4487 8.45 12.5513 8.45 11.38 9.62L10.5 10.5C9.67211 11.3279 8.32785 11.3279 7.49998 10.5C6.67211 9.67 6.67211 8.33 7.49998 7.5L10.31 4.69C12.1867 2.82 15.0949 2.46 17.37 3.82L17.84 4.1C18.2658 4.357 18.772 4.45 19.26 4.35L21 4"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M21 3L22 14H20M3 3L2 14L8.5 20.5C9.32787 21.3279 10.6721 21.3279 11.5 20.5C12.3279 19.6721 12.3279 18.3279 11.5 17.5M3 4H11"
-                stroke="#7F22FE"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M11 17L13 19C13.8279 19.8279 15.1721 19.8279 16 19C16.8279 18.1721 16.8279 16.8279 16 16" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M14 14L16.5 16.5C17.3279 17.3279 18.6721 17.3279 19.5 16.5C20.3279 15.6721 20.3279 14.3279 19.5 13.5L15.62 9.62C14.4487 8.45 12.5513 8.45 11.38 9.62L10.5 10.5" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M21 3L22 14H20M3 3L2 14L8.5 20.5C9.32787 21.3279 10.6721 21.3279 11.5 20.5C12.3279 19.6721 12.3279 18.3279 11.5 17.5M3 4H11" stroke="#7F22FE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
           <div>
-            <div className="hero-stat-number">2</div>
-            <div className="hero-stat-label">Partners</div>
-            <div className="hero-stat-desc">Trusted by amazing partners.</div>
+            <div className={styles.heroStatNumber}>2</div>
+            <div className={styles.heroStatLabel}>Partners</div>
+            <div className={styles.heroStatDesc}>Trusted by amazing partners.</div>
           </div>
         </div>
       </motion.div>

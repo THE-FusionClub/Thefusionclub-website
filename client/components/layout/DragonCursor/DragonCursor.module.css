@@ -1,0 +1,53 @@
+:root{
+  --dragon-cursor-purple:#6D28D9;
+  --dragon-cursor-violet:#8B5CF6;
+  --dragon-cursor-lavender:#C084FC;
+  --dragon-cursor-pink:#F472B6;
+  --dragon-cursor-glow: rgba(192,132,252,.55);
+}
+
+.dragonCursorOverlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  z-index: 9999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Small dot */
+.dragonCursorDot{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.95) 0%, rgba(192,132,252,.8) 40%, rgba(109,40,217,.6) 100%);
+  box-shadow:
+    0 0 10px rgba(192,132,252,.5),
+    0 0 20px rgba(139,92,246,.2);
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+/* Smooth trailing line */
+.dragonCursorTailLine{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 400px;
+  height: 400px;
+  overflow: visible;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .dragonCursorOverlay{
+    display: none;
+  }
+}

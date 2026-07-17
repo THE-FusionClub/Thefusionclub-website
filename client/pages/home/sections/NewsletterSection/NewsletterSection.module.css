@@ -1,0 +1,424 @@
+.newsletterSection {
+  padding: 96px 32px;
+  min-height: 975px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Background carousel ── */
+.nlsBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.nlsSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 900ms ease, transform 1400ms ease;
+}
+
+.nlsSlide.isActive {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.nlsImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.08) contrast(1.05) brightness(0.9);
+}
+
+.nlsOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(124, 58, 237, 0.55) 0%, rgba(124, 58, 237, 0) 55%),
+    radial-gradient(ellipse at 70% 80%, rgba(14, 116, 144, 0.35) 0%, rgba(14, 116, 144, 0) 50%),
+    linear-gradient(180deg, rgba(44, 0, 79, 0.6) 0%, rgba(44, 0, 79, 0.85) 100%);
+}
+
+.newsletterSection .reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.newsletterSection .reveal.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.newsletterSection .revealDelay1 { transition-delay: 0.15s; }
+.newsletterSection .revealDelay2 { transition-delay: 0.3s; }
+
+.newsletterButton {
+  display: flex;
+  padding: 12px 28px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 24px;
+  cursor: pointer;
+  margin-bottom: 48px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.35);
+  letter-spacing: 0.01em;
+}
+
+.newsletterButton:hover {
+  background: linear-gradient(135deg, #8b5cf6, #c084fc);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+}
+
+.newsletterButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 12px rgba(124, 58, 237, 0.3);
+}
+
+.newsletterCard {
+  display: flex;
+  padding: 52px 56px;
+  gap: 40px;
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(76, 29, 149, 0.95), rgba(124, 58, 237, 0.92));
+  box-shadow:
+    0 25px 50px -12px rgba(142, 81, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+  max-width: 1040px;
+  width: 100%;
+  position: relative;
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.newsletterCard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.newsletterCard::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(196, 180, 255, 0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.newsletterCardContent {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletterIconCircle {
+  display: flex;
+  width: 88px;
+  height: 88px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.newsletterIconCircle::before {
+  content: "";
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.08), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.newsletterIconImage {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.newsletterText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.newsletterTitle {
+  color: #ffffff;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.loopHighlight {
+  background: linear-gradient(135deg, #c084fc, #a78bfa, #e0d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+}
+
+.newsletterDescription {
+  color: #d8d0f0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 320px;
+}
+
+.newsletterForm {
+  display: flex;
+  width: 464px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  align-items: center;
+}
+
+.newsletterInputWrapper {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.newsletterInputIcon {
+  position: absolute;
+  left: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.newsletterInput {
+  position: absolute;
+  left: 52px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  border: none;
+  background: transparent;
+  color: #1e293b;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  outline: none;
+  padding: 0;
+  letter-spacing: 0.01em;
+}
+
+.newsletterInput::placeholder {
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.newsletterSubmit {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  display: flex;
+  height: 52px;
+  padding: 0 28px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+  letter-spacing: 0.01em;
+  z-index: 2;
+}
+
+.newsletterSubmit:hover {
+  background: linear-gradient(135deg, #8b5cf6, #c084fc);
+  transform: scale(1.02);
+  box-shadow: 0 6px 24px rgba(124, 58, 237, 0.5);
+}
+
+.newsletterSubmit:active {
+  transform: scale(0.98);
+}
+
+.newsletterInputWrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background: #ffffff;
+  z-index: 0;
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.nlsIndicators {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  margin-top: 40px;
+}
+
+.nlsDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.nlsDot.isActive {
+  background: #a855f7;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.5);
+  width: 32px;
+  border-radius: 5px;
+}
+
+.nlsDot:hover:not(.isActive) {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1024px) {
+  .newsletterCard {
+    flex-direction: column;
+    padding: 44px 36px;
+    gap: 28px;
+  }
+
+  .newsletterForm {
+    width: 100%;
+  }
+
+  .newsletterInput {
+    width: 180px;
+  }
+}
+
+@media (max-width: 640px) {
+  .newsletterSection {
+    padding: 64px 20px;
+    min-height: auto;
+  }
+
+  .newsletterCard {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .newsletterCardContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .newsletterTitle {
+    font-size: 26px;
+  }
+
+  .newsletterDescription {
+    max-width: 100%;
+  }
+
+  .newsletterIconCircle {
+    width: 72px;
+    height: 72px;
+  }
+
+  .newsletterIconCircle::before {
+    width: 54px;
+    height: 54px;
+  }
+
+  .newsletterInputWrapper {
+    height: 56px;
+  }
+
+  .newsletterSubmit {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    height: 48px;
+    margin: 8px 0 0;
+    padding: 0 24px;
+    justify-content: center;
+  }
+
+  .newsletterInput {
+    width: 100%;
+    left: 0;
+    padding: 0 20px 0 52px;
+    position: relative;
+    top: auto;
+    transform: none;
+    height: 100%;
+  }
+
+  .newsletterInputWrapper {
+    flex-direction: column;
+    height: auto;
+    padding: 4px;
+    gap: 0;
+  }
+
+  .newsletterInputWrapper::before {
+    border-radius: 16px;
+  }
+
+  .newsletterForm {
+    width: 100%;
+  }
+}

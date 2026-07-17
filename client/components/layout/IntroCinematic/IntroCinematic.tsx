@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-import "./IntroCinematic.css";
+import styles from "./IntroCinematic.module.css";
 
 type IntroCinematicProps = {
   logoSrc: string;
@@ -193,12 +193,12 @@ export default function IntroCinematic({ logoSrc, onDone }: IntroCinematicProps)
   }, [mounted, reducedMotion, onDone]);
 
   return (
-    <div ref={rootRef} className="intro-root" aria-hidden>
-      <div className="intro-stars" aria-hidden>
+    <div ref={rootRef} className={styles.introRoot} aria-hidden>
+      <div className={styles.introStars} aria-hidden>
         {stars.map((st, idx) => (
           <span
             key={idx}
-            className="intro-star"
+            className={styles.introStar}
             style={{
               left: `${st.x}%`,
               top: `${st.y}%`,
@@ -210,19 +210,19 @@ export default function IntroCinematic({ logoSrc, onDone }: IntroCinematicProps)
         ))}
       </div>
 
-      <div ref={cameraWrapRef} className="intro-camera">
-        <div className="intro-nebula" aria-hidden />
-        <div className="intro-glow" aria-hidden />
-        <img ref={logoRef} className="intro-logo" src={logoSrc} alt="TFC" />
+      <div ref={cameraWrapRef} className={styles.introCamera}>
+        <div className={styles.introNebula} aria-hidden />
+        <div className={styles.introGlow} aria-hidden />
+        <img ref={logoRef} className={styles.introLogo} src={logoSrc} alt="TFC" />
 
-        <div className="intro-particles" aria-hidden>
+        <div className={styles.introParticles} aria-hidden>
           {Array.from({ length: 18 }).map((_, i) => (
-            <span key={i} className="intro-particle" />
+            <span key={i} className={styles.introParticle} />
           ))}
         </div>
       </div>
 
-      <div ref={flashRef} className="intro-flash" aria-hidden />
+      <div ref={flashRef} className={styles.introFlash} aria-hidden />
     </div>
   );
 }

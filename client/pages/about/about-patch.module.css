@@ -1,0 +1,200 @@
+/* ============================================
+   About Page Patch Styles (CSS Module)
+   Premium Hover Effects, Glow System, Navbar Offset
+   ============================================ */
+
+/* All sections with IDs get scroll margin */
+.about-page [id],
+.about-page section[id] {
+  scroll-margin-top: 96px;
+}
+
+/* Explicit section ID overrides for hash-based navigation */
+.about-page #story,
+.about-page #values,
+.about-page #timeline,
+.about-page #philosophy,
+.about-page #bento,
+.about-page #impact,
+.about-page #leadership,
+.about-page #gallery,
+.about-page #cta {
+  scroll-margin-top: 96px;
+}
+
+/* Ensure the first section (hero) also has proper offset */
+.about-page section:first-of-type {
+  scroll-margin-top: 0;
+}
+
+/* ============================================
+   Premium Card Hover Glow Effect
+   ============================================ */
+
+/* Purple glow ring on hover for any card */
+.cardGlowHover {
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 250ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cardGlowHover::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  background: transparent;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.cardGlowHover:hover::before {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), transparent 60%);
+}
+
+.cardGlowHover:hover {
+  box-shadow: 
+    0 0 0 1px rgba(124, 58, 237, 0.2),
+    0 8px 32px rgba(124, 58, 237, 0.12),
+    0 20px 60px -20px rgba(124, 58, 237, 0.25) !important;
+  border-color: rgba(124, 58, 237, 0.4) !important;
+}
+
+/* ============================================
+   Scroll Reveal Animation Base
+   ============================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   Purple Gradient Text (for highlights)
+   ============================================ */
+
+.textGradientPurple {
+  background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #7C3AED 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* ============================================
+   Subtle Particle/Star Background
+   ============================================ */
+
+.particleBg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.particleBg::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10% 20%, rgba(124, 58, 237, 0.15) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 70%, rgba(124, 58, 237, 0.1) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(124, 58, 237, 0.12) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 40%, rgba(124, 58, 237, 0.08) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 90% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 90%, rgba(124, 58, 237, 0.12) 0%, transparent 100%),
+    radial-gradient(1px 1px at 80% 15%, rgba(124, 58, 237, 0.08) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 50%, rgba(124, 58, 237, 0.1) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 30%, rgba(124, 58, 237, 0.15) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 60%, rgba(124, 58, 237, 0.08) 0%, transparent 100%);
+  background-size: 200px 200px;
+  animation: particleDrift 20s linear infinite;
+}
+
+@keyframes particleDrift {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(10px, -10px); }
+  50% { transform: translate(-5px, 15px); }
+  75% { transform: translate(15px, 5px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* ============================================
+   Soft Radial Gradient Background Overlay
+   ============================================ */
+
+.softRadialOverlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(124, 58, 237, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(124, 58, 237, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   Image Card Hover with Purple Tint
+   ============================================ */
+
+.imageCardHover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.imageCardHover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.imageCardHover:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+  .particleBg::before {
+    opacity: 0.5;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .floatingObject,
+  .particleBg,
+  .heroGradientGlow,
+  .heroFloatingShape {
+    display: none !important;
+  }
+}
+

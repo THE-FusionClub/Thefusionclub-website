@@ -1,8 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
-
+import styles from "./Navbar.module.css";
 
 
 const NAV_LINKS = [
@@ -23,7 +22,6 @@ export default function Navbar({ introDone = false }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const mobileFirstLinkRef = useRef<HTMLAnchorElement | null>(null);
-
   const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   const closeMobile = useCallback(() => {
@@ -48,14 +46,16 @@ export default function Navbar({ introDone = false }: NavbarProps) {
         closeMobile();
         return;
       }
-      // Focus trap: Tab/Shift+Tab cycle within mobile menu
+
       if (e.key === "Tab") {
         const focusable = mobileMenuRef.current?.querySelectorAll<HTMLElement>(
           'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
         );
         if (!focusable || focusable.length === 0) return;
+
         const first = focusable[0];
         const last = focusable[focusable.length - 1];
+
         if (e.shiftKey) {
           if (document.activeElement === first) {
             e.preventDefault();
@@ -79,52 +79,42 @@ export default function Navbar({ introDone = false }: NavbarProps) {
     toggleBtnRef.current?.focus();
   }, [mobileOpen]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.body.style.overflow = "";
     };
   }, [mobileOpen]);
 
   return (
-    <nav className={`navbar ${introClass}`}>
-      <div className="navbar-inner">
-        <Link to="/" className="navbar-logo">
-          <img
-            src="/assets/logo.png"
-            alt="TFC Logo"
-            width={104}
-            height={44}
-          />
+    <nav className={`${styles.navbar} ${introClass}`.trim()}>
+      <div className={styles.navbarInner}>
+        <Link to="/" className={styles.navbarLogo}>
+          <img src="/assets/logo.png" alt="TFC Logo" width={104} height={44} />
         </Link>
 
-
-        <div className="navbar-links">
+        <div className={styles.navbarLinks}>
           {NAV_LINKS.map((link) => (
-            <Link key={link.label} to={link.to} className="navbar-link">
+            <Link key={link.label} to={link.to} className={styles.navbarLink}>
               {link.label}
             </Link>
           ))}
         </div>
 
-        <div className="navbar-actions">
-          {/* <Link to="/signin" className="navbar-signin">
-            Sign In
-          </Link> */}
-          <Link to="/signup" className="navbar-signup">
-           Register Now
+        <div className={styles.navbarActions}>
+          <Link to="/signup" className={styles.navbarSignup}>
+            Register Now
           </Link>
         </div>
 
-
         <button
           ref={toggleBtnRef}
-          className="navbar-mobile-toggle"
+          className={styles.navbarMobileToggle}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-controls="navbar-mobile-menu"
@@ -137,10 +127,9 @@ export default function Navbar({ introDone = false }: NavbarProps) {
         </button>
       </div>
 
-      {/* Mobile menu backdrop */}
       {mobileOpen && (
         <div
-          className="navbar-mobile-backdrop"
+          className={styles.navbarMobileBackdrop}
           onClick={closeMobile}
           aria-hidden="true"
         />
@@ -150,7 +139,7 @@ export default function Navbar({ introDone = false }: NavbarProps) {
         <div
           id="navbar-mobile-menu"
           ref={mobileMenuRef}
-          className="navbar-mobile-menu"
+          className={styles.navbarMobileMenu}
           role="menu"
           aria-label="Mobile navigation"
         >
@@ -158,7 +147,7 @@ export default function Navbar({ introDone = false }: NavbarProps) {
             <Link
               key={link.label}
               to={link.to}
-              className="navbar-mobile-link"
+              className={styles.navbarMobileLink}
               role="menuitem"
               tabIndex={idx === 0 ? 0 : -1}
               onClick={() => setMobileOpen(false)}
@@ -167,18 +156,10 @@ export default function Navbar({ introDone = false }: NavbarProps) {
               {link.label}
             </Link>
           ))}
-          {/* <Link
-            to="/signin"
-            className="navbar-mobile-link"
-            role="menuitem"
-            tabIndex={-1}
-            onClick={() => setMobileOpen(false)}
-          >
-            Sign In
-          </Link> */}
+
           <Link
             to="/signup"
-            className="navbar-mobile-link"
+            className={styles.navbarMobileLink}
             role="menuitem"
             tabIndex={-1}
             onClick={() => setMobileOpen(false)}
@@ -190,3 +171,4 @@ export default function Navbar({ introDone = false }: NavbarProps) {
     </nav>
   );
 }
+

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
-import "./DragonCursor.css";
+import styles from "./DragonCursor.module.css";
 
 type Vec2 = { x: number; y: number };
 
@@ -122,16 +122,16 @@ export default function DragonCursor() {
   return (
     <div
       ref={overlayRef}
-      className="dragon-cursor-overlay"
+      className={styles.dragonCursorOverlay}
       aria-hidden="true"
     >
       {/* Small dot */}
-      <div className="dragon-cursor-dot" />
+      <div className={styles.dragonCursorDot} />
 
       {/* Threat-style moving line */}
       <svg
         ref={tailSvgRef}
-        className="dragon-cursor-tail-line"
+        className={styles.dragonCursorTailLine}
         width="400"
         height="400"
         viewBox="-200 -200 400 400"
