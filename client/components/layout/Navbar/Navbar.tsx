@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "About", to: "/about" },
   { label: "Community", to: "/community" },
   { label: "Events", to: "/events" },
+  { label: "Sponsor", to: "/sponsor" },
   { label: "Join", to: "/join-event" },
 ];
 
@@ -95,8 +96,9 @@ export default function Navbar({ introDone = false }: NavbarProps) {
     <nav className={`${styles.navbar} ${introClass}`.trim()}>
       <div className={styles.navbarInner}>
         <Link to="/" className={styles.navbarLogo}>
-          <img src="/assets/logo.png" alt="TFC Logo" width={104} height={44} />
+          <img src="/assets/logo.png" alt="TFC Logo" width={145} height={62} />
         </Link>
+
 
         <div className={styles.navbarLinks}>
           {NAV_LINKS.map((link) => (

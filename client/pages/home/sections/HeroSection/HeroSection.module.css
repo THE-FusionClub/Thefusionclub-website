@@ -2,7 +2,7 @@
 
 .heroSection {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #eef2ff 100%);
-  padding: 10px 32px 100px;
+  padding: 80px 32px 100px;
   overflow: hidden;
   position: relative;
   min-height: 100vh;
@@ -388,6 +388,11 @@
   font-weight: 700;
   margin-left: -12px;
   flex-shrink: 0;
+}
+
+.heroBadgeText {
+  display: flex;
+  align-items: center;
 }
 
 .heroBadgeLabel {

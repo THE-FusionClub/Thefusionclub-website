@@ -111,9 +111,9 @@ export const filterOptions = [
   "Hackathon",
   "Industrial Visit",
   "Inter National",
-  "Inter National",
   "Inter Nationalrsity",
 ] as const;
+
 
 export const timelineData = [
   { month: "August", events: ["DevFest (RaibarX)"] },

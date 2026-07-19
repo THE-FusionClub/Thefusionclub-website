@@ -158,6 +158,8 @@ export default function HeroSection({ introDone = false }: HeroSectionProps) {
 
             <motion.a
               href="https://docs.google.com/forms/d/e/1FAIpQLScue8y1m6gGbX7umHmnVWXMdaS0EzQFCTngC6HG95nsY5bZbw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.heroBtnSecondary}
               initial={false}
               animate={

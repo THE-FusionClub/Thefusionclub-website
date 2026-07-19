@@ -1,0 +1,950 @@
+/* ═══════════════════════════════════════════
+   SponsorTiersSection — Premium Glassmorphism
+   ═══════════════════════════════════════════ */
+
+/* ── Section Layout ── */
+.section {
+  position: relative;
+  padding: 6rem 0;
+  background: #F8FAFC;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 8rem 0;
+  }
+}
+
+/* ── Background Decor ── */
+.bgDecor1,
+.bgDecor2,
+.bgDecor3 {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
+}
+
+.bgDecor1 {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -150px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08), transparent 70%);
+}
+
+.bgDecor2 {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.06), transparent 70%);
+}
+
+.bgDecor3 {
+  width: 400px;
+  height: 400px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.05), transparent 70%);
+}
+
+/* ── Container ── */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* ── Pill Badge ── */
+.pillWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(124, 58, 237, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(8px);
+}
+
+.pillIcon {
+  width: 16px;
+  height: 16px;
+  color: #7C3AED;
+  flex-shrink: 0;
+}
+
+/* ── Heading ── */
+.heading {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heading {
+    font-size: 3.5rem;
+  }
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, #7C3AED, #4F46E5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Subtext ── */
+.subtext {
+  text-align: center;
+  font-size: 1.0625rem;
+  color: #64748B;
+  max-width: 36rem;
+  margin: 0 auto 3rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 768px) {
+  .subtext {
+    font-size: 1.125rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* ── Cards Grid ── */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Card — Base
+   ═══════════════════════════════════════════ */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  border: 1px solid;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(16px);
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.4s ease;
+  overflow: hidden;
+  height: 100%;
+  cursor: default;
+}
+
+/* Hover lift & shadow */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Card Hovered (JS-driven class for extra effects) ── */
+.cardHovered {
+  /* This class is applied via JS onMouseEnter for fine-grained control */
+}
+
+/* ── Featured Card ── */
+.cardFeatured {
+  transform: scale(1.02);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(124, 58, 237, 0.08);
+}
+
+.cardFeatured:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    0 20px 60px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(124, 58, 237, 0.08);
+}
+
+@media (min-width: 1024px) {
+  .cardFeatured {
+    transform: scale(1.06);
+  }
+  .cardFeatured:hover {
+    transform: translateY(-8px) scale(1.06);
+  }
+}
+
+/* ── Featured Glow ── */
+.featuredGlow {
+  position: absolute;
+  inset: -40px;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.6s ease;
+}
+
+.card:hover .featuredGlow {
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════════
+   Decorative Blobs
+   ═══════════════════════════════════════════ */
+.blobsContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.blobTop,
+.blobBottom {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.06;
+  transition: opacity 0.5s ease, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.blobTop {
+  width: 200px;
+  height: 200px;
+  top: -60px;
+  right: -60px;
+}
+
+.card:hover .blobTop {
+  opacity: 0.12;
+  transform: translate(-10px, 10px) scale(1.1);
+}
+
+.blobBottom {
+  width: 160px;
+  height: 160px;
+  bottom: -40px;
+  left: -50px;
+}
+
+.card:hover .blobBottom {
+  opacity: 0.1;
+  transform: translate(10px, -10px) scale(1.15);
+}
+
+/* ── Line Decorations ── */
+.lineDecorTop {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  width: 80px;
+  height: 50px;
+  opacity: 0;
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: translateX(10px);
+}
+
+.card:hover .lineDecorTop {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cardFeatured .lineDecorTop {
+  opacity: 0.6;
+}
+
+.lineDecorBottom {
+  position: absolute;
+  bottom: 100px;
+  left: 16px;
+  width: 60px;
+  height: 35px;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.1s, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+  transform: translateX(-10px);
+}
+
+.card:hover .lineDecorBottom {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cardFeatured .lineDecorBottom {
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════
+   Card Content
+   ═══════════════════════════════════════════ */
+.cardContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 1.5rem 1.75rem;
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .cardContent {
+    padding: 1.75rem 1.75rem 2rem;
+  }
+}
+
+/* ── Badge Row ── */
+.badgeRow {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tierBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Featured "Most Popular" Chip ── */
+.featuredChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #7C3AED;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  animation: featuredPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes featuredPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
+  }
+}
+
+/* ── Tier Ornament ── */
+.tierOrnament {
+  width: 100px;
+  height: auto;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+/* ── Tier Name ── */
+.tierName {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .tierName {
+    font-size: 1.375rem;
+  }
+}
+
+/* ── Price Row ── */
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  margin-bottom: 0.5rem;
+}
+
+.priceValue {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0F172A;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+@media (min-width: 768px) {
+  .priceValue {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .priceValue {
+    font-size: 2.5rem;
+  }
+}
+
+.pricePeriod {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #94A3B8;
+}
+
+/* ── Description ── */
+.description {
+  font-size: 0.875rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 0.9375rem;
+  }
+}
+
+/* ── Divider ── */
+.divider {
+  height: 1px;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+/* ═══════════════════════════════════════════
+   Included / Benefits Section
+   ═══════════════════════════════════════════ */
+.includedSection {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.includedLabel {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 768px) {
+  .includedLabel {
+    font-size: 0.75rem;
+  }
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.4;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.3s ease,
+    color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .benefitItem {
+    font-size: 0.9375rem;
+  }
+}
+
+.card:hover .benefitItem {
+  transform: translateX(3px);
+}
+
+/* Staggered hover delays */
+.card:hover .benefitItem:nth-child(1) { transition-delay: 0.03s; }
+.card:hover .benefitItem:nth-child(2) { transition-delay: 0.06s; }
+.card:hover .benefitItem:nth-child(3) { transition-delay: 0.09s; }
+.card:hover .benefitItem:nth-child(4) { transition-delay: 0.12s; }
+.card:hover .benefitItem:nth-child(5) { transition-delay: 0.15s; }
+
+/* Core benefits subtle glow on hover */
+.benefitItemCore {
+  position: relative;
+}
+
+.card:hover .benefitItemCore {
+  color: #0F172A;
+}
+
+/* Extended benefits get a slightly different treatment */
+.benefitItemExtended {
+  font-size: 0.8125rem;
+  opacity: 0.92;
+  padding-left: 0.25rem;
+}
+
+.card:hover .benefitItemExtended {
+  transform: translateX(3px);
+}
+
+.checkIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover .checkIcon {
+  transform: scale(1.15);
+}
+
+.crossIcon {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  opacity: 0.9;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.benefitItemDisabled {
+  color: rgba(71, 85, 105, 0.55);
+  opacity: 0.75;
+}
+
+/* ── Sparkle Icon ── */
+.sparkleIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════
+   Extended (Expandable) Benefits
+   ═══════════════════════════════════════════ */
+.extendedBenefitsWrap {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.extendedDivider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(to right, rgba(148, 163, 184, 0.3), transparent);
+  margin: 0.125rem 0;
+}
+
+.extendedLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.125rem 0;
+}
+
+/* ── Expand Toggle Button ── */
+.expandToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  padding: 0.375rem 0;
+  margin-top: 0.25rem;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  align-self: flex-start;
+}
+
+.expandToggle:hover {
+  opacity: 0.8;
+  transform: translateX(2px);
+}
+
+.expandIcon {
+  width: 0.875rem;
+  height: 0.875rem;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.expandIconOpen {
+  transform: rotate(180deg);
+}
+
+/* ═══════════════════════════════════════════
+   Animated Gradient Border (Light Trail)
+   ═══════════════════════════════════════════ */
+.gradientBorder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 24px;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.gradientBorderInner {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  padding: 1px;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  animation: gradientTrail 6.5s linear infinite;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  will-change: transform;
+}
+
+@keyframes gradientTrail {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+.card:hover .gradientBorderInner {
+  opacity: 0.95;
+  animation-duration: 3.3s;
+  filter: drop-shadow(0 0 14px rgba(124, 58, 237, 0.25));
+}
+
+/* ── Featured gradient border ── */
+.gradientBorderFeatured .gradientBorderInner {
+  opacity: 0.8;
+  animation-duration: 5.2s;
+}
+
+.card:hover .gradientBorderFeatured .gradientBorderInner {
+  opacity: 1;
+  animation-duration: 2.8s;
+}
+
+/* ── Gradient Border Pulse (featured only) ── */
+.gradientBorderPulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  opacity: 0;
+  filter: blur(16px);
+  animation: borderPulse 3s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .gradientBorderPulse {
+  opacity: 0.25;
+}
+
+@keyframes borderPulse {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.15;
+    transform: scale(1.02);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Lottie floating icon
+   ═══════════════════════════════════════════ */
+.lottieWrap {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.85;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  animation: floatLottie 4.8s ease-in-out infinite;
+}
+
+.lottieImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: saturate(1.08) drop-shadow(0 8px 18px rgba(0, 0, 0, 0.12));
+}
+
+.card:hover .lottieWrap {
+  opacity: 0.85;
+  animation-duration: 3.6s;
+}
+
+/* Enhanced hover state with extra rotation/scale for character */
+.lottieWrapHovered {
+  transform: scale(1.12) rotate(-3deg);
+  opacity: 0.85;
+}
+
+@keyframes floatLottie {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-2px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Premium CTA Button
+   ═══════════════════════════════════════════ */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0;
+  border-radius: 14px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8125rem 1.25rem;
+  width: 100%;
+}
+
+/* Shine sweep */
+.ctaShine {
+  position: absolute;
+  top: -40%;
+  left: -30%;
+  width: 40%;
+  height: 180%;
+  transform: rotate(20deg) translateX(-120%);
+  background: rgba(255, 255, 255, 0.35);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.1s ease;
+}
+
+.card:hover .ctaShine {
+  opacity: 0.55;
+  animation: ctaShine 520ms ease-out;
+}
+
+@keyframes ctaShine {
+  0% {
+    transform: rotate(20deg) translateX(-120%);
+  }
+  100% {
+    transform: rotate(20deg) translateX(340%);
+  }
+}
+
+/* Top highlight overlay */
+.cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 14px;
+  z-index: 1;
+}
+
+.card:hover .cta {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover .cta::before {
+  opacity: 1;
+}
+
+.ctaText {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaIcon {
+  width: 1rem;
+  height: 1rem;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover .ctaIcon {
+  transform: translateX(4px);
+}
+
+/* ═══════════════════════════════════════════
+   Responsive Adjustments
+   ═══════════════════════════════════════════ */
+
+/* Tablet: 2-col for medium screens but featured spans full width */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Reduced Motion
+   ═══════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardFeatured {
+    transition: none !important;
+  }
+
+  .card:hover,
+  .cardFeatured:hover {
+    transform: none !important;
+  }
+
+  .blobTop,
+  .blobBottom,
+  .lineDecorTop,
+  .lineDecorBottom,
+  .featuredGlow,
+  .benefitItem,
+  .checkIcon,
+  .cta,
+  .ctaIcon,
+  .lottieWrap,
+  .gradientBorderInner,
+  .expandToggle,
+  .expandIcon,
+  .featuredChip,
+  .gradientBorderPulse {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .card:hover .blobTop,
+  .card:hover .blobBottom,
+  .card:hover .lineDecorTop,
+  .card:hover .lineDecorBottom,
+  .card:hover .benefitItem,
+  .card:hover .checkIcon,
+  .card:hover .ctaIcon,
+  .card:hover .lottieWrap {
+    transform: none !important;
+  }
+}

@@ -72,6 +72,29 @@ const YT_WATCH_URL = "https://www.youtube.com/watch?v=qC77KnfRzd4&list=LL&index=
 export default function CommunityHighlights() {
   const reducedMotion = usePrefersReducedMotion();
   const sectionRef = useRef<HTMLElement | null>(null);
+  const fadeRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // IntersectionObserver for fade-up scroll animations
+  useEffect(() => {
+    if (reducedMotion) return;
+    const els = fadeRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (!els.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [reducedMotion]);
 
   const [activeFilter, setActiveFilter] = useState<"All" | Platform>("All");
 
@@ -231,6 +254,7 @@ export default function CommunityHighlights() {
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
     >
+      <div className="ch-bgGlow" aria-hidden="true" />
       <div className="ch-bgLines" aria-hidden="true" />
       <div className="ch-dots" aria-hidden="true">
         {Array.from({ length: 14 }).map((_, i) => (
@@ -246,18 +270,21 @@ export default function CommunityHighlights() {
         <div className="ch-top">
           {/* Left: Header */}
           <div className="ch-hero">
-            <div className="ch-headingGlow" aria-hidden="true" />
-            <div className="ch-label">COMMUNITY HIGHLIGHTS</div>
-            <h2 className="ch-heading">
-              DONE THIS <span className="ch-headingCount">COUNTLESS</span> TIMES BEFORE.
-            </h2>
-            <p className="ch-description">
-              Premium stories from builders, workshops, and moments that keep TFC Community moving.
-            </p>
+            <div ref={(el) => { fadeRefs.current[0] = el; }} className="ch-fadeUp ch-delay-1">
+              <div className="ch-headingGlow" aria-hidden="true" />
+              <div className="ch-label">COMMUNITY HIGHLIGHTS</div>
+              <h2 className="ch-heading">
+                DONE THIS <span className="ch-headingCount">COUNTLESS</span> TIMES BEFORE.
+              </h2>
+              <p className="ch-description">
+                Premium stories from builders, workshops, and moments that keep TFC Community moving.
+              </p>
+            </div>
           </div>
 
           {/* Right: Featured carousel */}
-          <div className="ch-rightFeatured" aria-label="Featured video">
+          <div className="ch-rightFeatured">
+            <div ref={(el) => { fadeRefs.current[1] = el; }} className="ch-fadeUp ch-delay-2">
             <div
               className="ch-featuredCard"
               role="group"
@@ -331,11 +358,12 @@ export default function CommunityHighlights() {
                 ))}
               </div>
             </div>
+            </div>
           </div>
         </div>
 
         {/* Filter Tabs + Secondary */}
-        <div className="ch-filterRow" role="tablist" aria-label="Community highlights filter">
+        <div ref={(el) => { fadeRefs.current[2] = el; }} className="ch-fadeUp ch-delay-3 ch-filterRow" role="tablist" aria-label="Community highlights filter">
           {(["All", "Instagram", "LinkedIn", "YouTube"] as const).map((tab) => (
             <button
               key={tab}
@@ -350,7 +378,7 @@ export default function CommunityHighlights() {
           ))}
         </div>
 
-        <div className="ch-grid" aria-label="More community highlights">
+        <div ref={(el) => { fadeRefs.current[3] = el; }} className="ch-fadeUp ch-delay-4 ch-grid" aria-label="More community highlights">
           {(activeFilter === "All"
             ? secondary
             : secondary.filter((c) => c.platform === activeFilter)
@@ -381,7 +409,7 @@ export default function CommunityHighlights() {
           ))}
         </div>
 
-        <div className="ch-footerCta">
+        <div ref={(el) => { fadeRefs.current[4] = el; }} className="ch-fadeUp ch-delay-5 ch-footerCta">
           <Link to="/community" className="ch-ctaBtn" aria-label="See all community">
             <span>See all community</span>
             <span className="ch-ctaArrow" aria-hidden="true">
