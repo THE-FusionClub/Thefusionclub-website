@@ -5,7 +5,7 @@ import "../Community.css";
 
 export default function Community() {
   return (
-    <div className="c-page">
+    <div className="c-page flex flex-col min-h-screen">
       <Navbar />
       <CommunityPage />
       <Footer />

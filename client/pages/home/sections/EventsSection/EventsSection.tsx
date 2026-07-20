@@ -6,14 +6,14 @@ import styles from "./EventsSection.module.css";
 const EVENTS = [
   {
     id: 1,
-    title: "FusionX",
-    date: "June 10 - 12, 2026",
+    title: " SURVIVOR'S ZONE",
+    date: "July 24 - 26, 2026",
     location: "Online",
-    image: "/assets/events/fusionXposter.png",
-    calendarMonth: "JUNE",
-    calendarDay: "10",
+    image: "/assets/events/survivors_zone_poster.webp",
+    calendarMonth: "JULY",
+    calendarDay: "24",
     registerUrl:
-      "https://docs.google.com/forms/d/1-H3nmBvKWKxST6AFST56EJXtRu5rdImaRcj0jO6wBeU/viewform?edit_requested=true",
+      "https://docs.google.com/forms/d/e/1FAIpQLSdLRa08mnm9v3FMDT-StTx51YHsC2pU_xaQqUuyru1c0vhyDQ/viewform",
   },
   {
     id: 2,

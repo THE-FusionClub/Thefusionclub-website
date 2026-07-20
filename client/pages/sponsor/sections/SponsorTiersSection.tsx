@@ -262,7 +262,7 @@ export default function SponsorTiersSection() {
       <div className={styles.bgDecor3} aria-hidden="true" />
 
       <div className={styles.container}>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease: easeOut }}
@@ -284,7 +284,7 @@ export default function SponsorTiersSection() {
             </svg>
             Sponsorship Levels
           </div>
-        </motion.div>
+        </motion.div> */}
 
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

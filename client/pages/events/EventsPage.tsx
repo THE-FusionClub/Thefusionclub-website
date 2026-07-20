@@ -13,9 +13,9 @@ import CTA from "./sections/CTA";
 
 export default function EventsPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      <main>
+      <main className="flex-1">
         <HeroSection />
         <FeaturedEvent />
         <UpcomingEvents />

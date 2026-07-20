@@ -31,7 +31,7 @@ export default function ContactSection() {
           variants={fadeUpVariants}
           className={styles.header}
         >
-          <span className={styles.badge}>Get In Touch</span>
+          {/* <span className={styles.badge}>Get In Touch</span> */}
           <h2 className={styles.title}>Ready to Partner?</h2>
           <p className={styles.subtitle}>
             Let's discuss how we can work together to create something amazing.

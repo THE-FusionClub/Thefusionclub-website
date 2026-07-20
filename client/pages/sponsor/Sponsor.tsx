@@ -5,7 +5,7 @@ import SponsorPageContent from "./SponsorPage";
 
 export default function Sponsor() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
       <SponsorPageContent />
       <Footer />

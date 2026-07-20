@@ -14,10 +14,10 @@ export default function Index() {
   const introDone = true;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen flex flex-col bg-white">
       <Navbar introDone={introDone} />
 
-      <main>
+      <main className="flex-1">
         <HeroSection introDone={introDone} />
 
         <EcosystemSection />

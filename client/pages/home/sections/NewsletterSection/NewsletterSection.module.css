@@ -3,7 +3,7 @@
   min-height: 975px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;

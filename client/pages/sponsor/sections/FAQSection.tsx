@@ -31,7 +31,7 @@ export default function FAQSection() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <SectionTitle subtitle="FAQ">Frequently Asked Questions</SectionTitle>
+        <SectionTitle >Frequently Asked Questions</SectionTitle>
 
         <motion.div
           ref={ref}

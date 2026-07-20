@@ -4,10 +4,10 @@ import AboutPage from "./about/About";
 
 export default function About() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
       <AboutPage />
       <Footer />
-    </>
+    </div>
   );
 }
