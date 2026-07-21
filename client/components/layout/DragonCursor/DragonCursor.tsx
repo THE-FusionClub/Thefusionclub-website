@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import styles from "./DragonCursor.module.css";
 
@@ -24,10 +24,6 @@ export default function DragonCursor() {
   // Mouse positions + smooth interpolation
   const mouseRef = useRef<Vec2>({ x: 0, y: 0 });
   const posRef = useRef<Vec2>({ x: 0, y: 0 });
-
-  // Trail points for smooth line
-  const trailRef = useRef<Vec2[]>([]);
-  const TRAIL_LENGTH = 18;
 
   // Threat-style moving line (no multi-point tail)
   const tailSvgRef = useRef<SVGSVGElement | null>(null);

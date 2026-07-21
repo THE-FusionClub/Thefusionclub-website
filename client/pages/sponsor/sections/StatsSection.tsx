@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { stats } from "./sponsorData";
 import styles from "./StatsSection.module.css";

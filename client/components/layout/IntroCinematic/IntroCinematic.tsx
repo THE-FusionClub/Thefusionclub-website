@@ -28,9 +28,6 @@ export default function IntroCinematic({ logoSrc, onDone }: IntroCinematicProps)
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
-  const startTimeRef = useRef<number | null>(null);
-
-
   const rootRef = useRef<HTMLDivElement | null>(null);
   const logoRef = useRef<HTMLImageElement | null>(null);
   const cameraWrapRef = useRef<HTMLDivElement | null>(null);
@@ -73,12 +70,12 @@ export default function IntroCinematic({ logoSrc, onDone }: IntroCinematicProps)
       filter: "blur(3px) saturate(1.2)",
       rotateY: 0,
       transformStyle: "preserve-3d",
-    } as any);
+    });
 
     gsap.set(cameraWrap, {
       scale: 0.86,
       transformOrigin: "50% 50%",
-    } as any);
+    });
 
     gsap.set(flash, { opacity: 0 });
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Player as LordiconPlayer } from "@lordicon/react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 

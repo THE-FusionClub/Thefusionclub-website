@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type AnimatedCounterProps = {
   value: number;
@@ -15,7 +15,6 @@ export function AnimatedCounter({ value, suffix = "", isInView = true, prefersRe
       setCount(value);
       return;
     }
-    let start = 0;
     const duration = 1500;
     const step = 16;
     const totalSteps = duration / step;

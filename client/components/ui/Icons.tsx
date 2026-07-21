@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Player as LordiconPlayer } from "@lordicon/react";
 
 type IconProps = {
@@ -27,7 +27,7 @@ const ICON_MAP: Record<string, string> = {
 
 function LordIcon({ src, size = 20, loop = false, hover = true, className }: { src: string; size?: number; loop?: boolean; hover?: boolean; className?: string }) {
   const [animationData, setAnimationData] = useState<unknown | null>(null);
-  const playerRef = useRef<any | null>(null);
+  const playerRef = useRef<unknown | null>(null);
 
   useEffect(() => {
     let active = true;
@@ -47,16 +47,20 @@ function LordIcon({ src, size = 20, loop = false, hover = true, className }: { s
   const onEnter = () => {
     try {
       if (playerRef.current) {
-        playerRef.current.playFromBeginning();
-        if (loop) playerRef.current.play();
+        (playerRef.current as { playFromBeginning?: () => void }).playFromBeginning?.();
+        if (loop) (playerRef.current as { play?: () => void }).play?.();
       }
-    } catch {}
+    } catch {
+      // ignore
+    }
   };
 
   const onLeave = () => {
     try {
-      if (playerRef.current && !loop) playerRef.current.pause();
-    } catch {}
+      if (playerRef.current && !loop) (playerRef.current as { pause?: () => void }).pause?.();
+    } catch {
+      // ignore
+    }
   };
 
   return (

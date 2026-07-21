@@ -1,4 +1,3 @@
-import React from "react";
 
 const partners = [
   { name: "KAILSHIANS", logo: "/assets/partners-logo/kailshians.png" },

@@ -1,4 +1,4 @@
-// @ts-nocheck
+// @ts-nocheck - Three.js simulation code
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import styles from './LiquidEther.module.css';
@@ -788,7 +788,7 @@ export default function LiquidEther({
           wrapS: THREE.ClampToEdgeWrapping,
           wrapT: THREE.ClampToEdgeWrapping
         };
-        for (let key in this.fbos) {
+for (const key in this.fbos) {
           this.fbos[key] = new THREE.WebGLRenderTarget(this.fboSize.x, this.fboSize.y, opts);
         }
       }
@@ -845,9 +845,9 @@ export default function LiquidEther({
         this.cellScale.set(px_x, px_y);
         this.fboSize.set(width, height);
       }
-      resize() {
+resize() {
         this.calcSize();
-        for (let key in this.fbos) {
+        for (const key in this.fbos) {
           this.fbos[key].setSize(this.fboSize.x, this.fboSize.y);
         }
       }

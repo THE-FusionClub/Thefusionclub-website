@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./about.css";
 import "./responsive.css";
 import "./about-patch.module.css";

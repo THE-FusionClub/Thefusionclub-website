@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import SponsorHeroSection from "./sections/HeroSection";
 import WhySponsorSection from "./sections/WhySponsorSection";
 import SponsorTiersSection from "./sections/SponsorTiersSection";

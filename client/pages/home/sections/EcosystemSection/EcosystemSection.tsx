@@ -1,4 +1,3 @@
-import React from "react";
 import { useScrollReveal } from "@/utils/useScrollReveal";
 import styles from "./EcosystemSection.module.css";
 import { useNavigate } from "react-router-dom";

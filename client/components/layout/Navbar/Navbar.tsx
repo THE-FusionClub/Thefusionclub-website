@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
