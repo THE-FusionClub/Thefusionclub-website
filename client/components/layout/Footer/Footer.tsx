@@ -2,12 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Footer.module.css";
 
+/* ──────────── FOOTER NAV LINKS ──────────── */
 const FOOTER_LINKS = {
   Programs: ["Hackathons", "Fellowship", "Workshops", "Demo Day"],
   Explore: ["Home", "About", "Events", "Join"],
   Company: ["About", "Register"],
 };
 
+/* ──────────── SOCIAL ICONS ──────────── */
 const SOCIAL_ICONS = [
   {
     name: "Twitter",
@@ -47,39 +49,154 @@ const SOCIAL_ICONS = [
   },
 ];
 
+/* ──────────── FLOATING TECH SVG ELEMENTS ──────────── */
+const FLOATING_ELEMENTS = [
+  {
+    /* AI Node — connected circles */
+    svg: (
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="8" stroke="#7f22fe" strokeWidth="1.2" opacity="0.5" />
+        <circle cx="24" cy="24" r="3" fill="#b794ff" opacity="0.8" />
+        <circle cx="16" cy="14" r="2.5" stroke="#4f39f6" strokeWidth="0.8" opacity="0.4" />
+        <circle cx="34" cy="16" r="2" stroke="#4f39f6" strokeWidth="0.8" opacity="0.4" />
+        <circle cx="33" cy="34" r="2" stroke="#4f39f6" strokeWidth="0.8" opacity="0.35" />
+        <circle cx="15" cy="33" r="1.8" stroke="#4f39f6" strokeWidth="0.8" opacity="0.35" />
+        <line x1="24" y1="24" x2="16" y2="14" stroke="#7f22fe" strokeWidth="0.5" opacity="0.2" />
+        <line x1="24" y1="24" x2="34" y2="16" stroke="#7f22fe" strokeWidth="0.5" opacity="0.2" />
+        <line x1="24" y1="24" x2="33" y2="34" stroke="#7f22fe" strokeWidth="0.5" opacity="0.2" />
+        <line x1="24" y1="24" x2="15" y2="33" stroke="#7f22fe" strokeWidth="0.5" opacity="0.2" />
+      </svg>
+    ),
+  },
+  {
+    /* Network connection lines */
+    svg: (
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="2" fill="#7f22fe" opacity="0.5" />
+        <circle cx="32" cy="10" r="2" fill="#7f22fe" opacity="0.5" />
+        <circle cx="22" cy="32" r="2" fill="#7f22fe" opacity="0.5" />
+        <line x1="12" y1="12" x2="32" y2="10" stroke="#b794ff" strokeWidth="0.6" opacity="0.25" />
+        <line x1="12" y1="12" x2="22" y2="32" stroke="#b794ff" strokeWidth="0.6" opacity="0.25" />
+        <line x1="32" y1="10" x2="22" y2="32" stroke="#b794ff" strokeWidth="0.6" opacity="0.25" />
+      </svg>
+    ),
+  },
+  {
+    /* Glowing cube */
+    svg: (
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="8" width="20" height="20" rx="3" stroke="#b794ff" strokeWidth="1" opacity="0.4" />
+        <rect x="11" y="11" width="14" height="14" rx="2" stroke="#7f22fe" strokeWidth="0.7" opacity="0.3" />
+        <rect x="14" y="14" width="8" height="8" rx="1.5" fill="#7f22fe" opacity="0.15" />
+      </svg>
+    ),
+  },
+  {
+    /* Code brackets { } */
+    svg: (
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 8L6 16L12 24" stroke="#b794ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+        <path d="M20 8L26 16L20 24" stroke="#b794ff" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" opacity="0.5" />
+        <circle cx="16" cy="16" r="1.5" fill="#7f22fe" opacity="0.6" />
+        <animate attributeName="opacity" values="0.4;0.8;0.4" dur="3s" repeatCount="indefinite" />
+      </svg>
+    ),
+  },
+  {
+    /* Circuit pattern */
+    svg: (
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="30" r="2" fill="#4f39f6" opacity="0.4" />
+        <circle cx="30" cy="10" r="2" fill="#4f39f6" opacity="0.4" />
+        <line x1="10" y1="30" x2="20" y2="20" stroke="#7f22fe" strokeWidth="0.6" opacity="0.2" />
+        <line x1="20" y1="20" x2="30" y2="10" stroke="#7f22fe" strokeWidth="0.6" opacity="0.2" />
+        <line x1="20" y1="20" x2="28" y2="28" stroke="#7f22fe" strokeWidth="0.6" opacity="0.2" strokeDasharray="3 3" />
+        <rect x="18" y="18" width="4" height="4" rx="1" fill="#b794ff" opacity="0.3" />
+      </svg>
+    ),
+  },
+  {
+    /* Geometric diamond / innovation symbol */
+    svg: (
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="17,4 30,17 17,30 4,17" stroke="#7f22fe" strokeWidth="0.8" opacity="0.4" />
+        <polygon points="17,9 25,17 17,25 9,17" stroke="#b794ff" strokeWidth="0.6" opacity="0.3" />
+        <circle cx="17" cy="17" r="3" fill="#7f22fe" opacity="0.2" />
+        <circle cx="17" cy="17" r="1.5" fill="#b794ff" opacity="0.5" />
+      </svg>
+    ),
+  },
+  {
+    /* Small plus / cross */
+    svg: (
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="14" y1="6" x2="14" y2="22" stroke="#4f39f6" strokeWidth="0.8" strokeLinecap="round" opacity="0.35" />
+        <line x1="6" y1="14" x2="22" y2="14" stroke="#4f39f6" strokeWidth="0.8" strokeLinecap="round" opacity="0.35" />
+        <circle cx="14" cy="14" r="2" fill="#7f22fe" opacity="0.2" />
+      </svg>
+    ),
+  },
+  {
+    /* Glow dot */
+    svg: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="2.5" fill="#b794ff" opacity="0.3" />
+        <circle cx="10" cy="10" r="5" stroke="#7f22fe" strokeWidth="0.5" opacity="0.15" />
+        <circle cx="10" cy="10" r="8" stroke="#7f22fe" strokeWidth="0.4" opacity="0.08" />
+        <animate attributeName="opacity" values="0.6;0.2;0.6" dur="2s" repeatCount="indefinite" />
+      </svg>
+    ),
+  },
+  {
+    /* Small triangle / play */
+    svg: (
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="13,5 22,19 4,19" stroke="#4f39f6" strokeWidth="0.7" opacity="0.35" />
+        <circle cx="13" cy="14" r="1.5" fill="#7f22fe" opacity="0.25" />
+      </svg>
+    ),
+  },
+];
+
+/* ──────────── LINK RESOLVER ──────────── */
+function resolveHref(link: string): string {
+  const map: Record<string, string> = {
+    Home: "/",
+    About: "/about",
+    Events: "/events",
+    Join: "/join-event",
+    Register: "/signup",
+  };
+  return map[link] || "/";
+}
+
+/* ──────────── MAIN COMPONENT ──────────── */
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       {/* Grid pattern overlay */}
       <div className={styles.gridOverlay} aria-hidden="true" />
 
-      {/* Glow orbs (each wrapped in overflow:hidden to contain blur) */}
-      {/* <div className={styles.glowOrb1Wrapper} aria-hidden="true">
-        <div className={styles.glowOrb1} />
-      </div> */}
-      {/* <div className={styles.glowOrb2Wrapper} aria-hidden="true">
-        <div className={styles.glowOrb2} />
-      </div> */}
-
-      {/* Floating illustration — positioned absolute top-right */}
-      {/* <div className={styles.illustrationBlock} aria-hidden="true">
-        <div className={styles.illustrationGlow} />
-        <img
-          src="/assets/footer/footer-img.png"
-          alt=""
-          className={styles.illustrationImg}
-          loading="lazy"
-        />
-      </div> */}
+      {/* Floating tech illustrations container */}
+      <div className={styles.floatingContainer} aria-hidden="true">
+        {FLOATING_ELEMENTS.map((el, idx) => (
+          <div key={idx} className={`${styles.floatingItem} ${styles[`floatingItem${idx}`] || ""}`}>
+            {el.svg}
+          </div>
+        ))}
+      </div>
 
       <div className={styles.inner}>
-        {/* Left — Brand */}
+        {/* ── Left — Brand ── */}
         <div className={styles.brand}>
-<img
+          <img
             src="/assets/logo.png"
             alt="The Fusion Club"
             className={styles.logo}
           />
+          <p className={styles.tagline}>
+            Empowering the next generation of software creators through innovation, collaboration, and community.
+          </p>
           <div className={styles.socials}>
             {SOCIAL_ICONS.map((icon) => (
               <a
@@ -96,7 +213,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Center — Nav columns close together */}
+        {/* ── Center — Nav columns ── */}
         <div className={styles.navGroup}>
           {Object.entries(FOOTER_LINKS).map(([category, links]) => (
             <div key={category} className={styles.column}>
@@ -107,22 +224,7 @@ export default function Footer() {
               <ul className={styles.columnLinks}>
                 {links.map((link) => (
                   <li key={link}>
-                    <Link
-                      to={
-                        link === "Home"
-                          ? "/"
-                          : link === "About"
-                          ? "/about"
-                          : link === "Events"
-                          ? "/events"
-                          : link === "Join"
-                          ? "/join-event"
-                          : link === "Register"
-                          ? "/signup"
-                          : "/"
-                      }
-                      className={styles.navLink}
-                    >
+                    <Link to={resolveHref(link)} className={styles.navLink}>
                       {link}
                     </Link>
                   </li>
@@ -131,19 +233,31 @@ export default function Footer() {
             </div>
           ))}
         </div>
+
+        {/* ── Right — (previously illustration, now empty / spacing role) ── */}
+        {/* Right space is naturally handled by flex layout; floating elements
+            sit in the absolute container above. */}
       </div>
 
-{/* Bottom divider + tagline + copyright/credit */}
+      {/* ── Bottom legal bar ── */}
       <div className={styles.bottom}>
         <div className={styles.divider} />
-        <p className={styles.tagline}>
-          Empowering the next generation of software creators through
-          innovation, collaboration, and community.
-        </p>
-        <p className={styles.copyright}>
-          &copy; 2026 The Fusion Club (TFC). All rights reserved. | Designed &amp; Developed by Shreya.
-        </p>
+        <div className={styles.bottomInner}>
+          <p className={styles.copyright}>
+            &copy; 2026 The Fusion Club (TFC). All rights reserved. | Designed &amp; Developed by Shreya.
+          </p>
+          <div className={styles.legalLinks}>
+            <a href="/privacy-policy" className={styles.legalLink}>
+              Privacy Policy
+            </a>
+            <span className={styles.legalSeparator}>|</span>
+            <a href="/terms" className={styles.legalLink}>
+              Terms &amp; Conditions
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
+
