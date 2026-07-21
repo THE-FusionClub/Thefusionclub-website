@@ -237,7 +237,7 @@ export default function SignUp() {
 
             <div className="cta-wrapper">
               <a
-                href="https://docs.google.com/forms/d/1-H3nmBvKWKxST6AFST56EJXtRu5rdImaRcj0jO6wBeU/viewform?edit_requested=true"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdLRa08mnm9v3FMDT-StTx51YHsC2pU_xaQqUuyru1c0vhyDQ/viewform"
                 target="_blank"
                 rel="noreferrer"
                 className="cta-button"
