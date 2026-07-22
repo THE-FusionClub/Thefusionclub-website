@@ -16,7 +16,7 @@ export default function SponsorPage() {
       <SponsorHeroSection />
       <WhySponsorSection />
       <SponsorTiersSection />
-      {/* <StatsSection /> */}
+      <StatsSection />
       <FAQSection />
       <ContactSection />
     </main>

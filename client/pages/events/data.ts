@@ -4,7 +4,7 @@ export type EventType =
   | "Hackathon"
   | "Industrial Visit"
   | "Inter National"
-  | "Inter National"
+  | "Intra National"
   | "Inter Nationalrsity";
 
 export interface EventData {
@@ -111,6 +111,7 @@ export const filterOptions = [
   "Hackathon",
   "Industrial Visit",
   "Inter National",
+  "Intra National",
   "Inter Nationalrsity",
 ] as const;
 
