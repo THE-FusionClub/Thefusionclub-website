@@ -73,82 +73,317 @@ After the server starts, open the local URL shown in your terminal (typically `h
 ## Project Structure
 
    Thefusionclub-website/
-   ├─ README.md
-   ├─ package.json
-   ├─ vite.config.ts
-   ├─ vite.config.server.ts
-   ├─ index.html
-   ├─ tsconfig.json
-   ├─ tailwind.config.ts
-   ├─ postcss.config.js
+   ├─ .gitignore
+   ├─ .npmrc
+   ├─ .prettierrc
+   ├─ components.json
    ├─ eslint.config.js
+   ├─ index.html
+   ├─ LICENSE
+   ├─ package-lock.json
+   ├─ package.json
+   ├─ pnpm-lock.yaml
+   ├─ postcss.config.js
+   ├─ README.md
+   ├─ tailwind.config.ts
+   ├─ tsconfig.json
+   ├─ vite.config.server.ts
+   ├─ vite.config.ts
+   │
    ├─ client/
-   │  ├─ App.tsx
-   │  ├─ global.css
-   │  ├─ global-intro.css
-   │  ├─ vite-env.d.ts (Provides Vite-specific TypeScript declarations.)
+   │  ├─ App.tsx                          # Root component with React Router routes
+   │  ├─ global.css                       # Global TailwindCSS styles
+   │  ├─ global-intro.css                 # Global intro/animation styles
+   │  ├─ vite-env.d.ts                    # Vite TypeScript declarations
+   │  │
    │  ├─ assets/
-   │  │  ├─ logo.png
-   │  │  ├─ day-night.lottie  (removed)
-   │  │  ├─ team.lottie
-   │  │  ├─ M4iFOW10Xd.lottie (Animated shapes used in the Hero section of events page)
-   │  │  └─ dragon/dragon.png
+   │  │  ├─ logo.png                      # App logo
+   │  │  ├─ M4iFOW10Xd.lottie            # Lottie shapes for Events Hero section
+   │  │  ├─ team.lottie                   # Team Lottie animation
+   │  │  └─ dragon/dragon.png             # Dragon cursor sprite
+   │  │
    │  ├─ components/
-   │  │  ├─ animations/AnimatedCounter.tsx
-   │  │  ├─ icons/LordiconSolid.tsx
+   │  │  ├─ animations/
+   │  │  │  └─ AnimatedCounter.tsx        # Scroll-triggered animated counter
+   │  │  │
+   │  │  ├─ icons/
+   │  │  │  └─ LordiconSolid.tsx          # Lordicon solid icon components
+   │  │  │
    │  │  ├─ layout/
-   │  │  │  ├─ Navbar/Navbar.tsx (+ Navbar.css)
-   │  │  │  ├─ Footer/Footer.tsx (+ Footer.css)
-   │  │  │  ├─ IntroCinematic/IntroCinematic.tsx (+ IntroCinematic.css)
-   │  │  │  └─ DragonCursor/DragonCursor.tsx (+ DragonCursor.css)
-   │  │  └─ shared/ScrollProgress.tsx
-   │  ├─ components/ui/  (many Radix/shadcn-style UI primitives)
+   │  │  │  ├─ DragonCursor/
+   │  │  │  │  ├─ DragonCursor.css
+   │  │  │  │  ├─ DragonCursor.module.css
+   │  │  │  │  └─ DragonCursor.tsx        # Custom dragon cursor effect
+   │  │  │  │
+   │  │  │  ├─ Footer/
+   │  │  │  │  ├─ Footer.css
+   │  │  │  │  ├─ Footer.module.css
+   │  │  │  │  └─ Footer.tsx             # Site-wide footer
+   │  │  │  │
+   │  │  │  ├─ IntroCinematic/
+   │  │  │  │  ├─ IntroCinematic.css
+   │  │  │  │  ├─ IntroCinematic.module.css
+   │  │  │  │  └─ IntroCinematic.tsx     # GSAP intro animation sequence
+   │  │  │  │
+   │  │  │  └─ Navbar/
+   │  │  │     ├─ Navbar.css
+   │  │  │     ├─ Navbar.module.css
+   │  │  │     └─ Navbar.tsx             # Responsive navigation bar
+   │  │  │
+   │  │  ├─ shared/
+   │  │  │  └─ ScrollProgress.tsx        # Scroll progress indicator
+   │  │  │
+   │  │  └─ ui/                          # shadcn/ui Radix primitives
+   │  │     ├─ accordion.tsx
+   │  │     ├─ alert-dialog.tsx
+   │  │     ├─ alert.tsx
+   │  │     ├─ aspect-ratio.tsx
+   │  │     ├─ avatar.tsx
+   │  │     ├─ badge.tsx
+   │  │     ├─ breadcrumb.tsx
+   │  │     ├─ button.tsx
+   │  │     ├─ calendar.tsx
+   │  │     ├─ card.tsx
+   │  │     ├─ carousel.tsx
+   │  │     ├─ chart.tsx
+   │  │     ├─ checkbox.tsx
+   │  │     ├─ collapsible.tsx
+   │  │     ├─ command.tsx
+   │  │     ├─ context-menu.tsx
+   │  │     ├─ dialog.tsx
+   │  │     ├─ drawer.tsx
+   │  │     ├─ dropdown-menu.tsx
+   │  │     ├─ form.tsx
+   │  │     ├─ hover-card.tsx
+   │  │     ├─ Icons.tsx                 # Lordicon-powered icon components
+   │  │     ├─ input-otp.tsx
+   │  │     ├─ input.tsx
+   │  │     ├─ label.tsx
+   │  │     ├─ LiquidEther.css
+   │  │     ├─ LiquidEther.module.css
+   │  │     ├─ LiquidEther.tsx           # Liquid ether Three.js effect
+   │  │     ├─ menubar.tsx
+   │  │     ├─ navigation-menu.tsx
+   │  │     ├─ pagination.tsx
+   │  │     ├─ popover.tsx
+   │  │     ├─ progress.tsx
+   │  │     ├─ radio-group.tsx
+   │  │     ├─ resizable.tsx
+   │  │     ├─ scroll-area.tsx
+   │  │     ├─ select.tsx
+   │  │     ├─ separator.tsx
+   │  │     ├─ sheet.tsx
+   │  │     ├─ sidebar.tsx
+   │  │     ├─ skeleton.tsx
+   │  │     ├─ slider.tsx
+   │  │     ├─ sonner.tsx
+   │  │     ├─ switch.tsx
+   │  │     ├─ table.tsx
+   │  │     ├─ tabs.tsx
+   │  │     ├─ textarea.tsx
+   │  │     ├─ toast.tsx
+   │  │     ├─ toaster.tsx
+   │  │     ├─ toggle-group.tsx
+   │  │     ├─ toggle.tsx
+   │  │     ├─ tooltip.tsx
+   │  │     └─ use-toast.ts
+   │  │
    │  ├─ hooks/
-   │  │  ├─ use-mobile.tsx
-   │  │  ├─ usePrefersReducedMotion.ts
-   │  │  └─ use-toast.ts
-   │  ├─ lib/utils.ts (+ utils.spec.ts)
+   │  │  ├─ use-mobile.tsx               # Mobile breakpoint hook
+   │  │  ├─ use-toast.ts                 # Toast notification hook
+   │  │  └─ usePrefersReducedMotion.ts   # Accessibility motion preference hook
+   │  │
+   │  ├─ lib/
+   │  │  ├─ utils.spec.ts                # Unit tests for utils
+   │  │  └─ utils.ts                     # Utility helpers (cn, etc.)
+   │  │
    │  ├─ pages/
-   │  │  ├─ Index.tsx
-   │  │  ├─ NotFound.tsx
-   │  │  ├─ Events.tsx
-   │  │  ├─ About.tsx
-   │  │  ├─ Community.tsx (+ Community.css)
-   │  │  ├─ SignIn/SignIn.tsx (+ SignIn.css)
-   │  │  ├─ SignUp/SignUp.tsx
-   │  │  ├─ JoinEvent/JoinEvent.tsx (+ JoinEvent.css)
-   │  │  ├─ home/
-   │  │  │  └─ sections/ (HeroSection, FellowshipSection, EcosystemSection, etc.)
+   │  │  ├─ About.tsx                    # About page wrapper (Navbar + Footer)
+   │  │  ├─ Community.css                # Standalone community styles (legacy)
+   │  │  ├─ Community.tsx                # Standalone community page (legacy)
+   │  │  ├─ Index.tsx                    # Home page (Hero + sections)
+   │  │  ├─ NotFound.tsx                 # 404 page
+   │  │  │
    │  │  ├─ about/
-   │  │  │  ├─ About.tsx
-   │  │  │  └─ sections/ (HeroSection, BentoSection, GallerySection, etc.)
-   │  │  │  └─ components/ + hooks/
+   │  │  │  ├─ about-patch.css
+   │  │  │  ├─ about-patch.module.css
+   │  │  │  ├─ about.css
+   │  │  │  ├─ responsive.css
+   │  │  │  ├─ About.tsx                 # About main content (sections composition)
+   │  │  │  ├─ components/
+   │  │  │  │  └─ FloatingObject.tsx     # Floating abstract 3D object
+   │  │  │  ├─ hooks/
+   │  │  │  │  └─ useSmoothScroll.ts     # Lenis smooth scroll hook
+   │  │  │  └─ sections/
+   │  │  │     ├─ BentoSection.tsx       # Feature highlights bento grid
+   │  │  │     ├─ CTASection.tsx         # Call-to-action section
+   │  │  │     ├─ GallerySection.tsx     # Image gallery
+   │  │  │     ├─ HeroSection.tsx        # Hero with parallax
+   │  │  │     ├─ ImpactSection.tsx      # Impact statistics (commented out)
+   │  │  │     ├─ LeadershipSection.tsx  # Leadership team message
+   │  │  │     ├─ PhilosophySection.tsx  # Core philosophy (dark section)
+   │  │  │     ├─ StorySection.tsx       # Who We Are story
+   │  │  │     ├─ TimelineSection.tsx    # Timeline (commented out)
+   │  │  │     └─ ValuesSection.tsx      # Core values horizontal scroll
+   │  │  │
    │  │  ├─ community/
-   │  │  │  ├─ Community.tsx
-   │  │  │  └─ CommunityPage.tsx
-   │  │  │  └─ sections/ (HeroSection, FeaturedStories, PartnersSection, etc.)
-   │  │  └─ events/
-   │  │     ├─ EventsPage.tsx
-   │  │     ├─ data.ts
-   │  │     ├─ Events.tsx
-   │  │     └─ sections/ (HeroSection, UpcomingEvents, CTA, FeaturedEvent, etc.)
-   │  └─ styles/animations.css
+   │  │  │  ├─ Community.css             # Community page styles
+   │  │  │  ├─ Community.tsx             # Community wrapper (Navbar + Footer)
+   │  │  │  ├─ CommunityPage.tsx         # Community main content composition
+   │  │  │  └─ sections/
+   │  │  │     ├─ BentoSection.tsx       # "Why Join TFC" bento grid
+   │  │  │     ├─ CTASection.tsx         # Join community CTA
+   │  │  │     ├─ FeaturedStories.tsx    # Featured stories carousel
+   │  │  │     ├─ GallerySection.tsx     # Photo gallery with modal
+   │  │  │     ├─ HeroSection.tsx        # Community hero header
+   │  │  │     ├─ LeadershipSection.tsx  # Team leaders showcase
+   │  │  │     ├─ ManifestoSection.tsx   # Community philosophy manifesto
+   │  │  │     ├─ PartnersSection.tsx    # Partner logos marquee
+   │  │  │     ├─ SocialWall.tsx         # Social media posts wall (commented out)
+   │  │  │     ├─ StatsSection.tsx       # Community stats (commented out)
+   │  │  │     ├─ Testimonials.tsx       # Member testimonials carousel
+   │  │  │     └─ TimelineSection.tsx    # Journey timeline (commented out)
+   │  │  │
+   │  │  ├─ events/
+   │  │  │  ├─ data.ts                   # Events data, FAQ, filters, timeline
+   │  │  │  ├─ EventsPage.tsx            # Events page (Navbar + Footer + sections)
+   │  │  │  ├─ components/
+   │  │  │  │  └─ EventIcon.tsx          # Event type icon component
+   │  │  │  └─ sections/
+   │  │  │     ├─ CTA.tsx                # Call-to-action section
+   │  │  │     ├─ EventGrid.tsx          # Filterable event grid
+   │  │  │     ├─ EventTimeline.tsx      # Event timeline view
+   │  │  │     ├─ FAQ.tsx                # FAQ accordion section
+   │  │  │     ├─ FeaturedEvent.tsx      # Featured event highlight
+   │  │  │     ├─ Gallery.tsx            # Event image gallery
+   │  │  │     ├─ HeroSection.tsx        # Events page hero
+   │  │  │     ├─ SectionTitle.tsx       # Animated section title
+   │  │  │     ├─ Statistics.tsx         # Event statistics (commented out)
+   │  │  │     └─ UpcomingEvents.tsx     # Upcoming events list
+   │  │  │
+   │  │  ├─ home/
+   │  │  │  └─ sections/
+   │  │  │     ├─ CommunityHighlights/
+   │  │  │     │  ├─ CommunityHighlights.css
+   │  │  │     │  ├─ CommunityHighlights.tsx
+   │  │  │     │  └─ CommunityHighlightsBackgroundCarousel/
+   │  │  │     │     ├─ CommunityHighlightsBackgroundCarousel.css
+   │  │  │     │     ├─ CommunityHighlightsBackgroundCarousel.module.css
+   │  │  │     │     └─ CommunityHighlightsBackgroundCarousel.tsx
+   │  │  │     ├─ EcosystemSection/
+   │  │  │     │  ├─ EcosystemSection.css
+   │  │  │     │  ├─ EcosystemSection.module.css
+   │  │  │     │  └─ EcosystemSection.tsx
+   │  │  │     ├─ EventsSection/
+   │  │  │     │  ├─ EventsSection.css
+   │  │  │     │  ├─ EventsSection.module.css
+   │  │  │     │  └─ EventsSection.tsx
+   │  │  │     ├─ FellowshipSection/
+   │  │  │     │  ├─ FellowshipSection.css
+   │  │  │     │  ├─ FellowshipSection.module.css
+   │  │  │     │  └─ FellowshipSection.tsx
+   │  │  │     ├─ HeroSection/
+   │  │  │     │  ├─ HeroSection.css
+   │  │  │     │  ├─ HeroSection.module.css
+   │  │  │     │  └─ HeroSection.tsx
+   │  │  │     └─ NewsletterSection/
+   │  │  │        ├─ NewsletterSection.css
+   │  │  │        ├─ NewsletterSection.module.css
+   │  │  │        └─ NewsletterSection.tsx
+   │  │  │
+   │  │  ├─ JoinEvent/
+   │  │  │  ├─ JoinEvent.css
+   │  │  │  ├─ JoinEvent.module.css
+   │  │  │  └─ JoinEvent.tsx            # Join event form page
+   │  │  │
+   │  │  ├─ SignIn/
+   │  │  │  ├─ SignIn.css
+   │  │  │  ├─ SignIn.module.css
+   │  │  │  └─ SignIn.tsx               # Sign in page
+   │  │  │
+   │  │  ├─ SignUp/
+   │  │  │  └─ SignUp.tsx               # Sign up page
+   │  │  │
+   │  │  └─ sponsor/
+   │  │     ├─ Sponsor.tsx              # Sponsor wrapper (Navbar + Footer)
+   │  │     ├─ SponsorPage.tsx          # Sponsor main content composition
+   │  │     └─ sections/
+   │  │        ├─ ContactSection.module.css
+   │  │        ├─ ContactSection.tsx    # Contact sponsor form
+   │  │        ├─ FAQSection.module.css
+   │  │        ├─ FAQSection.tsx        # Sponsor FAQ accordion
+   │  │        ├─ HeroSection.module.css
+   │  │        ├─ HeroSection.tsx       # Sponsor page hero
+   │  │        ├─ LottieSponsorIcon.tsx # Lottie animation icons
+   │  │        ├─ SectionTitle.module.css
+   │  │        ├─ SectionTitle.tsx      # Animated section title component
+   │  │        ├─ sponsorData.tsx       # Sponsor tiers data
+   │  │        ├─ SponsorTiersSection.module.css
+   │  │        ├─ SponsorTiersSection.tsx  # Sponsorship packages grid
+   │  │        ├─ StatsSection.module.css
+   │  │        ├─ StatsSection.tsx      # Sponsor statistics
+   │  │        ├─ WhySponsorSection.module.css
+   │  │        └─ WhySponsorSection.tsx # Why sponsor benefits
+   │  │
+   │  ├─ styles/
+   │  │  └─ animations.css              # Shared keyframe animation definitions
+   │  │
+   │  └─ utils/
+   │     ├─ theme.ts                    # Theme utilities
+   │     └─ useScrollReveal.ts          # Intersection Observer scroll reveal hook
    │
    ├─ public/
    │  ├─ favicon.ico
    │  ├─ placeholder.svg
    │  └─ assets/
-   │     ├─ logo.png, colored-logo.png
-   │     ├─ community/ (L-1.png, L-2.png, idea-1.jpg, trip-1.jpeg)
-   │     ├─ events/ (fusionX.png, fusionXposter.png, RaibarX.png)
-   │     ├─ partners-logo/ (dbuu.png, kailshians.png)
-   │     └─ team-mates/ (ishita.jpg, om.png, parul.png, prakash.jpeg, shreya.jpg, suraj.jpeg)
+   │     ├─ colored-logo.png
+   │     ├─ logo.png
+   │     ├─ community/
+   │     │  ├─ L-1.png
+   │     │  ├─ L-2.png
+   │     │  ├─ idea-1.jpg
+   │     │  └─ trip-1.jpeg
+   │     ├─ events/
+   │     │  ├─ fusionX.png
+   │     │  ├─ fusionXposter.png
+   │     │  ├─ RaibarX.png
+   │     │  └─ survivors_zone_poster.webp
+   │     ├─ footer/
+   │     │  └─ footer-img.png
+   │     ├─ lottie-icons/
+   │     │  ├─ announcement.json
+   │     │  ├─ attract-customer.json
+   │     │  ├─ collab.json
+   │     │  ├─ community-help.lottie
+   │     │  ├─ developer.json
+   │     │  ├─ globe.json
+   │     │  ├─ gold-house-corn.json
+   │     │  ├─ hand-earn.lottie
+   │     │  ├─ lucky-cat.json
+   │     │  ├─ management.json
+   │     │  └─ shooting-star.json
+   │     ├─ partners-logo/
+   │     │  ├─ dbuu.png
+   │     │  └─ kailshians.png
+   │     ├─ preview/
+   │     │  ├─ c-1.png
+   │     │  └─ h-1.png
+   │     ├─ team-mates/
+   │     │  ├─ ishita.jpg
+   │     │  ├─ om.png
+   │     │  ├─ parul.png
+   │     │  ├─ prakash.jpeg
+   │     │  ├─ shreya.jpg
+   │     │  └─ suraj.jpeg
+   │     └─ video/
+   │        ├─ ayush-inventory.mp4
+   │        └─ sonam.mp4
    │
    └─ server/
-      ├─ index.ts
-      ├─ node-build.ts
+      ├─ index.ts                       # Express server entry point
+      ├─ node-build.ts                  # Production server build config
       └─ routes/
-         └─ demo.ts
+         └─ demo.ts                     # Demo API route
 
 
 ## License
