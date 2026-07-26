@@ -386,6 +386,36 @@ After the server starts, open the local URL shown in your terminal (typically `h
          └─ demo.ts                     # Demo API route
 
 
+
+## Architecture Overview
+
+### Frontend (`client/`)
+- Built with **React + TypeScript + Vite**
+- Uses **Tailwind CSS** and **shadcn/ui**
+- Component-based architecture
+- Page-wise section separation
+- Reusable animations and UI primitives
+
+### UI & Animation System
+- GSAP based cinematic animations
+- Lottie animations
+- Lordicon icons
+- Custom cursor effects
+- Scroll reveal animations
+- Smooth scrolling experience
+
+### Backend (`server/`)
+- Express.js server setup
+- API route structure
+- Production build support
+
+### Asset Management
+- `public/assets` → Static images, videos, icons
+- `client/assets` → Imported frontend assets
+
+### Folder Organization Principles
+
+
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
