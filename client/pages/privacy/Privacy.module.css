@@ -1,0 +1,455 @@
+/* =============================================
+   PRIVACY / TERMS PAGE — The Fusion Club
+   Premium legal document styling with brand identity
+   ============================================= */
+
+/* ---------- PAGE WRAPPER ---------- */
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0e17;
+  overflow-x: hidden;
+}
+
+/* Purple ambient glow */
+.ambientGlow {
+  position: fixed;
+  top: -20%;
+  right: -15%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(127, 34, 254, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =============================================
+   HERO HEADER
+   ============================================= */
+.hero {
+  position: relative;
+  padding: 120px 24px 80px;
+  text-align: center;
+  background: linear-gradient(180deg, #0d1120 0%, #0a0e17 100%);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: rgba(127, 34, 254, 0.12);
+  color: #c4b4ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  border: 1px solid rgba(127, 34, 254, 0.2);
+}
+
+.heroTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+
+.titleHighlight {
+  background: linear-gradient(135deg, #a684ff 0%, #ed6aff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  color: #8b9bb5;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.heroMeta {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  align-items: center;
+}
+
+.effectiveDate,
+.readTime {
+  color: #556880;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.readTime {
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(127, 34, 254, 0.08);
+  color: #a684ff;
+}
+
+/* Hero grid lines */
+.heroGridLines {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  gap: 200px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gridLine {
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(127, 34, 254, 0.06) 20%,
+    rgba(127, 34, 254, 0.06) 80%,
+    transparent 100%
+  );
+}
+
+/* =============================================
+   MAIN CONTENT
+   ============================================= */
+.mainContent {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px 80px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* ---------- TABLE OF CONTENTS ---------- */
+.toc {
+  position: sticky;
+  top: 100px;
+  flex-shrink: 0;
+  width: 240px;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.tocTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #556880;
+  margin: 0 0 16px;
+}
+
+.tocList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tocLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #8b9bb5;
+  font-size: 13px;
+  line-height: 1.3;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tocLink:hover {
+  background: rgba(127, 34, 254, 0.08);
+  color: #c4b4ff;
+}
+
+.tocNumber {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(127, 34, 254, 0.1);
+  color: #a684ff;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: "Inter", monospace;
+}
+
+/* ---------- SECTIONS ---------- */
+.sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sectionCard {
+  display: flex;
+  gap: 20px;
+  padding: 32px 36px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.sectionCard.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sectionCard:hover {
+  border-color: rgba(127, 34, 254, 0.15);
+  background: rgba(127, 34, 254, 0.03);
+  box-shadow: 0 4px 32px rgba(127, 34, 254, 0.06);
+}
+
+/* Section marker (purple dot + line) */
+.sectionMarker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.markerDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7f22fe, #4f39f6);
+  box-shadow: 0 0 12px rgba(127, 34, 254, 0.3);
+  flex-shrink: 0;
+}
+
+.markerLine {
+  width: 1.5px;
+  flex: 1;
+  min-height: 40px;
+  background: linear-gradient(180deg, rgba(127, 34, 254, 0.2), transparent);
+  margin-top: 8px;
+}
+
+/* Section body */
+.sectionBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 16px;
+  letter-spacing: -0.01em;
+}
+
+.sectionContent {
+  color: #8b9bb5;
+  font-size: 14.5px;
+  line-height: 1.85;
+}
+
+.paragraph {
+  margin: 0 0 12px;
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.bulletItem {
+  display: block;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  color: #8b9bb5;
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.bulletItem::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #7f22fe, #4f39f6);
+  opacity: 0.5;
+}
+
+/* ---------- BOTTOM CTA ---------- */
+.bottomCta {
+  text-align: center;
+  padding: 48px 24px;
+  margin-top: 32px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(127, 34, 254, 0.05) 0%, rgba(79, 57, 246, 0.05) 100%);
+  border: 1px solid rgba(127, 34, 254, 0.1);
+}
+
+.bottomCtaText {
+  color: #c4b4ff;
+  font-size: 16px;
+  margin: 0 0 16px;
+}
+
+.bottomCtaLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7f22fe, #4f39f6);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(127, 34, 254, 0.2);
+}
+
+.bottomCtaLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(127, 34, 254, 0.35);
+}
+
+/* =============================================
+   FOOTER NOTE
+   ============================================= */
+.footerNote {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 32px 24px;
+}
+
+.footerNoteInner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footerNoteInner p {
+  color: #556880;
+  font-size: 13px;
+  margin: 0;
+}
+
+.footerNoteLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.footerNoteLinks a {
+  color: #6b7f99;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footerNoteLinks a:hover {
+  color: #c4b4ff;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 860px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .toc {
+    position: relative;
+    top: 0;
+    width: 100%;
+    backdrop-filter: none;
+  }
+
+  .sectionCard {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 100px 16px 60px;
+  }
+
+  .heroMeta {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .gridLine {
+    display: none;
+  }
+
+  .sectionCard {
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+  }
+
+  .sectionMarker {
+    flex-direction: row;
+    gap: 8px;
+    padding-top: 0;
+  }
+
+  .markerLine {
+    width: 40px;
+    height: 1.5px;
+    min-height: unset;
+    margin-top: 0;
+    background: linear-gradient(90deg, rgba(127, 34, 254, 0.2), transparent);
+  }
+
+  .footerNoteInner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
