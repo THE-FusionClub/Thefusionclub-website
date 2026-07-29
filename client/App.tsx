@@ -16,6 +16,8 @@ import JoinEvent from "./pages/JoinEvent/JoinEvent";
 import NotFound from "./pages/NotFound";
 import Community from "./pages/community/Community";
 import Sponsor from "./pages/sponsor/Sponsor";
+import PrivacyPolicy from "./pages/privacy/PrivacyPolicy";
+import TermsConditions from "./pages/terms/TermsConditions";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/signin" element={<SignIn />} />
           <Route path="/sponsor" element={<Sponsor />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

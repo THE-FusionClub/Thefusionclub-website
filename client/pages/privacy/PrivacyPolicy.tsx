@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar/Navbar";
 import styles from "./Privacy.module.css";
@@ -107,9 +107,25 @@ Empowering the next generation of software creators through innovation, collabor
 /* ────────── COMPONENT ────────── */
 export default function PrivacyPolicy() {
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [activeSection, setActiveSection] = useState<string>(SECTIONS[0].id);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  /* ── Scroll Progress ── */
+  const handleScroll = useCallback(() => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    setScrollProgress(Math.min(progress, 100));
+  }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
+
+  /* ── Intersection Observer for visibility + active section ── */
+  useEffect(() => {
+    const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -120,29 +136,74 @@ export default function PrivacyPolicy() {
       { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
     );
 
+    const activeObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "-80px 0px -60% 0px" }
+    );
+
     const currentRefs = sectionRefs.current;
     currentRefs.forEach((ref) => {
-      if (ref) observer.observe(ref);
+      if (ref) {
+        sectionObserver.observe(ref);
+        activeObserver.observe(ref);
+      }
     });
 
     return () => {
       currentRefs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
+        if (ref) {
+          sectionObserver.unobserve(ref);
+          activeObserver.unobserve(ref);
+        }
       });
     };
   }, []);
 
   return (
     <div className={styles.page}>
-      {/* Purple ambient gradient */}
+      {/* Scroll Progress Bar */}
+      <div className={styles.scrollProgress} aria-hidden="true">
+        <div
+          className={styles.scrollProgressBar}
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
+      {/* Ambient glow orbs */}
       <div className={styles.ambientGlow} aria-hidden="true" />
+      <div className={styles.ambientGlow2} aria-hidden="true" />
+
+      {/* Floating particles */}
+      <div className={styles.particles} aria-hidden="true">
+        <span className={`${styles.particle} ${styles.p1}`} />
+        <span className={`${styles.particle} ${styles.p2}`} />
+        <span className={`${styles.particle} ${styles.p3}`} />
+        <span className={`${styles.particle} ${styles.p4}`} />
+        <span className={`${styles.particle} ${styles.p5}`} />
+        <span className={`${styles.particle} ${styles.p6}`} />
+        <span className={`${styles.particle} ${styles.p7}`} />
+        <span className={`${styles.particle} ${styles.p8}`} />
+      </div>
 
       <Navbar />
 
       {/* HERO HEADER */}
       <header className={styles.hero}>
+        <div className={styles.heroDeco} aria-hidden="true" />
         <div className={styles.heroInner}>
-          <span className={styles.badge}>Legal</span>
+          <span className={styles.badge}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <circle cx="5" cy="5" r="3" fill="#7F22FE" opacity="0.6" />
+              <circle cx="5" cy="5" r="1.5" fill="#A684FF" />
+            </svg>
+            Legal
+          </span>
           <h1 className={styles.heroTitle}>
             Privacy <span className={styles.titleHighlight}>Policy</span>
           </h1>
@@ -153,13 +214,6 @@ export default function PrivacyPolicy() {
             <span className={styles.effectiveDate}>Last Updated: June 2025</span>
             <span className={styles.readTime}>~5 min read</span>
           </div>
-        </div>
-
-        {/* Decorative grid lines */}
-        <div className={styles.heroGridLines} aria-hidden="true">
-          <div className={styles.gridLine} />
-          <div className={styles.gridLine} />
-          <div className={styles.gridLine} />
         </div>
       </header>
 
@@ -174,13 +228,19 @@ export default function PrivacyPolicy() {
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
-                    className={styles.tocLink}
+                    className={`${styles.tocLink} ${
+                      activeSection === section.id ? styles.tocLinkActive : ""
+                    }`}
                     onClick={(e) => {
                       e.preventDefault();
-                      document.getElementById(section.id)?.scrollIntoView({ behavior: "smooth" });
+                      document
+                        .getElementById(section.id)
+                        ?.scrollIntoView({ behavior: "smooth" });
                     }}
                   >
-                    <span className={styles.tocNumber}>{String(idx + 1).padStart(2, "0")}</span>
+                    <span className={styles.tocNumber}>
+                      {String(idx + 1).padStart(2, "0")}
+                    </span>
                     {section.title.replace(/^\d+\.\s*/, "")}
                   </a>
                 </li>
@@ -194,8 +254,13 @@ export default function PrivacyPolicy() {
               <div
                 key={section.id}
                 id={section.id}
-                ref={(el) => { sectionRefs.current[idx] = el; }}
+                ref={(el) => {
+                  sectionRefs.current[idx] = el;
+                }}
                 className={styles.sectionCard}
+                style={{
+                  transitionDelay: `${idx * 0.05}s`,
+                }}
               >
                 <div className={styles.sectionMarker} aria-hidden="true">
                   <span className={styles.markerDot} />
@@ -214,7 +279,11 @@ export default function PrivacyPolicy() {
                           </span>
                         );
                       }
-                      return <p key={i} className={styles.paragraph}>{trimmed}</p>;
+                      return (
+                        <p key={i} className={styles.paragraph}>
+                          {trimmed}
+                        </p>
+                      );
                     })}
                   </div>
                 </div>
@@ -229,8 +298,20 @@ export default function PrivacyPolicy() {
             </p>
             <Link to="/contact" className={styles.bottomCtaLink}>
               Contact Us
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 3L11 8L6 13"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </Link>
           </div>
