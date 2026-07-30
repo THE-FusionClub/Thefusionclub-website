@@ -14,6 +14,8 @@ This project uses a React + Express architecture.
 
 The Express server should only be used when backend functionality is required, such as authentication, database operations, API integrations, or handling sensitive credentials.
 
+
+(improve the privacy page)
 ## Tech Stack
 
 - **PNPM**: Prefer pnpm
